@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy-950: #0D1520;
+  --color-navy-900: #1E2A3A;
+  --color-navy-800: #2C3E52;
+  --color-navy-700: #3D5166;
+  --color-navy-400: #8BA3B8;
+  --color-navy-100: #E8EDF2;
+  --color-red-500: #FF3B30;
+  --color-orange-400: #FF8C42;
+  --color-white: #FFFFFF;
+  --color-gray-50: #F9FAFB;
+  --brand-gradient: linear-gradient(135deg, #FF3B30, #FF8C42);
+}
+
+@layer base {
+  body {
+    background-color: #1E2A3A;
+    color: #E8EDF2;
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-syne), sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #FF3B30, #FF8C42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #FF3B30, #FF8C42);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #FF3B30, #FF8C42);
+    box-shadow: 0 4px 24px rgba(255, 59, 48, 0.35);
+  }
+
+  .btn-gradient:hover {
+    filter: brightness(1.1);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
