@@ -13,7 +13,7 @@ export const METRICS = [
   "15 Output Types",
   "From $9/month",
   "8 Seconds Per Video",
-  "Free to Start",
+  "7-Day Free Trial",
 ];
 
 export const FEATURES = [
@@ -26,17 +26,16 @@ export const FEATURES = [
 ];
 
 export const PLANS = [
-  { name: "Free", price: "$0", period: "/month", subtitle: "Try it risk-free", popular: false, features: ["3 transcripts/month", "3 content outputs", "1 brand profile", ".txt download"], cta: "Start Free", ctaHref: `https://app.tubescribed.com/signup`, note: "No credit card required" },
-  { name: "Pro", price: "$9", period: "/month", subtitle: "Less than two coffees", popular: true, features: ["25 transcripts/month", "All 15 output types", "3 brand profiles", "Priority processing", "Email support"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Cancel anytime" },
-  { name: "Agency", price: "$29", period: "/month", subtitle: "For teams & agencies", popular: false, features: ["100 transcripts/month", "All 15 output types", "Unlimited brand profiles", "White-label outputs", "Priority support"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Perfect for 5+ clients" },
+  { name: "Pro", price: "$9", period: "/month", subtitle: "Less than two coffees", popular: true, features: ["50 transcripts/month", "50 AI content outputs", "3 brand workspaces", "All 15 output types", "Priority processing", "Email support"], cta: "Start Free Trial", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "7-day free trial · Cancel anytime" },
+  { name: "Agency", price: "$29", period: "/month", subtitle: "For teams & agencies", popular: false, features: ["150 transcripts/month", "150 AI content outputs", "Unlimited brand profiles", "5 team members", "White-label outputs", "Priority support"], cta: "Start Free Trial", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "7-day free trial · Cancel anytime" },
 ];
 
 export const PRICING_FAQ = [
-  { q: "Do I need a credit card to start?", a: "No. The free plan gives you 3 transcripts/month with no payment info required." },
+  { q: "How does the 7-day free trial work?", a: "Start either plan free for 7 days. No charge until the trial ends. Cancel anytime before then and you won't be billed." },
   { q: "What counts as one transcript?", a: "One YouTube video = one transcript credit. There's no limit on video length." },
   { q: "Can I change plans anytime?", a: "Yes. Upgrade, downgrade, or cancel anytime — no lock-in." },
   { q: "Will the AI sound like me?", a: "That's exactly what Brand Workspace is for. Set up your voice and tone once — every output matches automatically." },
-  { q: "What's the difference between Pro and Agency?", a: "Agency gives you unlimited brand profiles, white-label outputs, and higher volume — built for teams managing multiple clients." },
+  { q: "What's the difference between Pro and Agency?", a: "Agency gives you unlimited brand profiles, 5 team members, white-label outputs, and higher volume — built for teams managing multiple clients." },
   { q: "Can I use this for client work?", a: "Yes. The Agency plan is built for this — save each client as a separate brand profile." },
 ];
 
@@ -47,7 +46,7 @@ export const COMPARISON_FEATURES_OTTER = [
   { feature: "Blog post generation", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "15 content output types", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "Built for YouTube creators", tubescribed: "✓ Yes", competitor: "✗ No" },
-  { feature: "Starting price", tubescribed: "$0 / $9/mo", competitor: "$17/mo" },
+  { feature: "Starting price", tubescribed: "$9/mo (7-day trial)", competitor: "$17/mo" },
   { feature: "Primary use case", tubescribed: "YouTube content repurposing", competitor: "Live meeting notes" },
 ];
 
@@ -58,7 +57,7 @@ export const COMPARISON_FEATURES_DESCRIPT = [
   { feature: "Blog post generation", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "15 content output types", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "Built for YouTube creators", tubescribed: "✓ Yes", competitor: "✗ No" },
-  { feature: "Starting price", tubescribed: "$0 / $9/mo", competitor: "$24–48/mo" },
+  { feature: "Starting price", tubescribed: "$9/mo (7-day trial)", competitor: "$24–48/mo" },
   { feature: "Primary use case", tubescribed: "YouTube content repurposing", competitor: "Video editing suite" },
 ];
 
@@ -66,7 +65,7 @@ export const FOOTER_LINKS = {
   product: [
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Free Transcript Tool", href: "https://app.tubescribed.com/signup" },
+    { label: "Transcript Tool", href: "https://app.tubescribed.com/signup" },
     { label: "Content Studio", href: "https://app.tubescribed.com/signup" },
   ],
   useCases: [

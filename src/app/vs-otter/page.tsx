@@ -136,7 +136,7 @@ export default function VsOtterPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Try TubeScribed Free
+              Start Free Trial
             </Button>
           </motion.div>
         </div>

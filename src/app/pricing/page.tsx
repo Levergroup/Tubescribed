@@ -7,8 +7,9 @@ import { GradientText } from "@/components/ui/GradientText";
 
 const allFeatures = [
   "Transcripts per month",
-  "Content output types",
-  "Brand profiles",
+  "AI content outputs per month",
+  "Brand workspaces",
+  "Team members",
   "SOP generator",
   "Blog post generation",
   "Email sequence generator",
@@ -24,27 +25,11 @@ const allFeatures = [
 ];
 
 const planFeatureMap: Record<string, Record<string, string | boolean>> = {
-  Free: {
-    "Transcripts per month": "3",
-    "Content output types": "3",
-    "Brand profiles": "1",
-    "SOP generator": true,
-    "Blog post generation": true,
-    "Email sequence generator": false,
-    "Social media captions": false,
-    "LinkedIn posts": false,
-    "YouTube descriptions": false,
-    "Training guides": false,
-    "File downloads": ".txt only",
-    "Priority processing": false,
-    "White-label outputs": false,
-    "Email support": false,
-    "Priority support": false,
-  },
   Pro: {
-    "Transcripts per month": "25",
-    "Content output types": "All 15",
-    "Brand profiles": "3",
+    "Transcripts per month": "50",
+    "AI content outputs per month": "50",
+    "Brand workspaces": "3",
+    "Team members": "1",
     "SOP generator": true,
     "Blog post generation": true,
     "Email sequence generator": true,
@@ -59,9 +44,10 @@ const planFeatureMap: Record<string, Record<string, string | boolean>> = {
     "Priority support": false,
   },
   Agency: {
-    "Transcripts per month": "100",
-    "Content output types": "All 15",
-    "Brand profiles": "Unlimited",
+    "Transcripts per month": "150",
+    "AI content outputs per month": "150",
+    "Brand workspaces": "Unlimited",
+    "Team members": "5",
     "SOP generator": true,
     "Blog post generation": true,
     "Email sequence generator": true,
@@ -105,8 +91,8 @@ export default function PricingPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-dm-sans text-navy-400 text-xl max-w-2xl mx-auto leading-relaxed"
           >
-            One transcript saves 45+ minutes of manual work. TubeScribed pays
-            for itself on day one.
+            Start with a 7-day free trial on either plan. No charge until your
+            trial ends. Cancel anytime.
           </motion.p>
         </div>
       </section>
@@ -114,7 +100,7 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="pb-24 bg-navy-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-20 max-w-3xl mx-auto">
             {PLANS.map((plan, index) => (
               <motion.div
                 key={plan.name}

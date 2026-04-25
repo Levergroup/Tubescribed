@@ -63,7 +63,7 @@ export default function ForCoachesPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Free
+              Start Free Trial
             </Button>
           </motion.div>
         </div>
@@ -189,7 +189,7 @@ export default function ForCoachesPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Free
+              Start Free Trial
             </Button>
           </motion.div>
         </div>

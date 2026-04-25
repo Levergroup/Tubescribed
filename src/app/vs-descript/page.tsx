@@ -174,14 +174,15 @@ export default function VsDescriptPage() {
               <br />
               <br />
               TubeScribed connects directly to YouTube. No uploads. No video
-              editing. Just content repurposing — and it starts at $9/month.
+              editing. Just content repurposing — starting at $9/month with a
+              7-day free trial.
             </p>
             <Button
               href={`${APP_URL}/signup`}
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Try TubeScribed Free
+              Start Free Trial
             </Button>
           </motion.div>
         </div>

@@ -62,7 +62,7 @@ export default function ForCreatorsPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Free — No Credit Card
+              Start Free Trial
             </Button>
           </motion.div>
         </div>
@@ -179,7 +179,7 @@ export default function ForCreatorsPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Free — No Credit Card
+              Start Free Trial
             </Button>
           </motion.div>
         </div>
