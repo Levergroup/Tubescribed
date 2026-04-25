@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Features } from "@/components/sections/Features";
 import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { LearnFaster } from "@/components/sections/LearnFaster";
+import { WhyNotChatGPT } from "@/components/sections/WhyNotChatGPT";
 import { Pricing } from "@/components/sections/Pricing";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Features />
       <BeforeAfter />
       <LearnFaster />
+      <WhyNotChatGPT />
       <Pricing />
       <FinalCTA />
     </>
