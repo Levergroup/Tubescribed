@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
-import { PLANS, PRICING_FAQ } from "@/lib/constants";
+import { Check, X, Zap } from "lucide-react";
+import { PLANS, CREDIT_PACKS, PRICING_FAQ } from "@/lib/constants";
 import { GradientText } from "@/components/ui/GradientText";
 
 const allFeatures = [
   "Transcripts per month",
-  "AI content outputs per month",
+  "AI outputs per month",
   "Brand workspaces",
   "Team members",
   "SOP generator",
@@ -17,8 +17,7 @@ const allFeatures = [
   "LinkedIn posts",
   "YouTube descriptions",
   "Training guides",
-  "File downloads",
-  "Priority processing",
+  "Download as .txt",
   "White-label outputs",
   "Email support",
   "Priority support",
@@ -26,8 +25,8 @@ const allFeatures = [
 
 const planFeatureMap: Record<string, Record<string, string | boolean>> = {
   Pro: {
-    "Transcripts per month": "50",
-    "AI content outputs per month": "50",
+    "Transcripts per month": "30",
+    "AI outputs per month": "30",
     "Brand workspaces": "3",
     "Team members": "1",
     "SOP generator": true,
@@ -37,15 +36,14 @@ const planFeatureMap: Record<string, Record<string, string | boolean>> = {
     "LinkedIn posts": true,
     "YouTube descriptions": true,
     "Training guides": true,
-    "File downloads": ".txt, .docx, .pdf",
-    "Priority processing": true,
+    "Download as .txt": true,
     "White-label outputs": false,
     "Email support": true,
     "Priority support": false,
   },
   Agency: {
-    "Transcripts per month": "150",
-    "AI content outputs per month": "150",
+    "Transcripts per month": "100",
+    "AI outputs per month": "100",
     "Brand workspaces": "Unlimited",
     "Team members": "5",
     "SOP generator": true,
@@ -55,8 +53,7 @@ const planFeatureMap: Record<string, Record<string, string | boolean>> = {
     "LinkedIn posts": true,
     "YouTube descriptions": true,
     "Training guides": true,
-    "File downloads": ".txt, .docx, .pdf",
-    "Priority processing": true,
+    "Download as .txt": true,
     "White-label outputs": true,
     "Email support": true,
     "Priority support": true,
@@ -89,18 +86,34 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dm-sans text-navy-400 text-xl max-w-2xl mx-auto leading-relaxed"
+            className="font-dm-sans text-navy-400 text-xl max-w-2xl mx-auto leading-relaxed mb-8"
           >
-            Start with a 7-day free trial on either plan. No charge until your
-            trial ends. Cancel anytime.
+            One transcript saves 45+ minutes of manual work. TubeScribed pays
+            for itself on day one.
           </motion.p>
+          {/* Free Run Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex justify-center"
+          >
+            <div
+              className="flex items-center gap-3 bg-navy-800 border border-navy-700 rounded-full px-6 py-3"
+              style={{ boxShadow: "0 0 0 1px rgba(255,59,48,0.2), 0 0 20px rgba(255,59,48,0.06)" }}
+            >
+              <Zap size={15} className="text-brand-red shrink-0" />
+              <span className="font-dm-sans text-navy-100 text-sm font-medium">Try free — 1 transcript + 1 AI output.</span>
+              <span className="font-dm-sans text-navy-400 text-sm">No credit card.</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-24 bg-navy-900">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-20 max-w-3xl mx-auto">
+      <section className="pb-16 bg-navy-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
             {PLANS.map((plan, index) => (
               <motion.div
                 key={plan.name}
@@ -168,6 +181,44 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Credit Packs */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-6">
+              <h2 className="font-syne font-bold text-2xl text-navy-100 mb-2">Need more? Grab a credit pack.</h2>
+              <p className="font-dm-sans text-navy-400 text-sm">Credits never expire. Use them for transcripts or outputs anytime.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {CREDIT_PACKS.map((pack, i) => (
+                <motion.div
+                  key={pack.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="bg-navy-800 border border-navy-700 rounded-2xl p-6 flex flex-col items-center text-center hover:border-brand-red transition-colors duration-300"
+                >
+                  <p className="font-syne font-bold text-navy-100 text-base mb-1">{pack.name}</p>
+                  <p className="font-dm-sans text-navy-400 text-sm mb-3">{pack.credits} credits</p>
+                  <p className="font-syne font-bold text-3xl text-navy-100 mb-5">{pack.price}</p>
+                  <motion.a
+                    href={pack.ctaHref}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full text-center border border-navy-600 text-navy-100 hover:bg-navy-700 font-semibold text-sm py-2.5 rounded-xl transition-all duration-200"
+                  >
+                    Buy Credits
+                  </motion.a>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Feature Comparison Table */}
           <motion.div

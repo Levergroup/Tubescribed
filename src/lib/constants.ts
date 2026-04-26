@@ -11,9 +11,9 @@ export const NAV_LINKS = [
 export const METRICS = [
   "3,000+ Videos Transcribed",
   "15 Output Types",
-  "From $9/month",
+  "From $19/month",
   "8 Seconds Per Video",
-  "7-Day Free Trial",
+  "Free Run — No Credit Card",
 ];
 
 export const FEATURES = [
@@ -26,16 +26,22 @@ export const FEATURES = [
 ];
 
 export const PLANS = [
-  { name: "Pro", price: "$9", period: "/month", subtitle: "Less than two coffees", popular: true, features: ["50 transcripts/month", "50 AI content outputs", "3 brand workspaces", "All 15 output types", "Priority processing", "Email support"], cta: "Start Free Trial", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "7-day free trial · Cancel anytime" },
-  { name: "Agency", price: "$29", period: "/month", subtitle: "For teams & agencies", popular: false, features: ["150 transcripts/month", "150 AI content outputs", "Unlimited brand profiles", "5 team members", "White-label outputs", "Priority support"], cta: "Start Free Trial", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "7-day free trial · Cancel anytime" },
+  { name: "Pro", price: "$19", period: "/month", subtitle: "Less than one hour of VA time. One transcript pays for the entire month.", popular: false, features: ["30 transcripts/month", "30 AI outputs/month", "3 brand workspaces", "Claude AI brand voice on every output", "Download as .txt instantly", "Email support"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Try free — 1 transcript, no credit card" },
+  { name: "Agency", price: "$49", period: "/month", subtitle: "You're billing clients hundreds per month. TubeScribed at $49 is a rounding error.", popular: true, features: ["100 transcripts/month", "100 AI outputs/month", "Unlimited brand workspaces", "5 team members", "Everything in Pro", "Priority support"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Try free — 1 transcript, no credit card" },
+];
+
+export const CREDIT_PACKS = [
+  { name: "Starter", credits: 10, price: "$8", ctaHref: `https://app.tubescribed.com/signup` },
+  { name: "Growth", credits: 25, price: "$18", ctaHref: `https://app.tubescribed.com/signup` },
+  { name: "Pro Pack", credits: 50, price: "$32", ctaHref: `https://app.tubescribed.com/signup` },
 ];
 
 export const PRICING_FAQ = [
-  { q: "How does the 7-day free trial work?", a: "Start either plan free for 7 days. No charge until the trial ends. Cancel anytime before then and you won't be billed." },
+  { q: "How does the free run work?", a: "New users get 1 free transcript and 1 free AI output — no credit card needed. After that, Pro is $19/month and Agency is $49/month. Credit packs are available for extra usage and never expire." },
   { q: "What counts as one transcript?", a: "One YouTube video = one transcript credit. There's no limit on video length." },
   { q: "Can I change plans anytime?", a: "Yes. Upgrade, downgrade, or cancel anytime — no lock-in." },
   { q: "Will the AI sound like me?", a: "That's exactly what Brand Workspace is for. Set up your voice and tone once — every output matches automatically." },
-  { q: "What's the difference between Pro and Agency?", a: "Agency gives you unlimited brand profiles, 5 team members, white-label outputs, and higher volume — built for teams managing multiple clients." },
+  { q: "What's the difference between Pro and Agency?", a: "Agency gives you unlimited brand workspaces, 5 team members, and higher volume — built for teams managing multiple clients. Pro is built for solo creators and coaches. Both start with a free run, no credit card needed." },
   { q: "Can I use this for client work?", a: "Yes. The Agency plan is built for this — save each client as a separate brand profile." },
   { q: "Why can't I just use ChatGPT or Claude for this?", a: "ChatGPT, Claude, and Gemini cannot access YouTube URLs. If you paste a link into any of them, they'll either refuse or hallucinate the content. You'd still have to manually find captions, clean them, copy them in, write a prompt, and repeat that for every output type you need. TubeScribed handles the entire pipeline — extraction, transcription, cleanup, brand voice, and asset generation — in a single paste. It's not a replacement for AI chat tools. It's the missing first step they can't do." },
   { q: "How is this different from just copying YouTube's auto-captions?", a: "YouTube auto-captions are unpunctuated, unformatted walls of text filled with transcription errors. They're technically readable but practically unusable for any business purpose. TubeScribed runs the audio through OpenAI Whisper for accurate transcription, then Claude AI cleans it — adding punctuation, fixing errors, removing filler words — and structures it with a title, summary, key takeaways, and timestamped segments. The output is publication-ready, not raw caption data." },
@@ -43,7 +49,7 @@ export const PRICING_FAQ = [
   { q: "What kinds of videos work best with TubeScribed?", a: "YouTube tutorials, podcast episodes posted to YouTube, coaching calls, training videos, interviews, webinars, course content, and conference talks. Any video where the spoken content has business value — and where you'd rather have a document than sit through the full video. Current limit is videos up to approximately 25–30 minutes due to audio file size constraints." },
   { q: "Will the AI outputs actually sound like my brand?", a: "That's what the Brand Workspace is for. You set up your brand once — your tone, your audience, your core values, your writing style. Every transcript cleanup, SOP, blog post, and content output TubeScribed generates automatically applies that brand voice. Agency users can save unlimited brand profiles — one per client — so every output is already in the right voice before you touch it." },
   { q: "What is a Brand SOP and why would I need one?", a: "A Standard Operating Procedure (SOP) is a documented, repeatable business process. TubeScribed's SOP generator takes any transcript — a training video, a coaching call, a tutorial — and turns it into a formatted, step-by-step process document written in your brand voice. Business coaches use it to document their methodology. Agencies use it to create client-facing deliverables. Operators use it to systematize training content without starting from scratch." },
-  { q: "How does pricing work with the free trial?", a: "Both Pro ($9/month) and Agency ($29/month) come with a 7-day free trial. You'll enter your card at signup, but you won't be charged until day 8. Cancel any time before that and you owe nothing. After the trial, billing is monthly and you can cancel or change plans at any time from your account settings." },
+  { q: "What are credit packs?", a: "Credit packs are one-time purchases that never expire. Use them for extra transcripts or AI outputs beyond your monthly plan. Starter: 10 credits for $8. Growth: 25 credits for $18. Pro Pack: 50 credits for $32. No subscription required — buy when you need them." },
 ];
 
 export const COMPARISON_FEATURES_OTTER = [
@@ -53,7 +59,7 @@ export const COMPARISON_FEATURES_OTTER = [
   { feature: "Blog post generation", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "15 content output types", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "Built for YouTube creators", tubescribed: "✓ Yes", competitor: "✗ No" },
-  { feature: "Starting price", tubescribed: "$9/mo (7-day trial)", competitor: "$17/mo" },
+  { feature: "Starting price", tubescribed: "$19/mo (free run)", competitor: "$17/mo" },
   { feature: "Primary use case", tubescribed: "YouTube content repurposing", competitor: "Live meeting notes" },
 ];
 
@@ -64,7 +70,7 @@ export const COMPARISON_FEATURES_DESCRIPT = [
   { feature: "Blog post generation", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "15 content output types", tubescribed: "✓ Yes", competitor: "✗ No" },
   { feature: "Built for YouTube creators", tubescribed: "✓ Yes", competitor: "✗ No" },
-  { feature: "Starting price", tubescribed: "$9/mo (7-day trial)", competitor: "$24–48/mo" },
+  { feature: "Starting price", tubescribed: "$19/mo (free run)", competitor: "$24–48/mo" },
   { feature: "Primary use case", tubescribed: "YouTube content repurposing", competitor: "Video editing suite" },
 ];
 

@@ -63,7 +63,7 @@ export default function ForAgenciesPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Agency Plan — $29/month
+              Try Free
             </Button>
           </motion.div>
         </div>
@@ -189,7 +189,7 @@ export default function ForAgenciesPage() {
               variant="primary"
               className="px-8 py-4 text-lg"
             >
-              Start Agency Plan — $29/month
+              Try Free
             </Button>
           </motion.div>
         </div>

@@ -13,11 +13,11 @@ export function FinalCTA() {
           <h2 className="font-syne font-bold text-4xl lg:text-6xl text-navy-100 leading-tight mb-6">Your next video is already<br /><GradientText>a blog post.</GradientText> You just<br />haven&apos;t clicked yet.</h2>
           <p className="font-dm-sans text-navy-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">Join thousands of creators, agencies, and coaches who stopped wasting content and started building systems.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
             <Button href="/pricing" variant="secondary" className="px-8 py-4 text-lg">See Pricing</Button>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6">
-            {["7-day free trial", "Cancel anytime", "Pro & Agency plans"].map((signal) => (<span key={signal} className="flex items-center gap-2 text-navy-400 text-sm"><span className="w-1.5 h-1.5 rounded-full bg-navy-700" />{signal}</span>))}
+            {["1 free transcript, no credit card", "Cancel anytime", "Pro & Agency plans"].map((signal) => (<span key={signal} className="flex items-center gap-2 text-navy-400 text-sm"><span className="w-1.5 h-1.5 rounded-full bg-navy-700" />{signal}</span>))}
           </div>
         </motion.div>
       </div>

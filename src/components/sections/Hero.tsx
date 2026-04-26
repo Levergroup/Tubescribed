@@ -23,10 +23,10 @@ export function Hero() {
           Paste a YouTube link. Get a clean transcript, branded SOP, blog post, email sequence, and more — in seconds. No VA. No manual editing. Just done.
         </motion.p>
         <motion.div variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-          <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+          <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           <Button href="#how-it-works" variant="secondary" className="px-8 py-4 text-lg">See How It Works</Button>
         </motion.div>
-        <motion.p variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }} className="text-navy-400 text-sm mb-16">7-day free trial. Cancel anytime.</motion.p>
+        <motion.p variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }} className="text-navy-400 text-sm mb-16">Try free — 1 transcript, no credit card.</motion.p>
         <motion.div variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }} className="max-w-xl mx-auto">
           <div className="bg-navy-800 border border-navy-700 rounded-2xl p-6 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-3 bg-navy-900 border border-navy-700 rounded-xl p-4 mb-4">

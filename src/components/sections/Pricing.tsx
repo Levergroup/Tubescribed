@@ -1,16 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import Link from "next/link";
-import { PLANS } from "@/lib/constants";
+import { PLANS, CREDIT_PACKS } from "@/lib/constants";
 
 export function Pricing() {
   return (
     <section className="py-24 lg:py-32 bg-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">Pricing</motion.p>
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }} className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 text-center mb-4">Simple pricing. 7-day free trial.</motion.h2>
-        <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="text-center text-navy-400 text-base font-dm-sans mb-16 max-w-lg mx-auto">One transcript pays for the entire month at any professional hourly rate.</motion.p>
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }} className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 text-center mb-4">Simple pricing. Try free first.</motion.h2>
+        <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="text-center text-navy-400 text-base font-dm-sans mb-8 max-w-lg mx-auto">One transcript saves 45+ minutes of manual work. TubeScribed pays for itself on day one.</motion.p>
+
+        {/* Free Run Callout */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="flex justify-center mb-10">
+          <div className="flex items-center gap-3 bg-navy-900 border border-navy-700 rounded-full px-6 py-3" style={{ boxShadow: "0 0 0 1px rgba(255,59,48,0.2), 0 0 20px rgba(255,59,48,0.06)" }}>
+            <Zap size={15} className="text-brand-red shrink-0" />
+            <span className="font-dm-sans text-navy-100 text-sm font-medium">Try free — 1 transcript + 1 AI output.</span>
+            <span className="font-dm-sans text-navy-400 text-sm">No credit card.</span>
+          </div>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10 max-w-3xl mx-auto">
           {PLANS.map((plan, index) => (
             <motion.div key={plan.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }} whileHover={{ y: -4 }} className="relative rounded-2xl p-8 flex flex-col" style={plan.popular ? { background: "linear-gradient(#2C3E52, #2C3E52) padding-box, linear-gradient(135deg, #FF3B30, #FF8C42) border-box", border: "2px solid transparent" } : { background: "#1E2A3A", border: "1px solid #3D5166" }}>
@@ -28,7 +38,25 @@ export function Pricing() {
             </motion.div>
           ))}
         </div>
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="text-center text-navy-400 text-sm font-dm-sans">Need more? Credit packs available. <Link href="/pricing" className="text-navy-100 hover:text-brand-red underline underline-offset-2 transition-colors duration-200">See all pricing →</Link></motion.p>
+
+        {/* Credit Packs */}
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="max-w-3xl mx-auto">
+          <div className="text-center mb-6">
+            <h3 className="font-syne font-bold text-xl text-navy-100 mb-2">Need more? Grab a credit pack.</h3>
+            <p className="font-dm-sans text-navy-400 text-sm">Credits never expire. Use them for transcripts or outputs anytime.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {CREDIT_PACKS.map((pack, i) => (
+              <motion.div key={pack.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.25 + i * 0.07 }} className="bg-navy-900 border border-navy-700 rounded-2xl p-5 flex flex-col items-center text-center hover:border-brand-red transition-colors duration-300">
+                <p className="font-syne font-bold text-navy-100 text-base mb-1">{pack.name}</p>
+                <p className="font-dm-sans text-navy-400 text-sm mb-3">{pack.credits} credits</p>
+                <p className="font-syne font-bold text-2xl text-navy-100 mb-4">{pack.price}</p>
+                <motion.a href={pack.ctaHref} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full text-center border border-navy-700 text-navy-100 hover:bg-navy-800 font-semibold text-sm py-2 rounded-xl transition-all duration-200">Buy Credits</motion.a>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-navy-400 text-sm font-dm-sans mt-6"><Link href="/pricing" className="text-navy-100 hover:text-brand-red underline underline-offset-2 transition-colors duration-200">Full feature comparison →</Link></p>
+        </motion.div>
       </div>
     </section>
   );
