@@ -2,10 +2,12 @@ export const APP_URL = "https://app.tubescribed.com";
 
 export const NAV_LINKS = [
   { label: "How it Works", href: "/#how-it-works" },
+  { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
-  { label: "For Creators", href: "/for-creators" },
-  { label: "For Agencies", href: "/for-agencies" },
-  { label: "For Coaches", href: "/for-coaches" },
+  { label: "For Creators", href: "/for/content-creators" },
+  { label: "For Agencies", href: "/for/agencies" },
+  { label: "For Coaches", href: "/for/coaches" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const METRICS = [
@@ -77,18 +79,32 @@ export const COMPARISON_FEATURES_DESCRIPT = [
 export const FOOTER_LINKS = {
   product: [
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Transcript Tool", href: "https://app.tubescribed.com/signup" },
-    { label: "Content Studio", href: "https://app.tubescribed.com/signup" },
+    { label: "Free Transcript Tool", href: "/free-tools/youtube-transcript-generator" },
+    { label: "ROI Calculator", href: "/roi-calculator" },
+    { label: "Changelog", href: "/changelog" },
   ],
   useCases: [
-    { label: "For Content Creators", href: "/for-creators" },
-    { label: "For Agencies", href: "/for-agencies" },
-    { label: "For Coaches", href: "/for-coaches" },
+    { label: "For Content Creators", href: "/for/content-creators" },
+    { label: "For Agencies", href: "/for/agencies" },
+    { label: "For Business Coaches", href: "/for/coaches" },
+    { label: "For AI Builders", href: "/for/ai-builders" },
+    { label: "For Podcasters", href: "/for/podcasters" },
+    { label: "For Course Creators", href: "/for/course-creators" },
   ],
-  compare: [
-    { label: "TubeScribed vs Otter.ai", href: "/vs-otter" },
-    { label: "TubeScribed vs Descript", href: "/vs-descript" },
-    { label: "TubeScribed vs Manual", href: "/pricing" },
+  company: [
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Affiliate Program", href: "/affiliate" },
+    { label: "Contact", href: "/contact" },
+  ],
+  compliance: [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "GDPR", href: "/gdpr" },
+    { label: "Acceptable Use", href: "/acceptable-use" },
+    { label: "Refund Policy", href: "/refund-policy" },
   ],
 };
