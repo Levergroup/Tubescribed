@@ -15,21 +15,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://tubescribed.com', lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
     { url: 'https://tubescribed.com/pricing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://tubescribed.com/blog', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+
+    // Features
+    { url: 'https://tubescribed.com/features', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/features/sop-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/brand-workspace', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/ai-transcript-cleaner', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/content-repurposing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/youtube-transcription', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+
+    // For (use cases)
     { url: 'https://tubescribed.com/for/content-creators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://tubescribed.com/for/agencies', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://tubescribed.com/for/coaches', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://tubescribed.com/for/ai-builders', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/for/podcasters', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/for/course-creators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+
+    // Vs (competitors)
     { url: 'https://tubescribed.com/vs/chatgpt', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://tubescribed.com/vs/otter-ai', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://tubescribed.com/vs/tactiq', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://tubescribed.com/vs/notegpt', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://tubescribed.com/vs/descript', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://tubescribed.com/features/sop-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://tubescribed.com/features/brand-workspace', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/vs/youtube-captions', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+
+    // Alternatives
+    { url: 'https://tubescribed.com/alternatives/descript', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/alternatives/otter-ai', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/alternatives/tactiq', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+
+    // Free tools
+    { url: 'https://tubescribed.com/free-tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+
+    // Company
     { url: 'https://tubescribed.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: 'https://tubescribed.com/contact', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: 'https://tubescribed.com/changelog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.5 },
+    { url: 'https://tubescribed.com/affiliate', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: 'https://tubescribed.com/roi-calculator', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+
+    // Compliance / legal
     { url: 'https://tubescribed.com/privacy-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: 'https://tubescribed.com/terms-of-service', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: 'https://tubescribed.com/cookie-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: 'https://tubescribed.com/acceptable-use', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: 'https://tubescribed.com/gdpr', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: 'https://tubescribed.com/refund-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+
     ...blogRoutes,
   ];
 }

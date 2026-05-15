@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { organizationSchema } from "@/lib/schema";
 import { GradientText } from "@/components/ui/GradientText";
 import { Button } from "@/components/ui/Button";
 import { APP_URL } from "@/lib/constants";
@@ -13,6 +14,10 @@ export const metadata: Metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-navy-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+      />
       <section className="py-24 lg:py-32 bg-navy-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">About</p>

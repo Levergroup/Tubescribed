@@ -1,3 +1,4 @@
+import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -48,56 +49,58 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+type NodeProps = { children?: React.ReactNode };
+type AnchorProps = { href?: string; children?: React.ReactNode };
+
 const components = {
-  h2: ({ children }: any) => (
+  h2: ({ children }: NodeProps) => (
     <h2 className="text-2xl font-bold text-white mt-12 mb-4 scroll-mt-20">{children}</h2>
   ),
-  h3: ({ children }: any) => (
+  h3: ({ children }: NodeProps) => (
     <h3 className="text-xl font-semibold text-white mt-8 mb-3 scroll-mt-20">{children}</h3>
   ),
-  p: ({ children }: any) => (
+  p: ({ children }: NodeProps) => (
     <p className="text-[#94A3B8] leading-relaxed mb-4">{children}</p>
   ),
-  a: ({ href, children }: any) => (
+  a: ({ href, children }: AnchorProps) => (
     <a href={href} className="text-[#FF3B30] hover:text-[#FF8C42] underline transition-colors">
       {children}
     </a>
   ),
-  ul: ({ children }: any) => <ul className="list-none space-y-2 mb-6">{children}</ul>,
-  li: ({ children }: any) => (
+  ul: ({ children }: NodeProps) => <ul className="list-none space-y-2 mb-6">{children}</ul>,
+  li: ({ children }: NodeProps) => (
     <li className="flex items-start gap-2 text-[#94A3B8]">
       <span className="text-[#FF3B30] mt-1 flex-shrink-0">→</span>
       <span>{children}</span>
     </li>
   ),
-  ol: ({ children }: any) => (
+  ol: ({ children }: NodeProps) => (
     <ol className="list-decimal list-inside space-y-2 mb-6 text-[#94A3B8]">{children}</ol>
   ),
-  blockquote: ({ children }: any) => (
+  blockquote: ({ children }: NodeProps) => (
     <blockquote className="border-l-4 border-[#FF3B30] pl-4 my-6 bg-[#243447] py-4 pr-4 rounded-r-lg">
       {children}
     </blockquote>
   ),
-  table: ({ children }: any) => (
+  table: ({ children }: NodeProps) => (
     <div className="overflow-x-auto mb-6">
       <table className="w-full border-collapse text-sm">{children}</table>
     </div>
   ),
-  th: ({ children }: any) => (
+  th: ({ children }: NodeProps) => (
     <th className="bg-[#243447] text-white font-semibold px-4 py-3 text-left border border-[#2D3F55]">
       {children}
     </th>
   ),
-  td: ({ children }: any) => (
+  td: ({ children }: NodeProps) => (
     <td className="px-4 py-3 text-[#94A3B8] border border-[#2D3F55]">{children}</td>
   ),
-  code: ({ children }: any) => (
+  code: ({ children }: NodeProps) => (
     <code className="bg-[#243447] text-[#FF8C42] px-2 py-0.5 rounded text-sm font-mono">
       {children}
     </code>
   ),
-  pre: ({ children }: any) => (
+  pre: ({ children }: NodeProps) => (
     <pre className="bg-[#243447] border border-[#2D3F55] rounded-lg p-4 overflow-x-auto mb-6 text-sm">
       {children}
     </pre>
@@ -105,7 +108,6 @@ const components = {
   hr: () => <hr className="border-[#2D3F55] my-8" />,
   BlogCTA: ({ variant }: { variant?: 'default' | 'final' }) => <BlogCTA variant={variant} />,
 };
-/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export default function BlogPostPage({ params }: Props) {
   let post;

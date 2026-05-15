@@ -79,7 +79,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-navy-500 text-xs">© 2025 TubeScribed. All rights reserved. Built with Claude AI.</p>
+          <p className="text-navy-500 text-xs">© 2026 TubeScribed. All rights reserved. Built with Claude AI.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {FOOTER_LINKS.compliance.map((link) => (
               <Link key={link.href} href={link.href} className="text-navy-500 hover:text-navy-300 text-xs transition-colors duration-200">
