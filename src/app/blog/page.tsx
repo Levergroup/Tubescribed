@@ -1,103 +1,95 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
-import Link from "next/link";
-import { GradientText } from "@/components/ui/GradientText";
-import { ArrowRight } from "lucide-react";
+import { Metadata } from 'next';
+import { getAllPosts } from '@/lib/mdx';
+import BlogCard from '@/components/BlogCard';
 
-export const metadata: Metadata = buildMetadata({
-  title: "TubeScribed Blog — YouTube Transcription Tips, Content Repurposing Guides",
-  description: "Guides, strategies, and tips for turning YouTube content into business assets. Learn how to repurpose video content, document SOPs, and scale your content output.",
-  path: "/blog",
-});
+export const metadata: Metadata = {
+  title: 'TubeScribed Blog — YouTube Transcription, Content Repurposing & AI Tips',
+  description:
+    'Learn how to repurpose YouTube videos into blog posts, SOPs, email sequences, and more. Strategies for creators, agencies, and coaches.',
+  alternates: { canonical: 'https://tubescribed.com/blog' },
+  openGraph: {
+    title: 'TubeScribed Blog',
+    description: 'YouTube transcription, content repurposing, and AI workflow tips.',
+    url: 'https://tubescribed.com/blog',
+    siteName: 'TubeScribed',
+    images: [{ url: 'https://tubescribed.com/og-default.png' }],
+    type: 'website',
+  },
+};
 
-const posts = [
-  {
-    slug: "how-to-repurpose-youtube-videos",
-    title: "How to Repurpose YouTube Videos Into 15 Content Formats",
-    excerpt: "One YouTube video contains enough content for a blog post, email newsletter, LinkedIn post, Twitter thread, and more. Here's the exact process.",
-    date: "2025-03-15",
-    readTime: "7 min read",
-    category: "Content Strategy",
-  },
-  {
-    slug: "youtube-transcript-vs-auto-captions",
-    title: "YouTube Auto-Captions vs. Accurate Transcription: The Real Difference",
-    excerpt: "Auto-captions are free and instant — but they're also unpunctuated, error-filled, and unusable for any business purpose. Here's what accurate transcription actually looks like.",
-    date: "2025-03-08",
-    readTime: "5 min read",
-    category: "Transcription",
-  },
-  {
-    slug: "sop-from-video-guide",
-    title: "How to Turn Any Video Into a Standard Operating Procedure",
-    excerpt: "If your methodology lives in your head (or in a video nobody watches twice), this guide shows you how to turn recorded content into structured, shareable SOPs.",
-    date: "2025-03-01",
-    readTime: "8 min read",
-    category: "SOPs & Systems",
-  },
-];
-
-const categories = ["All", "Content Strategy", "Transcription", "SOPs & Systems", "Agency Tips"];
+const CATEGORIES = ['All', 'Content Strategy', 'AI Tools', 'Tutorials', 'Agency Tips', 'Comparisons'];
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
-    <div className="min-h-screen bg-navy-900">
-      <section className="py-24 lg:py-32 bg-navy-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">Blog</p>
-          <h1 className="font-syne font-bold text-4xl lg:text-5xl text-navy-100 mb-6 leading-tight">
-            Turn Your YouTube Content Into <GradientText>Real Business Assets</GradientText>
+    <main className="min-h-screen bg-[#1E2A3A]">
+      {/* Hero */}
+      <section className="py-20 px-4 text-center border-b border-[#2D3F55]">
+        <div className="max-w-4xl mx-auto">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#FF3B30]/10 text-[#FF3B30] border border-[#FF3B30]/20 mb-4">
+            TubeScribed Blog
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Turn Video Content Into Business Assets
           </h1>
-          <p className="font-dm-sans text-navy-400 text-xl leading-relaxed max-w-2xl mx-auto">
-            Guides, strategies, and tips for creators, agencies, and coaches who want to get more from the content they already have.
+          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
+            Strategies, workflows, and AI tools for creators, agencies, and coaches who want to get
+            more from every video they make.
           </p>
         </div>
       </section>
 
-      <section className="pb-32 bg-navy-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-10">
-            {categories.map((cat) => (
-              <button key={cat} className={`text-sm font-medium px-4 py-2 rounded-xl transition-colors ${cat === "All" ? "bg-brand-red text-white" : "bg-navy-800 text-navy-400 hover:text-navy-100 border border-navy-700"}`}>
-                {cat}
-              </button>
-            ))}
-          </div>
+      {/* Category Filter */}
+      <section className="py-8 px-4 border-b border-[#2D3F55]">
+        <div className="max-w-6xl mx-auto flex flex-wrap gap-2 justify-center">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              className="px-4 py-2 rounded-full text-sm font-medium border border-[#2D3F55] text-[#94A3B8] hover:border-[#FF3B30] hover:text-white transition-all"
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group bg-navy-800 border border-navy-700 hover:border-brand-red/50 rounded-2xl p-6 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xs font-medium text-brand-red bg-brand-red/10 px-2.5 py-1 rounded-full">{post.category}</span>
-                  <span className="text-navy-500 text-xs">{post.readTime}</span>
-                </div>
-                <h2 className="font-syne font-bold text-navy-100 text-lg mb-3 leading-tight group-hover:text-brand-red transition-colors">
-                  {post.title}
-                </h2>
-                <p className="font-dm-sans text-navy-400 text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                <div className="flex items-center gap-1.5 text-brand-red text-sm font-medium">
-                  Read more <ArrowRight size={14} />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="bg-navy-800 border border-navy-700 rounded-2xl p-8 text-center">
-            <h3 className="font-syne font-bold text-navy-100 text-xl mb-3">Get new guides in your inbox</h3>
-            <p className="font-dm-sans text-navy-400 text-sm mb-5">No fluff. Just actionable content repurposing strategies, weekly.</p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-navy-100 placeholder-navy-500 text-sm focus:outline-none focus:border-brand-red transition-colors"
-              />
-              <button className="btn-gradient text-white font-semibold px-5 py-3 rounded-xl whitespace-nowrap text-sm">
-                Subscribe
-              </button>
+      {/* Posts Grid */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          {posts.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-[#94A3B8] text-lg">Articles coming soon.</p>
             </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Email Capture */}
+      <section className="py-16 px-4 bg-[#243447] border-t border-[#2D3F55]">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-2">
+            Get Weekly Content Repurposing Tips
+          </h2>
+          <p className="text-[#94A3B8] mb-6">One email per week. No fluff. Just workflows that work.</p>
+          <div className="flex gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="flex-1 px-4 py-3 rounded-lg bg-[#1E2A3A] border border-[#2D3F55] text-white placeholder-[#94A3B8] focus:outline-none focus:border-[#FF3B30]"
+            />
+            <button className="px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-[#FF3B30] to-[#FF8C42] hover:opacity-90 transition-opacity whitespace-nowrap">
+              Subscribe
+            </button>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

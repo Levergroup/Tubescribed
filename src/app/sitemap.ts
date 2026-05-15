@@ -1,62 +1,35 @@
-import type { MetadataRoute } from "next";
-
-const BASE = "https://tubescribed.com";
-const now = new Date();
-
-function url(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]) {
-  return { url: `${BASE}${path}`, lastModified: now, changeFrequency, priority };
-}
+import { MetadataRoute } from 'next';
+import { getAllPosts } from '@/lib/mdx';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getAllPosts();
+
+  const blogRoutes = posts.map((post) => ({
+    url: `https://tubescribed.com/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
   return [
-    // Core
-    url("/", 1.0, "weekly"),
-    url("/pricing", 0.95, "monthly"),
-    url("/features", 0.9, "monthly"),
-    url("/roi-calculator", 0.85, "monthly"),
-    url("/blog", 0.85, "weekly"),
-    url("/about", 0.7, "monthly"),
-    url("/contact", 0.6, "monthly"),
-    url("/affiliate", 0.65, "monthly"),
-    url("/changelog", 0.6, "weekly"),
-
-    // Use Cases
-    url("/for/content-creators", 0.85, "monthly"),
-    url("/for/agencies", 0.85, "monthly"),
-    url("/for/coaches", 0.85, "monthly"),
-    url("/for/ai-builders", 0.8, "monthly"),
-    url("/for/podcasters", 0.8, "monthly"),
-    url("/for/course-creators", 0.8, "monthly"),
-
-    // Features
-    url("/features/youtube-transcription", 0.85, "monthly"),
-    url("/features/ai-transcript-cleaner", 0.8, "monthly"),
-    url("/features/brand-workspace", 0.8, "monthly"),
-    url("/features/sop-generator", 0.8, "monthly"),
-    url("/features/content-repurposing", 0.8, "monthly"),
-
-    // VS Pages
-    url("/vs/otter-ai", 0.8, "monthly"),
-    url("/vs/descript", 0.8, "monthly"),
-    url("/vs/tactiq", 0.75, "monthly"),
-    url("/vs/notegpt", 0.75, "monthly"),
-    url("/vs/chatgpt", 0.8, "monthly"),
-    url("/vs/youtube-captions", 0.75, "monthly"),
-
-    // Alternatives
-    url("/alternatives/otter-ai", 0.75, "monthly"),
-    url("/alternatives/tactiq", 0.7, "monthly"),
-    url("/alternatives/descript", 0.7, "monthly"),
-
-    // Free Tools
-    url("/free-tools/youtube-transcript-generator", 0.9, "monthly"),
-
-    // Compliance (low priority, no index on some handled by noIndex flag)
-    url("/privacy-policy", 0.3, "yearly"),
-    url("/terms-of-service", 0.3, "yearly"),
-    url("/cookie-policy", 0.3, "yearly"),
-    url("/gdpr", 0.3, "yearly"),
-    url("/acceptable-use", 0.3, "yearly"),
-    url("/refund-policy", 0.3, "yearly"),
+    { url: 'https://tubescribed.com', lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
+    { url: 'https://tubescribed.com/pricing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/blog', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: 'https://tubescribed.com/for/content-creators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/for/agencies', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/for/coaches', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/for/ai-builders', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://tubescribed.com/vs/chatgpt', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/vs/otter-ai', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/vs/tactiq', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/vs/notegpt', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/vs/descript', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/sop-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/features/brand-workspace', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://tubescribed.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://tubescribed.com/contact', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: 'https://tubescribed.com/privacy-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: 'https://tubescribed.com/terms-of-service', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    ...blogRoutes,
   ];
 }
