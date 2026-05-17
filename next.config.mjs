@@ -3,11 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      // www → non-www canonical redirect
+      // non-www → www canonical redirect
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.tubescribed.com" }],
-        destination: "https://tubescribed.com/:path*",
+        has: [{ type: "host", value: "tubescribed.com" }],
+        destination: "https://www.tubescribed.com/:path*",
         permanent: true,
       },
       // Legacy URL cleanup
