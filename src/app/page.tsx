@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { ProblemAgitation } from "@/components/sections/ProblemAgitation";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { ContentOutputShowcase } from "@/components/ContentOutputShowcase";
 import { WhyNotChatGPT } from "@/components/sections/WhyNotChatGPT";
 import { Features } from "@/components/sections/Features";
 import { UseCaseTabs } from "@/components/sections/UseCaseTabs";
@@ -42,6 +43,7 @@ export default function HomePage() {
       <SocialProof />
       <ProblemAgitation />
       <HowItWorks />
+      <ContentOutputShowcase videoTitle="How I Built a $50K/Year Content Business from YouTube" />
       <WhyNotChatGPT />
       <Features />
       <UseCaseTabs />

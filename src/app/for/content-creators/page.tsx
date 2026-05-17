@@ -35,6 +35,7 @@ const data = {
     "Your brand voice stays consistent across every output, every time",
   ],
   ctaHref: "https://app.tubescribed.com/signup",
+  showcaseVideoTitle: "How I Built a $50K/Year Content Business from YouTube",
 };
 
 export default function ForContentCreatorsPage() {

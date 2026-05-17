@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
 import { AlertCircle, CheckCircle2, FileText, Layers, ClipboardList, Grid3x3, Wand2 } from "lucide-react";
+import { ContentOutputShowcase } from "@/components/ContentOutputShowcase";
 
 const iconMap = {
   FileText,
@@ -32,6 +33,7 @@ interface UseCasePageProps {
   outcomeHeading: string;
   outcomes: string[];
   ctaHref: string;
+  showcaseVideoTitle?: string;
 }
 
 export function UseCasePageClient({
@@ -45,6 +47,7 @@ export function UseCasePageClient({
   outcomeHeading,
   outcomes,
   ctaHref,
+  showcaseVideoTitle,
 }: UseCasePageProps) {
   const Icon = iconMap[featureCallout.icon];
 
@@ -66,6 +69,8 @@ export function UseCasePageClient({
           </motion.div>
         </div>
       </section>
+
+      <ContentOutputShowcase videoTitle={showcaseVideoTitle} />
 
       <section className="py-24 bg-navy-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

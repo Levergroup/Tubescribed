@@ -35,6 +35,7 @@ const data = {
     "Build your training library from every coaching session you record",
   ],
   ctaHref: "https://app.tubescribed.com/signup",
+  showcaseVideoTitle: "My 6-Step Business Coaching Framework",
 };
 
 export default function ForCoachesPage() {

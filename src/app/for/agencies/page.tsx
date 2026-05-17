@@ -35,6 +35,7 @@ const data = {
     "White-label outputs your clients think you wrote yourself",
   ],
   ctaHref: "https://app.tubescribed.com/signup?plan=agency",
+  showcaseVideoTitle: "Client Onboarding Process for Marketing Agencies",
 };
 
 export default function ForAgenciesPage() {
