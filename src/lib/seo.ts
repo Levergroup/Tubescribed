@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const BASE_URL = "https://tubescribed.com";
+const BASE_URL = "https://www.tubescribed.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.png`;
 
 interface SEOProps {

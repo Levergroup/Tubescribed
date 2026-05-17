@@ -1,4 +1,4 @@
-const BASE_URL = "https://tubescribed.com";
+const BASE_URL = "https://www.tubescribed.com";
 const APP_NAME = "TubeScribed";
 
 export function websiteSchema() {
@@ -7,6 +7,12 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: APP_NAME,
     url: BASE_URL,
+    description: "AI-powered YouTube transcript and branded content generator",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${BASE_URL}/blog?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -20,10 +26,11 @@ export function organizationSchema() {
     sameAs: [
       "https://twitter.com/tubescribed",
       "https://www.linkedin.com/company/tubescribed",
+      "https://youtube.com/@tubescribed",
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "support@tubescribed.com",
+      email: "hello@tubescribed.com",
       contactType: "customer support",
     },
   };
