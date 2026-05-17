@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: post.title,
       description: post.meta_description,
-      alternates: { canonical: `https://tubescribed.com/blog/${params.slug}` },
+      alternates: { canonical: `https://www.tubescribed.com/blog/${params.slug}` },
       openGraph: {
         title: post.title,
         description: post.meta_description,
-        url: `https://tubescribed.com/blog/${params.slug}`,
+        url: `https://www.tubescribed.com/blog/${params.slug}`,
         siteName: 'TubeScribed',
         images: [{ url: post.featured_image, alt: post.featured_image_alt }],
         type: 'article',
@@ -135,11 +135,11 @@ export default function BlogPostPage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'TubeScribed',
-      logo: { '@type': 'ImageObject', url: 'https://tubescribed.com/logo.png' },
+      logo: { '@type': 'ImageObject', url: 'https://www.tubescribed.com/logo.png' },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://tubescribed.com/blog/${params.slug}`,
+      '@id': `https://www.tubescribed.com/blog/${params.slug}`,
     },
   };
 

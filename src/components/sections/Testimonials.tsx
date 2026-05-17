@@ -5,18 +5,21 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
+    // PLACEHOLDER — replace with real testimonial
     quote: "I used to spend 3–4 hours every week turning YouTube content into blog posts and emails. TubeScribed does it in seconds. I honestly can't believe I waited this long.",
     name: "Marcus T.",
     role: "YouTube Creator & Course Builder",
     stars: 5,
   },
   {
+    // PLACEHOLDER — replace with real testimonial
     quote: "We manage content for 11 agency clients. The brand workspace feature is a game-changer — every output sounds exactly like each client. Our team size stayed the same but our output tripled.",
     name: "Sarah M.",
     role: "Founder, Social Content Agency",
     stars: 5,
   },
   {
+    // PLACEHOLDER — replace with real testimonial
     quote: "As a business coach, I used to re-explain the same frameworks over and over. Now I generate SOPs from my coaching calls and send those instead. My clients actually implement things now.",
     name: "David K.",
     role: "Business Coach & Consultant",

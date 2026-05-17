@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tubescribed.com"),
+  metadataBase: new URL("https://www.tubescribed.com"),
   title: {
     default: "TubeScribed — Turn YouTube Videos Into Branded Business Assets",
     template: "%s | TubeScribed",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tubescribed.com",
+    url: "https://www.tubescribed.com",
     siteName: "TubeScribed",
     title: "TubeScribed — Turn YouTube Videos Into Branded Business Assets",
     description:
