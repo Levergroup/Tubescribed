@@ -10,10 +10,10 @@ const fadeUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
-      {/* Primary red glow — top centre */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 700px 700px at 50% -350px, rgba(255,59,48,0.18) 0%, transparent 65%)" }} />
-      {/* Secondary orange glow — top right */}
-      <div className="absolute pointer-events-none" style={{ width: 400, height: 400, top: -100, right: -100, background: "radial-gradient(ellipse, rgba(255,140,66,0.10) 0%, transparent 65%)", borderRadius: "50%" }} />
+      <div className="hero-glow-primary" />
+      <div className="hero-glow-secondary" />
+      <div className="hero-glow-tertiary" />
+      <div className="hero-beam" />
       {/* Bottom fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 120, background: "linear-gradient(to bottom, transparent, #1E2A3A)" }} />
       <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 py-32 text-center">
