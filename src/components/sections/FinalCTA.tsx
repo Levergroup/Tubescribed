@@ -6,7 +6,7 @@ import { APP_URL } from "@/lib/constants";
 
 export function FinalCTA() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-900">
+    <section className="py-24 lg:py-32 cta-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative bg-navy-800 rounded-3xl p-12 lg:p-16 text-center" style={{ background: "linear-gradient(#2C3E52, #2C3E52) padding-box, linear-gradient(135deg, rgba(255,59,48,0.4), rgba(255,140,66,0.4)) border-box", border: "1px solid transparent" }}>
           <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-6">Ready to Start?</p>
