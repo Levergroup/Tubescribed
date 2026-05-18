@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Cookie } from "lucide-react";
+import { X } from "lucide-react";
+import Link from "next/link";
 
 type ConsentState = {
   analytics: boolean;
@@ -10,6 +11,19 @@ type ConsentState = {
 };
 
 const STORAGE_KEY = "ts_cookie_consent";
+const COOKIE_NAME = "ts_consent";
+
+function getCookieConsent(): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_NAME}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setConsentCookie(value: string) {
+  const expires = new Date();
+  expires.setFullYear(expires.getFullYear() + 1);
+  document.cookie = `${COOKIE_NAME}=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+}
 
 function getStoredConsent(): ConsentState | null {
   if (typeof window === "undefined") return null;
@@ -23,6 +37,7 @@ function getStoredConsent(): ConsentState | null {
 
 function storeConsent(consent: ConsentState) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+  setConsentCookie(consent.analytics || consent.marketing ? "accepted" : "declined");
 }
 
 type WindowWithTracking = typeof window & {
@@ -52,12 +67,14 @@ export function CookieConsent() {
   const [prefs, setPrefs] = useState<ConsentState>({ analytics: false, marketing: false });
 
   useEffect(() => {
+    const cookie = getCookieConsent();
     const stored = getStoredConsent();
-    if (!stored) {
+    if (!cookie && !stored) {
       setVisible(true);
     } else {
-      if (stored.analytics) fireAnalytics();
-      if (stored.marketing) fireMarketing();
+      const consent = stored ?? { analytics: false, marketing: false };
+      if (consent.analytics) fireAnalytics();
+      if (consent.marketing) fireMarketing();
     }
   }, []);
 
@@ -69,16 +86,16 @@ export function CookieConsent() {
     setVisible(false);
   }
 
+  function decline() {
+    storeConsent({ analytics: false, marketing: false });
+    setVisible(false);
+  }
+
   function savePrefs() {
     storeConsent(prefs);
     if (prefs.analytics) fireAnalytics();
     if (prefs.marketing) fireMarketing();
     setManageOpen(false);
-    setVisible(false);
-  }
-
-  function rejectAll() {
-    storeConsent({ analytics: false, marketing: false });
     setVisible(false);
   }
 
@@ -91,36 +108,41 @@ export function CookieConsent() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-[100] bg-navy-800 border border-navy-700 rounded-2xl p-5 shadow-2xl"
+            className="fixed bottom-0 left-0 right-0 z-[100]"
+            style={{ background: "#1E2A3A", borderTop: "1px solid #2D3F55" }}
           >
-            <div className="flex items-start gap-3 mb-4">
-              <Cookie size={20} className="text-brand-red shrink-0 mt-0.5" />
-              <div>
-                <p className="font-syne font-semibold text-navy-100 text-sm mb-1">We use cookies</p>
-                <p className="font-dm-sans text-navy-400 text-xs leading-relaxed">
-                  We use essential cookies to run the site, and optional analytics and marketing cookies to improve your experience. You can manage preferences below.
-                </p>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="font-dm-sans text-[#94A3B8] text-sm text-center sm:text-left">
+                We use cookies to improve your experience, analyze traffic, and serve relevant ads. See our{" "}
+                <Link href="/cookie-policy" className="text-white underline hover:text-[#FF8C42] transition-colors">
+                  Cookie Policy
+                </Link>
+                .
+              </p>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <button
+                  onClick={() => setManageOpen(true)}
+                  className="text-[#94A3B8] hover:text-white text-xs font-medium transition-colors underline"
+                >
+                  Manage
+                </button>
+                <button
+                  onClick={decline}
+                  className="text-sm font-semibold px-4 py-2 rounded-lg border transition-colors"
+                  style={{ borderColor: "#2D3F55", color: "#94A3B8" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#94A3B8"; e.currentTarget.style.color = "#fff"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#2D3F55"; e.currentTarget.style.color = "#94A3B8"; }}
+                >
+                  Decline
+                </button>
+                <button
+                  onClick={acceptAll}
+                  className="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-opacity hover:opacity-90"
+                  style={{ background: "linear-gradient(to right, #FF3B30, #FF8C42)" }}
+                >
+                  Accept All
+                </button>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <button
-                onClick={acceptAll}
-                className="btn-gradient text-white text-xs font-semibold px-4 py-2.5 rounded-lg flex-1 text-center"
-              >
-                Accept All
-              </button>
-              <button
-                onClick={() => setManageOpen(true)}
-                className="text-navy-300 hover:text-navy-100 text-xs font-medium px-4 py-2.5 rounded-lg border border-navy-600 hover:border-navy-500 transition-colors flex-1 text-center"
-              >
-                Manage Preferences
-              </button>
-              <button
-                onClick={rejectAll}
-                className="text-navy-400 hover:text-navy-300 text-xs font-medium px-4 py-2.5 rounded-lg transition-colors flex-1 text-center"
-              >
-                Reject All
-              </button>
             </div>
           </motion.div>
         )}
@@ -154,9 +176,7 @@ export function CookieConsent() {
                     <p className="font-dm-sans font-medium text-navy-100 text-sm mb-1">Essential Cookies</p>
                     <p className="font-dm-sans text-navy-400 text-xs">Required for the site to function. Cannot be disabled.</p>
                   </div>
-                  <div className="shrink-0 mt-0.5">
-                    <div className="w-10 h-5 bg-brand-red rounded-full opacity-60 cursor-not-allowed" />
-                  </div>
+                  <div className="shrink-0 mt-0.5 w-10 h-5 bg-brand-red rounded-full opacity-60 cursor-not-allowed" />
                 </div>
 
                 <div className="flex items-start justify-between gap-4 p-4 bg-navy-900 rounded-xl border border-navy-700">
@@ -174,7 +194,7 @@ export function CookieConsent() {
                 <div className="flex items-start justify-between gap-4 p-4 bg-navy-900 rounded-xl border border-navy-700">
                   <div>
                     <p className="font-dm-sans font-medium text-navy-100 text-sm mb-1">Marketing Cookies</p>
-                    <p className="font-dm-sans text-navy-400 text-xs">Used for targeted advertising (Meta Pixel).</p>
+                    <p className="font-dm-sans text-navy-400 text-xs">Used for targeted advertising (Meta Pixel, Google Ads).</p>
                   </div>
                   <button
                     onClick={() => setPrefs((p) => ({ ...p, marketing: !p.marketing }))}
@@ -195,9 +215,9 @@ export function CookieConsent() {
 
               <p className="font-dm-sans text-navy-500 text-xs text-center mt-4">
                 See our{" "}
-                <a href="/cookie-policy" className="text-navy-400 hover:text-navy-100 underline">Cookie Policy</a>{" "}
+                <Link href="/cookie-policy" className="text-navy-400 hover:text-navy-100 underline">Cookie Policy</Link>{" "}
                 and{" "}
-                <a href="/privacy-policy" className="text-navy-400 hover:text-navy-100 underline">Privacy Policy</a>.
+                <Link href="/privacy-policy" className="text-navy-400 hover:text-navy-100 underline">Privacy Policy</Link>.
               </p>
             </motion.div>
           </motion.div>

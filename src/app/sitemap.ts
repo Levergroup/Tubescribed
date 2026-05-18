@@ -56,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/roi-calculator', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
 
     // Compliance / legal
+    { url: 'https://www.tubescribed.com/disclaimer', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: 'https://www.tubescribed.com/privacy-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: 'https://www.tubescribed.com/terms-of-service', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: 'https://www.tubescribed.com/cookie-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },

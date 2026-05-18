@@ -295,6 +295,14 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Results disclaimer */}
+      <div className="text-center py-4 bg-navy-900">
+        <p style={{ fontSize: "12px", color: "#94A3B8" }}>
+          Results shown are illustrative examples. Individual results vary based on usage and content type.{" "}
+          <a href="/disclaimer" style={{ color: "#94A3B8", textDecoration: "underline" }}>See our full Disclaimer for details.</a>
+        </p>
+      </div>
+
       {/* FAQ */}
       <section className="py-24 bg-navy-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

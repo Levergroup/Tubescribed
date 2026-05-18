@@ -103,8 +103,9 @@ export const FOOTER_LINKS = {
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-of-service" },
     { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Refund Policy", href: "/refund-policy" },
+    { label: "Disclaimer", href: "/disclaimer" },
     { label: "GDPR", href: "/gdpr" },
     { label: "Acceptable Use", href: "/acceptable-use" },
-    { label: "Refund Policy", href: "/refund-policy" },
   ],
 };

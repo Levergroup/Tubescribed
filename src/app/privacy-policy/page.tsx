@@ -98,7 +98,21 @@ We may update this Privacy Policy from time to time. We will notify you of mater
 
 ---
 
-## 9. Contact Us
+## 9. Advertising and Tracking
+
+TubeScribed uses the following advertising and tracking technologies:
+
+**Google Analytics 4 (GA4):** We use GA4 to analyze website traffic and user behavior. Data is processed by Google Inc. You can opt out at [tools.google.com/dlpage/gaoptout](https://tools.google.com/dlpage/gaoptout).
+
+**Meta Pixel:** We may use the Meta Pixel to measure the effectiveness of our Facebook and Instagram advertising, build custom audiences, and retarget website visitors. Data is processed by Meta Platforms Inc. You can opt out of interest-based advertising at [www.youronlinechoices.eu](https://www.youronlinechoices.eu) or [www.aboutads.info/choices](https://www.aboutads.info/choices).
+
+**Google Ads:** We use Google Ads conversion tracking to measure ad performance. You can opt out at [myaccount.google.com/data-and-privacy](https://myaccount.google.com/data-and-privacy).
+
+You can control cookie preferences at any time using the cookie consent banner at the bottom of our website. Declining tracking cookies will prevent these technologies from collecting your data.
+
+---
+
+## 10. Contact Us
 
 For privacy-related questions or to exercise your rights:
 

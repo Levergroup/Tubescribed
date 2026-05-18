@@ -48,6 +48,12 @@ export default function HomePage() {
       <Features />
       <UseCaseTabs />
       <Testimonials />
+      <div className="text-center py-4 pb-2 bg-navy-800">
+        <p style={{ fontSize: "12px", color: "#94A3B8" }}>
+          Results shown are illustrative examples. Individual results vary based on usage and content type.{" "}
+          <a href="/disclaimer" style={{ color: "#94A3B8", textDecoration: "underline" }}>See our full Disclaimer for details.</a>
+        </p>
+      </div>
       <Pricing />
       <HomepageFAQ />
       <FinalCTA />

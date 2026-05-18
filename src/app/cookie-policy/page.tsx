@@ -23,6 +23,18 @@ Cookies are small text files stored on your device by your browser when you visi
 
 ---
 
+## All Cookies We Set
+
+| Cookie Name | Purpose | Duration | Type |
+|-------------|---------|----------|------|
+| ts_consent | Cookie consent preference | 365 days | Essential |
+| _ga | Google Analytics — distinguishes users | 2 years | Analytics |
+| _ga_XXXXXXXX | Google Analytics — session persistence | 2 years | Analytics |
+| _fbp | Meta Pixel — tracks visits across sites | 3 months | Marketing |
+| sb_session | Supabase auth session | Session | Essential |
+
+---
+
 ## Types of Cookies We Use
 
 ### Essential Cookies
@@ -30,23 +42,23 @@ These cookies are necessary for the site to function. They cannot be disabled.
 
 | Cookie | Purpose | Duration |
 |--------|---------|----------|
-| ts_session | Authentication and session management | Session |
-| ts_cookie_consent | Stores your cookie preferences | 1 year |
+| ts_consent | Stores your cookie consent preference | 365 days |
+| sb_session | Authentication and session management | Session |
 
 ### Analytics Cookies (Optional)
 These cookies help us understand how visitors use the site. We only activate these after you give consent.
 
 | Cookie | Provider | Purpose |
 |--------|----------|---------|
-| _ga, _ga_* | Google Analytics | Usage analytics, page views |
+| _ga | Google Analytics | Distinguishes users, page view tracking |
+| _ga_XXXXXXXX | Google Analytics | Session persistence |
 
 ### Marketing Cookies (Optional)
 These cookies are used for targeted advertising. We only activate these after you give consent.
 
 | Cookie | Provider | Purpose |
 |--------|----------|---------|
-| _fbp | Meta (Facebook) | Advertising attribution |
-| _fbc | Meta (Facebook) | Click tracking |
+| _fbp | Meta (Facebook) | Advertising attribution, visit tracking |
 
 ---
 
