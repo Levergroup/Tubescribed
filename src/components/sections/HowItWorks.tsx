@@ -10,8 +10,10 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-navy-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="relative overflow-hidden py-24 lg:py-32 bg-navy-900">
+      <div className="section-glow-tr" />
+      <div className="section-glow-bl" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">How It Works</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }} className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 text-center mb-16">Three steps. Seconds, not hours.</motion.h2>
         <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">

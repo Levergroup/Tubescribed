@@ -7,8 +7,10 @@ const iconMap: Record<string, React.ElementType> = { FileText, Layers, Clipboard
 
 export function Features() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-800">
+      <div className="section-glow-tr" />
+      <div className="section-glow-bl" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">What You Get</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }} className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 text-center mb-16">Every tool your content workflow needs</motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

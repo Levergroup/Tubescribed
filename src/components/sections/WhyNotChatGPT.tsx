@@ -44,8 +44,10 @@ const cards = [
 
 export function WhyNotChatGPT() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-800">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-800">
+      <div className="section-glow-mid-left" />
+      <div className="section-glow-tr" />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Part A — Pattern Interrupt Header */}
         <motion.div

@@ -39,8 +39,10 @@ function Stars({ count }: { count: number }) {
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-navy-800">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 bg-navy-800">
+      <div className="section-glow-tl" />
+      <div className="section-glow-mid-right" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

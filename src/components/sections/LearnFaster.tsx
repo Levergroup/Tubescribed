@@ -22,8 +22,10 @@ const bullets = [
 
 export function LearnFaster() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-900">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-900">
+      <div className="section-glow-tr" />
+      <div className="section-glow-bl" />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

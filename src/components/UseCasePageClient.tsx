@@ -53,8 +53,10 @@ export function UseCasePageClient({
 
   return (
     <div className="min-h-screen bg-navy-900">
-      <section className="py-24 lg:py-32 bg-navy-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-900">
+        <div className="section-glow-tr" />
+        <div className="section-glow-bl" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
             {category}
           </motion.p>
@@ -72,8 +74,10 @@ export function UseCasePageClient({
 
       <ContentOutputShowcase videoTitle={showcaseVideoTitle} />
 
-      <section className="py-24 bg-navy-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-24 bg-navy-800">
+        <div className="section-glow-mid-left" />
+        <div className="section-glow-tr" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-syne font-bold text-3xl text-navy-100 text-center mb-12">
             {painHeading}
           </motion.h2>
@@ -88,8 +92,10 @@ export function UseCasePageClient({
         </div>
       </section>
 
-      <section className="py-24 bg-navy-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-24 bg-navy-900">
+        <div className="section-glow-tl" />
+        <div className="section-glow-mid-right" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-navy-800 border border-navy-700 rounded-3xl p-10 lg:p-14 text-center">
             <div className="w-16 h-16 rounded-2xl bg-navy-900 border border-navy-700 flex items-center justify-center mx-auto mb-6">
               <Icon size={32} className="text-brand-red" />
@@ -102,8 +108,10 @@ export function UseCasePageClient({
         </div>
       </section>
 
-      <section className="py-24 bg-navy-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-24 bg-navy-800">
+        <div className="section-glow-bl" />
+        <div className="section-glow-mid-right" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">{outcomeHeading}</h2>
           </motion.div>

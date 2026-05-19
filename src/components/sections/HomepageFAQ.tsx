@@ -23,12 +23,14 @@ export function HomepageFAQ() {
   const schema = faqSchema(faqs);
 
   return (
-    <section className="py-24 bg-navy-900">
+    <section className="relative overflow-hidden py-24 bg-navy-900">
+      <div className="section-glow-tl" />
+      <div className="section-glow-mid-right" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

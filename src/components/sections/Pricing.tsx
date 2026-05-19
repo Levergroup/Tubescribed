@@ -6,8 +6,10 @@ import { PLANS, CREDIT_PACKS } from "@/lib/constants";
 
 export function Pricing() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-800">
+      <div className="section-glow-tl" />
+      <div className="section-glow-mid-right" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">Pricing</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }} className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 text-center mb-4">Simple pricing. Try free first.</motion.h2>
         <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="text-center text-navy-400 text-base font-dm-sans mb-8 max-w-lg mx-auto">One transcript saves 45+ minutes of manual work. TubeScribed pays for itself on day one.</motion.p>
@@ -32,7 +34,7 @@ export function Pricing() {
               </div>
               <ul className="space-y-3 mb-8 flex-1">{plan.features.map((feature) => (<li key={feature} className="flex items-center gap-3"><Check size={16} className="text-brand-red shrink-0" /><span className="font-dm-sans text-navy-100 text-sm">{feature}</span></li>))}</ul>
               <div className="mt-auto">
-                <motion.a href={plan.ctaHref} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className={`block w-full text-center font-semibold py-3 rounded-xl transition-all duration-200 ${plan.popular ? "btn-gradient text-white" : "border border-navy-700 text-navy-100 hover:bg-navy-800"}`}>{plan.cta}</motion.a>
+                <motion.a href={plan.ctaHref} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block w-full text-center font-semibold py-3 rounded-xl transition-all duration-200 btn-gradient text-white">{plan.cta}</motion.a>
                 <p className="text-center text-navy-400 text-xs mt-3">{plan.note}</p>
               </div>
             </motion.div>
