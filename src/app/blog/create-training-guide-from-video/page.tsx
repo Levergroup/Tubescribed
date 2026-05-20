@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = buildMetadata({
   title: "How to Create a Training Guide from a Video (The Fast Way)",
-  description: "Turn any video into a structured training guide in under an hour. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls. Try free.",
+  description: "Turn any video into a structured training guide in under 5 minutes. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls. Try free.",
   path: "/blog/create-training-guide-from-video",
 });
 
@@ -19,7 +19,7 @@ export default function BlogPost() {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "How to Create a Training Guide from a Video (The Fast Way)",
-            "description": "Turn any video into a structured training guide in under an hour. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls.",
+            "description": "Turn any video into a structured training guide in under 5 minutes. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls.",
             "author": { "@type": "Organization", "name": "TubeScribed", "url": "https://tubescribed.com" },
             "publisher": { "@type": "Organization", "name": "TubeScribed", "url": "https://tubescribed.com" },
             "datePublished": "2026-05-19",
@@ -45,7 +45,7 @@ export default function BlogPost() {
               {
                 "@type": "Question",
                 "name": "How long does it take to create a training guide from a video?",
-                "acceptedAnswer": { "@type": "Answer", "text": "With AI-assisted extraction, a 30-minute video produces a usable training guide in 30–60 minutes including review and screenshots. The manual method takes 3–6 hours for the same video." }
+                "acceptedAnswer": { "@type": "Answer", "text": "With TubeScribed, a 30-minute video produces a structured training guide draft in under 5 minutes. Add screenshots and a quick review pass and you’re done. The manual method takes 3–6 hours for the same video." }
               },
               {
                 "@type": "Question",
@@ -82,7 +82,7 @@ export default function BlogPost() {
               How to Create a Training Guide from a Video (The Fast Way)
             </h1>
             <p className="font-dm-sans text-navy-400 text-lg leading-relaxed">
-              Turn any video into a structured training guide in under an hour. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls.
+              Turn any video into a structured training guide in under 5 minutes. Works for YouTube tutorials, Loom walkthroughs, Zoom recordings, and onboarding calls.
             </p>
           </header>
 
@@ -222,7 +222,7 @@ export default function BlogPost() {
 
               <h3 className="font-syne font-semibold text-xl text-navy-100 mt-8 mb-3">Step 4 — Add screenshots</h3>
               <p>Screenshots are the one thing AI can&apos;t generate from a video. After reviewing the text, go back to the video and capture screenshots at each key step. Even 3–4 well-placed screenshots dramatically increase the usability of a training guide.</p>
-              <p className="mt-3 text-navy-400 italic">Time required: 30–60 minutes for a 30-minute video.</p>
+              <p className="mt-3 text-navy-400 italic">Time required: under 5 minutes for a 30-minute video with TubeScribed (plus screenshots).</p>
             </section>
 
             {/* Section 5 — Comparison */}
@@ -241,7 +241,7 @@ export default function BlogPost() {
                   </thead>
                   <tbody className="divide-y divide-navy-800">
                     {[
-                      ["Time per guide (30-min video)", "3–6 hours", "30–60 minutes"],
+                      ["Time per guide (30-min video)", "3–6 hours", "Under 5 minutes"],
                       ["Step accuracy", "High", "High with review"],
                       ["Decision points captured", "High (manual review)", "Medium (needs review)"],
                       ["Prerequisites identified", "High (manual review)", "Medium (needs review)"],
@@ -362,10 +362,10 @@ export default function BlogPost() {
                 If you have video content — recorded walkthroughs, onboarding calls, YouTube tutorials, Loom demos — you already have training documentation. The extraction step is the bottleneck.
               </p>
               <p className="mt-3">
-                The manual method works but takes 3–6 hours per video. The AI-assisted method compresses that to 30–60 minutes, with a review step to catch what the AI misses.
+                The manual method works but takes 3–6 hours per video. With TubeScribed, the AI-assisted method compresses that to under 5 minutes for the draft, with a quick review step to catch what the AI misses.
               </p>
               <p className="mt-3">
-                The fastest workflow: paste the video URL, select Training Guide as the output type, spend 20–30 minutes reviewing and adding screenshots, publish. A 30-minute video becomes a complete training guide in under an hour.
+                The fastest workflow: paste the video URL, select Training Guide as the output type, get the draft in under 5 minutes, add screenshots, publish. A 30-minute video becomes a complete training guide in under 30 minutes total.
               </p>
               <p className="mt-3">
                 If you have a library of existing videos — product walkthroughs, onboarding recordings, tutorial content — training guide extraction is one of the highest-ROI uses of that content. The documentation already exists. You just haven&apos;t extracted it yet.
