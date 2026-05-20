@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = buildMetadata({
   title: "How to Turn a YouTube Video into a Blog Post (Without Spending Hours on It)",
-  description: "Convert any YouTube video into a publish-ready blog post in under 90 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make. Try free.",
+  description: "Convert any YouTube video into a publish-ready blog post in under 5 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make. Try free.",
   path: "/blog/youtube-video-to-blog-post",
 });
 
@@ -19,7 +19,7 @@ export default function BlogPost() {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "How to Turn a YouTube Video into a Blog Post (Without Spending Hours on It)",
-            "description": "Convert any YouTube video into a publish-ready blog post in under 90 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make.",
+            "description": "Convert any YouTube video into a publish-ready blog post in under 5 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make.",
             "author": { "@type": "Organization", "name": "TubeScribed", "url": "https://tubescribed.com" },
             "publisher": { "@type": "Organization", "name": "TubeScribed", "url": "https://tubescribed.com" },
             "datePublished": "2026-05-19",
@@ -55,7 +55,7 @@ export default function BlogPost() {
               {
                 "@type": "Question",
                 "name": "How long does it take to convert a YouTube video to a blog post?",
-                "acceptedAnswer": { "@type": "Answer", "text": "With AI-assisted conversion, a 20-minute video produces a publish-ready blog post draft in 45–90 minutes including review and SEO optimization. The manual method takes 2–5 hours for the same video." }
+                "acceptedAnswer": { "@type": "Answer", "text": "With TubeScribed, a 20-minute video produces a publish-ready blog post draft in under 5 minutes. The manual method takes 2–5 hours for the same video." }
               },
               {
                 "@type": "Question",
@@ -82,7 +82,7 @@ export default function BlogPost() {
               How to Turn a YouTube Video into a Blog Post (Without Spending Hours on It)
             </h1>
             <p className="font-dm-sans text-navy-400 text-lg leading-relaxed">
-              Convert any YouTube video into a publish-ready blog post in under 90 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make.
+              Convert any YouTube video into a publish-ready blog post in under 5 minutes. Manual method vs. AI-assisted — plus the SEO mistakes most creators make.
             </p>
           </header>
 
@@ -235,7 +235,7 @@ export default function BlogPost() {
 
               <h3 className="font-syne font-semibold text-xl text-navy-100 mt-8 mb-3">Step 5 — Add visuals</h3>
               <p>Screenshots, diagrams, or an embedded version of your original YouTube video improve time-on-page and reduce bounce rate. At minimum, embed the original video — it gives readers the option to watch, and it counts as a view.</p>
-              <p className="mt-3 text-navy-400 italic">Time required: 45–90 minutes for a 20-minute video.</p>
+              <p className="mt-3 text-navy-400 italic">Time required: under 5 minutes for a 20-minute video with TubeScribed.</p>
             </section>
 
             {/* Section 5 — Comparison */}
@@ -254,7 +254,7 @@ export default function BlogPost() {
                   </thead>
                   <tbody className="divide-y divide-navy-800">
                     {[
-                      ["Time per post (20-min video)", "2–5 hours", "45–90 minutes"],
+                      ["Time per post (20-min video)", "2–5 hours", "Under 5 minutes"],
                       ["Voice and tone accuracy", "Very high", "Medium — needs editing"],
                       ["Structural quality", "Very high", "High with review"],
                       ["SEO optimization", "Manual", "Needs manual check"],
@@ -362,7 +362,7 @@ export default function BlogPost() {
                 Converting YouTube videos to blog posts is one of the most efficient content strategies available. You&apos;ve already done the research, recorded the content, and delivered the value on camera. The blog post is the same value, reformatted for a different audience and a different discovery channel.
               </p>
               <p className="mt-3">
-                The manual method takes 2–5 hours per video and produces the highest-quality output. The AI-assisted method takes 45–90 minutes and produces a strong first draft that needs editing. For most creators, the AI-assisted approach is the right default — it makes consistent publishing sustainable.
+                The manual method takes 2–5 hours per video and produces the highest-quality output. With TubeScribed, the AI-assisted method takes under 5 minutes and produces a strong first draft that needs a quick review pass. For most creators, the AI-assisted approach is the right default — it makes consistent publishing sustainable.
               </p>
               <p className="mt-3">
                 If you have a library of existing videos, start with your top 10 most-viewed. Convert those first. Each one is a proven topic that your audience already values — and now it can reach the audience that finds you through Google instead of YouTube.
