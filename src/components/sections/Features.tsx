@@ -1,9 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { FileText, Layers, ClipboardList, Grid3x3, Users, Wand2 } from "lucide-react";
+import { FileText, Layers, ClipboardList, Grid3x3, Users, Wand2, TrendingUp } from "lucide-react";
 import { FEATURES } from "@/lib/constants";
 
-const iconMap: Record<string, React.ElementType> = { FileText, Layers, ClipboardList, Grid3x3, Users, Wand2 };
+const iconMap: Record<string, React.ElementType> = { FileText, Layers, ClipboardList, Grid3x3, Users, Wand2, TrendingUp };
 
 export function Features() {
   return (

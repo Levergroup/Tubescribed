@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
-import { FileText, ClipboardList, Layers, Grid3x3, Wand2, ArrowRight } from "lucide-react";
+import { FileText, ClipboardList, Layers, Grid3x3, Wand2, TrendingUp, ArrowRight } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 
 export const metadata: Metadata = buildMetadata({
@@ -45,6 +45,13 @@ const features = [
     description: "15 content output types from every transcript: blog posts, emails, social captions, LinkedIn posts, newsletters, and more.",
     href: "/features/content-repurposing",
     tag: "Output",
+  },
+  {
+    icon: TrendingUp,
+    title: "Monthly Progress Reports",
+    description: "Every month: hours saved, content pieces created, and your growing library score — all calculated from your real usage and delivered to your inbox.",
+    href: "/features/progress-reports",
+    tag: "Reports",
   },
 ];
 

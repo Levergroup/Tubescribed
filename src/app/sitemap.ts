@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/features/ai-transcript-cleaner', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/features/content-repurposing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/features/youtube-transcription', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/features/progress-reports', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // For (use cases)
     { url: 'https://www.tubescribed.com/for/content-creators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

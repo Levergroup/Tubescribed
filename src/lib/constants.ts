@@ -25,11 +25,12 @@ export const FEATURES = [
   { icon: "Grid3x3", title: "15 Content Output Types", description: "Blog posts, email sequences, social captions, LinkedIn posts, YouTube descriptions, newsletters, training guides, and more." },
   { icon: "Users", title: "Unlimited Brand Profiles", description: "Agency plan: save every client as a separate brand profile. Every transcript comes out in their voice. One tool, every client." },
   { icon: "Wand2", title: "Claude AI Powered", description: "Powered by Anthropic's Claude — the same AI used by Fortune 500 companies. Not generic captions. Clean, structured, intelligent output." },
+  { icon: "TrendingUp", title: "Monthly Progress Reports", description: "Every month you get a personal report: hours saved, content pieces created, and your growing content library score — calculated from your real usage." },
 ];
 
 export const PLANS = [
-  { name: "Pro", price: "$19", period: "/month", subtitle: "Less than one hour of VA time. One transcript pays for the entire month.", popular: false, features: ["30 transcripts/month", "30 AI outputs/month", "3 brand workspaces", "Claude AI brand voice on every output", "Download as .txt instantly", "Email support"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Try free — 1 transcript, no credit card" },
-  { name: "Agency", price: "$49", period: "/month", subtitle: "You're billing clients hundreds per month. TubeScribed at $49 is a rounding error.", popular: true, features: ["100 transcripts/month", "100 AI outputs/month", "Unlimited brand workspaces", "5 team members", "Everything in Pro", "Priority support"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Try free — 1 transcript, no credit card" },
+  { name: "Pro", price: "$19", period: "/month", subtitle: "Less than one hour of VA time. One transcript pays for the entire month.", popular: false, features: ["30 transcripts/month", "30 AI outputs/month", "3 brand workspaces", "Claude AI brand voice on every output", "Download as .txt instantly", "Monthly progress report", "Email support"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Try free — 1 transcript, no credit card" },
+  { name: "Agency", price: "$49", period: "/month", subtitle: "You're billing clients hundreds per month. TubeScribed at $49 is a rounding error.", popular: true, features: ["100 transcripts/month", "100 AI outputs/month", "Unlimited brand workspaces", "5 team members", "Everything in Pro", "Monthly progress report", "Priority support"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Try free — 1 transcript, no credit card" },
 ];
 
 export const CREDIT_PACKS = [
