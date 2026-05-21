@@ -16,16 +16,16 @@ export function Hero() {
       <div className="hero-beam" />
       {/* Bottom fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 120, background: "linear-gradient(to bottom, transparent, #1E2A3A)" }} />
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 sm:px-8 py-28 sm:py-32 text-center">
+      <div className="relative z-10 w-full max-w-[900px] mx-auto px-6 sm:px-8 py-28 sm:py-32 text-center">
         <motion.div variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut" }} className="flex justify-center mb-6">
           <EyebrowBadge>✶ AI-Powered Content Repurposing</EyebrowBadge>
         </motion.div>
-        <motion.h1 variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }} className="font-syne font-bold text-[2.4rem] sm:text-5xl lg:text-7xl text-navy-100 leading-[1.1] mb-6">
+        <motion.h1 variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }} className="font-syne font-bold text-[2rem] sm:text-5xl lg:text-7xl text-navy-100 leading-[1.15] mb-6">
           Turn Any YouTube Video Into{" "}
           <br className="hidden sm:block" />
           <GradientText>A Branded Business Asset</GradientText>
         </motion.h1>
-        <motion.p variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="font-dm-sans text-lg sm:text-xl text-navy-400 max-w-2xl mx-auto leading-relaxed mb-10">
+        <motion.p variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="font-dm-sans text-base sm:text-xl text-navy-400 w-full max-w-2xl mx-auto leading-relaxed mb-10">
           Paste a YouTube link. Get a clean transcript, branded SOP, blog post, email sequence, and more — in seconds. No VA. No manual editing. Just done.
         </motion.p>
         <motion.div variants={fadeUp} initial="initial" animate="animate" transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
