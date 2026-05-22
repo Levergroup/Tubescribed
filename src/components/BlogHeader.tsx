@@ -15,11 +15,10 @@ export default function BlogHeader({ post }: { post: BlogPost }) {
         </h1>
         <p className="text-[#94A3B8] text-lg mb-8 max-w-3xl">{post.excerpt}</p>
         <div className="flex items-center gap-4 pt-6 border-t border-[#2D3F55]">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF3B30] to-[#FF8C42] flex items-center justify-center flex-shrink-0">
-            <svg width="22" height="22" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <path d="M6 4L32 18L6 32V4Z" fill="white" />
-              <path d="M4 20C8 18.5 14 17 22 18.5C18 18 12 19.5 8 21.5L4 20Z" fill="white" opacity="0.8" />
-              <path d="M8 15C13 13 20 13.5 28 16C22 14 15 14.5 10 16.5L8 15Z" fill="white" opacity="0.5" />
+          <div className="w-10 h-10 rounded-full bg-[#0D1829] flex items-center justify-center flex-shrink-0">
+            <svg width="26" height="26" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M8 4.5C5.5 4.5 5 6.5 5 8V28C5 30 5.5 31.5 8 31.5C9.5 31.5 10.5 31 32 19.5C33.5 18.8 34 18.4 34 18C34 17.6 33.5 17.2 32 16.5C10.5 5 9.5 4.5 8 4.5Z" fill="#FF3B30"/>
+              <path d="M5 21C8.5 19.5 15 18 23 19C28.5 19.7 31.5 19.3 34.5 18.7V20.5C31.5 21.1 28.5 21.5 23 20.8C15 19.8 8.5 21.3 5 22.8Z" fill="#0D1829"/>
             </svg>
           </div>
           <div>
