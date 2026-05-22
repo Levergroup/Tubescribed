@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { BlogPost } from '@/lib/mdx';
+import BlogThumbnail from '@/components/BlogThumbnail';
 
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
       <article className="h-full bg-[#243447] border border-[#2D3F55] rounded-xl overflow-hidden hover:border-[#FF3B30]/50 transition-all duration-200 hover:-translate-y-1">
         <div className="aspect-video bg-[#1E2A3A] relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FF3B30]/20 to-[#FF8C42]/10 flex items-center justify-center">
-            <span className="text-4xl opacity-50">▶</span>
-          </div>
+          <BlogThumbnail slug={post.slug} category={post.category} />
         </div>
         <div className="p-6">
           <div className="flex items-center gap-2 mb-3">
