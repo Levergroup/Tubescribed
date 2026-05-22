@@ -41,14 +41,12 @@ export const metadata: Metadata = {
     title: "TubeScribed — Turn YouTube Videos Into Branded Business Assets",
     description:
       "Paste a YouTube URL. Get a transcript, SOP, blog post, and more — in seconds.",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "TubeScribed" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TubeScribed — Turn YouTube Videos Into Branded Business Assets",
     description:
       "Paste a YouTube URL. Get a transcript, SOP, blog post, and more — in seconds.",
-    images: ["/og-default.png"],
   },
   robots: {
     index: true,

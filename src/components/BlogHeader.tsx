@@ -15,8 +15,12 @@ export default function BlogHeader({ post }: { post: BlogPost }) {
         </h1>
         <p className="text-[#94A3B8] text-lg mb-8 max-w-3xl">{post.excerpt}</p>
         <div className="flex items-center gap-4 pt-6 border-t border-[#2D3F55]">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF3B30] to-[#FF8C42] flex items-center justify-center text-white font-bold text-sm">
-            {post.author.charAt(0)}
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF3B30] to-[#FF8C42] flex items-center justify-center flex-shrink-0">
+            <svg width="22" height="22" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M6 4L32 18L6 32V4Z" fill="white" />
+              <path d="M4 20C8 18.5 14 17 22 18.5C18 18 12 19.5 8 21.5L4 20Z" fill="white" opacity="0.8" />
+              <path d="M8 15C13 13 20 13.5 28 16C22 14 15 14.5 10 16.5L8 15Z" fill="white" opacity="0.5" />
+            </svg>
           </div>
           <div>
             <p className="text-white text-sm font-medium">{post.author}</p>

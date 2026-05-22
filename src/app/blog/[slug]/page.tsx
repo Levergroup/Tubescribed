@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: post.meta_description,
         url: `https://www.tubescribed.com/blog/${params.slug}`,
         siteName: 'TubeScribed',
-        images: [{ url: post.featured_image, alt: post.featured_image_alt }],
         type: 'article',
         publishedTime: post.date,
         authors: [post.author],
@@ -41,7 +40,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         card: 'summary_large_image',
         title: post.title,
         description: post.meta_description,
-        images: [post.featured_image],
       },
     };
   } catch {

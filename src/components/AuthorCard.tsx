@@ -6,8 +6,12 @@ interface Props {
 export default function AuthorCard({ author, authorTitle }: Props) {
   return (
     <div className="mt-12 pt-8 border-t border-[#2D3F55] flex items-start gap-4">
-      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF3B30] to-[#FF8C42] flex items-center justify-center text-white font-bold flex-shrink-0">
-        {author.charAt(0)}
+      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF3B30] to-[#FF8C42] flex items-center justify-center flex-shrink-0">
+        <svg width="26" height="26" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <path d="M6 4L32 18L6 32V4Z" fill="white" />
+          <path d="M4 20C8 18.5 14 17 22 18.5C18 18 12 19.5 8 21.5L4 20Z" fill="white" opacity="0.8" />
+          <path d="M8 15C13 13 20 13.5 28 16C22 14 15 14.5 10 16.5L8 15Z" fill="white" opacity="0.5" />
+        </svg>
       </div>
       <div>
         <p className="text-white font-semibold">{author}</p>
