@@ -182,6 +182,50 @@ export default function PricingPage() {
             ))}
           </div>
 
+          {/* How Credits Work */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <div className="text-center mb-8">
+              <h2 className="font-syne font-bold text-2xl lg:text-3xl text-navy-100 mb-3">How Credits Work</h2>
+              <p className="font-syne font-bold text-lg text-navy-100 mb-2">One credit. One piece of content. Simple.</p>
+              <p className="font-dm-sans text-navy-400 text-sm max-w-xl mx-auto">Credits scale with video length so you only pay for what you actually process.</p>
+            </div>
+            <div className="overflow-x-auto rounded-2xl border border-navy-700 mb-6">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-[#243447] border-b border-[#2D3F55]">
+                    <th className="text-left px-6 py-4 font-syne font-semibold text-navy-100 text-sm">Video Length</th>
+                    <th className="text-center px-6 py-4 font-syne font-semibold text-[#FF3B30] text-sm">Credits Used</th>
+                    <th className="text-left px-6 py-4 font-syne font-semibold text-navy-100 text-sm">Best For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { length: "Under 15 minutes", credits: "1 credit", bestFor: "YouTube Shorts, quick tutorials" },
+                    { length: "15–30 minutes", credits: "2 credits", bestFor: "Podcast clips, interviews" },
+                    { length: "30–60 minutes", credits: "3 credits", bestFor: "Full podcast episodes, webinars" },
+                    { length: "60–90 minutes", credits: "4 credits", bestFor: "Long-form content, courses" },
+                  ].map((row, i) => (
+                    <tr key={row.length} className={`border-b border-[#2D3F55] last:border-0 ${i % 2 === 0 ? "bg-[#1E2A3A]" : "bg-[#243447]/50"}`}>
+                      <td className="px-6 py-4 font-dm-sans text-navy-100 text-sm">{row.length}</td>
+                      <td className="px-6 py-4 font-dm-sans text-center font-semibold text-[#FF8C42] text-sm">{row.credits}</td>
+                      <td className="px-6 py-4 font-dm-sans text-[#94A3B8] text-sm">{row.bestFor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-center font-dm-sans text-navy-400 text-sm">
+              Credits never expire. Use them for transcripts or outputs — whichever you need more of.{" "}
+              <span className="text-navy-100">Failed processing never costs credits.</span>
+            </p>
+          </motion.div>
+
           {/* Credit Packs */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -205,7 +249,8 @@ export default function PricingPage() {
                   className="bg-navy-800 border border-navy-700 rounded-2xl p-6 flex flex-col items-center text-center hover:border-brand-red transition-colors duration-300"
                 >
                   <p className="font-syne font-bold text-navy-100 text-base mb-1">{pack.name}</p>
-                  <p className="font-dm-sans text-navy-400 text-sm mb-3">{pack.credits} credits</p>
+                  <p className="font-dm-sans text-navy-400 text-sm mb-1">{pack.credits} credits</p>
+                  <p className="font-dm-sans text-navy-400 text-xs mb-3 leading-relaxed">{pack.description}</p>
                   <p className="font-syne font-bold text-3xl text-navy-100 mb-5">{pack.price}</p>
                   <motion.a
                     href={pack.ctaHref}
@@ -218,6 +263,9 @@ export default function PricingPage() {
                 </motion.div>
               ))}
             </div>
+            <p className="text-center font-dm-sans text-navy-400 text-sm mt-6">
+              Credits are shared between transcripts and outputs. Use them however works best for your workflow.
+            </p>
           </motion.div>
 
           {/* Feature Comparison Table */}

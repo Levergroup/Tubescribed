@@ -51,7 +51,8 @@ export function Pricing() {
             {CREDIT_PACKS.map((pack, i) => (
               <motion.div key={pack.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.25 + i * 0.07 }} className="bg-navy-900 border border-navy-700 rounded-2xl p-5 flex flex-col items-center text-center hover:border-brand-red transition-colors duration-300">
                 <p className="font-syne font-bold text-navy-100 text-base mb-1">{pack.name}</p>
-                <p className="font-dm-sans text-navy-400 text-sm mb-3">{pack.credits} credits</p>
+                <p className="font-dm-sans text-navy-400 text-sm mb-1">{pack.credits} credits</p>
+                <p className="font-dm-sans text-navy-400 text-xs mb-3 leading-relaxed">{pack.description}</p>
                 <p className="font-syne font-bold text-2xl text-navy-100 mb-4">{pack.price}</p>
                 <motion.a href={pack.ctaHref} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full text-center border border-navy-700 text-navy-100 hover:bg-navy-800 font-semibold text-sm py-2 rounded-xl transition-all duration-200">Buy Credits</motion.a>
               </motion.div>

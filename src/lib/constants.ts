@@ -19,7 +19,7 @@ export const METRICS = [
 ];
 
 export const FEATURES = [
-  { icon: "FileText", title: "YouTube URL → Clean Transcript", description: "Paste any YouTube link and get a publication-ready transcript in seconds. No uploading, no downloading, no waiting." },
+  { icon: "FileText", title: "YouTube URL → Clean Transcript", description: "Paste any public YouTube link and get a clean transcript in seconds. Supports videos up to 90 minutes. Credit usage scales with video length — always shown before processing." },
   { icon: "Layers", title: "Brand Workspace Profiles", description: "Save your brand voice, tone, and guidelines once. Every output TubeScribed generates sounds exactly like you — automatically." },
   { icon: "ClipboardList", title: "Branded SOP Generator", description: "Turn any video into a ready-to-use Standard Operating Procedure. Document your methodology. Build your system." },
   { icon: "Grid3x3", title: "15 Content Output Types", description: "Blog posts, email sequences, social captions, LinkedIn posts, YouTube descriptions, newsletters, training guides, and more." },
@@ -29,19 +29,22 @@ export const FEATURES = [
 ];
 
 export const PLANS = [
-  { name: "Pro", price: "$19", period: "/month", subtitle: "Less than one hour of VA time. One transcript pays for the entire month.", popular: false, features: ["30 transcripts/month", "30 AI outputs/month", "3 brand workspaces", "Claude AI brand voice on every output", "Download as .txt instantly", "Monthly progress report", "Email support"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Try free — 1 transcript, no credit card" },
-  { name: "Agency", price: "$49", period: "/month", subtitle: "You're billing clients hundreds per month. TubeScribed at $49 is a rounding error.", popular: true, features: ["100 transcripts/month", "100 AI outputs/month", "Unlimited brand workspaces", "5 team members", "Everything in Pro", "Monthly progress report", "Priority support"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Try free — 1 transcript, no credit card" },
+  { name: "Pro", price: "$19", period: "/month", subtitle: "Less than one hour of VA time. One transcript pays for the entire month.", popular: false, features: ["30 transcripts/month", "30 AI outputs/month", "3 brand workspaces", "Claude AI brand voice on every output", "Download as .txt instantly", "Monthly progress report", "Email support", "Videos up to 90 minutes", "Credits scale with video length"], cta: "Start Pro", ctaHref: `https://app.tubescribed.com/signup?plan=pro`, note: "Try free — 1 transcript, no credit card" },
+  { name: "Agency", price: "$49", period: "/month", subtitle: "You're billing clients hundreds per month. TubeScribed at $49 is a rounding error.", popular: true, features: ["100 transcripts/month", "100 AI outputs/month", "Unlimited brand workspaces", "5 team members", "Everything in Pro", "Monthly progress report", "Priority support", "Videos up to 90 minutes", "Credits scale with video length", "Best value for longer content"], cta: "Start Agency", ctaHref: `https://app.tubescribed.com/signup?plan=agency`, note: "Try free — 1 transcript, no credit card" },
 ];
 
 export const CREDIT_PACKS = [
-  { name: "Starter", credits: 10, price: "$8", ctaHref: `https://app.tubescribed.com/signup` },
-  { name: "Growth", credits: 25, price: "$18", ctaHref: `https://app.tubescribed.com/signup` },
-  { name: "Pro Pack", credits: 50, price: "$32", ctaHref: `https://app.tubescribed.com/signup` },
+  { name: "Starter", credits: 10, price: "$8", description: "Perfect for trying things out — covers 10 short videos or 2–3 long ones", ctaHref: `https://app.tubescribed.com/signup` },
+  { name: "Growth", credits: 25, price: "$18", description: "Best value for regular use — covers 25 short videos or 6–8 long ones", ctaHref: `https://app.tubescribed.com/signup` },
+  { name: "Pro Pack", credits: 50, price: "$32", description: "Power-user bundle — covers 50 short videos or 12–16 long ones", ctaHref: `https://app.tubescribed.com/signup` },
 ];
 
 export const PRICING_FAQ = [
   { q: "How does the free run work?", a: "New users get 1 free transcript and 1 free AI output — no credit card needed. After that, Pro is $19/month and Agency is $49/month. Credit packs are available for extra usage and never expire." },
-  { q: "What counts as one transcript?", a: "One YouTube video = one transcript credit. There's no limit on video length." },
+  { q: "How do credits work with longer videos?", a: "TubeScribed uses a credit multiplier for longer videos — videos under 15 minutes use 1 credit, 15–30 minutes use 2 credits, 30–60 minutes use 3 credits, and 60–90 minutes use 4 credits. You'll always see exactly how many credits a video will use before you confirm processing. Credits are only deducted after successful completion — failed processing never costs you credits." },
+  { q: "What happens if I run out of credits mid-month?", a: "Your monthly transcript and output allowance resets every billing cycle. If you need more before your reset date, grab a credit pack — Starter (10 credits/$8), Growth (25 credits/$18), or Pro Pack (50 credits/$32). Credits never expire so they carry over indefinitely." },
+  { q: "What is the maximum video length TubeScribed supports?", a: "TubeScribed supports videos up to 90 minutes in length. Videos over 90 minutes cannot be processed due to audio file size limits. For longer content we recommend processing individual chapters or segments separately." },
+  { q: "What counts as one transcript?", a: "One YouTube video = one transcript credit, adjusted for length. Videos under 15 minutes use 1 credit; longer videos use 2–4 credits depending on length. You'll always see the exact credit cost before confirming." },
   { q: "Can I change plans anytime?", a: "Yes. Upgrade, downgrade, or cancel anytime — no lock-in." },
   { q: "Will the AI sound like me?", a: "That's exactly what Brand Workspace is for. Set up your voice and tone once — every output matches automatically." },
   { q: "What's the difference between Pro and Agency?", a: "Agency gives you unlimited brand workspaces, 5 team members, and higher volume — built for teams managing multiple clients. Pro is built for solo creators and coaches. Both start with a free run, no credit card needed." },

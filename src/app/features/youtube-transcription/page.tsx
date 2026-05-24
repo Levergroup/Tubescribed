@@ -18,7 +18,7 @@ const benefits = [
   "8 seconds from URL to transcript",
   "No video upload required — paste the URL and go",
   "Accurate on accents, technical terminology, and fast speech",
-  "Works with videos up to ~30 minutes",
+  "Works with videos up to 90 minutes",
 ];
 
 export default function YouTubeTranscriptionFeaturePage() {
@@ -37,6 +37,24 @@ export default function YouTubeTranscriptionFeaturePage() {
             Paste any YouTube URL. Get a clean, accurate transcript powered by OpenAI Whisper — not YouTube&apos;s error-filled auto-captions. No uploading. No downloading. No waiting.
           </p>
           <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
+
+          <div className="mt-10 bg-[#243447] border-l-4 border-[#FF3B30] rounded-r-xl p-6 max-w-2xl">
+            <p className="font-syne font-semibold text-navy-100 text-sm mb-4">⏱ Processing times by video length</p>
+            <ul className="space-y-2">
+              {[
+                { range: "Under 10 min", time: "~15 seconds" },
+                { range: "10–20 min", time: "~30 seconds" },
+                { range: "20–30 min", time: "~60 seconds" },
+                { range: "30–60 min", time: "~90 seconds" },
+                { range: "60–90 min", time: "~2 minutes" },
+              ].map(({ range, time }) => (
+                <li key={range} className="flex items-center justify-between text-sm">
+                  <span className="text-[#94A3B8] font-dm-sans">{range}</span>
+                  <span className="text-navy-100 font-dm-sans font-medium">{time}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
