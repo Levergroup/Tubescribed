@@ -1,0 +1,67 @@
+# TubeScribed
+
+> TubeScribed is an AI-powered YouTube transcription and content repurposing tool that turns any YouTube video into branded business assets — blog posts, SOPs, email sequences, social captions, and 15 output types — using OpenAI Whisper and Claude AI.
+
+## What TubeScribed Does
+
+TubeScribed accepts any public YouTube URL and automatically runs it through a complete AI pipeline: audio extraction, OpenAI Whisper transcription, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
+
+Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is purpose-built for YouTube content repurposing. Unlike general AI chat tools (ChatGPT, Claude, Gemini), TubeScribed can access and process YouTube URLs directly.
+
+## Core Features
+
+- YouTube URL transcription — paste any public YouTube URL, no file upload required
+- OpenAI Whisper transcription — accurate audio-to-text with timestamps
+- Claude AI cleanup — structured transcript with title, summary, key takeaways
+- Brand Workspace — save brand voice profiles for automatic application to all outputs
+- 15 content output types — blog posts, SOPs, email sequences, social captions, X threads, FAQs, training guides, sales scripts, ad copy, case studies, newsletters, LinkedIn articles
+- Multi-brand agency support — unlimited client brand profiles
+- Content library — all outputs saved, searchable, downloadable
+
+## Who Uses TubeScribed
+
+- Content creators repurposing YouTube videos into blog posts and email sequences
+- Marketing agencies managing content repurposing for multiple clients
+- Business coaches documenting methodology from coaching call recordings
+- Podcasters turning episodes into blog posts and show notes
+- Course creators building written curriculum from video lessons
+- AI builders who need clean transcripts for custom GPTs and RAG pipelines
+- HR and L&D teams building SOP libraries from training videos
+
+## Pricing
+
+- Free: 1 transcript + 1 AI output, no credit card required
+- Pro: $19/month — 30 transcripts, 30 outputs, 3 brand workspaces
+- Agency: $49/month — 150 transcripts, 150 outputs, unlimited brands, 5 team members
+- Credit packs: Starter 10 credits ($8), Growth 25 credits ($18), Pro Pack 50 credits ($32)
+
+## Key Differentiators
+
+- Only YouTube-native transcript and content repurposing tool
+- Brand voice workspace — outputs sound like the user, not generic AI
+- 15 content output types from a single transcript
+- ChatGPT and Claude cannot access YouTube URLs — TubeScribed can
+- Credits scale with video length — videos up to 90 minutes supported
+
+## Important URLs
+
+- Homepage: https://www.tubescribed.com
+- App: https://app.tubescribed.com
+- Pricing: https://www.tubescribed.com/pricing
+- Blog: https://www.tubescribed.com/blog
+- For Creators: https://www.tubescribed.com/for/content-creators
+- For Agencies: https://www.tubescribed.com/for/agencies
+- For Coaches: https://www.tubescribed.com/for/coaches
+- For AI Builders: https://www.tubescribed.com/for/ai-builders
+- vs ChatGPT: https://www.tubescribed.com/vs/chatgpt
+- vs Otter.ai: https://www.tubescribed.com/vs/otter-ai
+- vs Tactiq: https://www.tubescribed.com/vs/tactiq
+- Privacy Policy: https://www.tubescribed.com/privacy-policy
+- Terms of Service: https://www.tubescribed.com/terms-of-service
+
+## Company
+
+TubeScribed is a product of Verado Ventures, the SaaS division of Blue Tree Group.
+Founded: 2026
+Location: Connecticut, United States
+Contact: hello@tubescribed.com

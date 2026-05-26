@@ -59,6 +59,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  other: {
+    "ai-content-declaration": "https://www.tubescribed.com/llms.txt",
+  },
 };
 
 export default function RootLayout({
@@ -68,6 +71,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+      <head>
+        <link rel="llms" href="https://www.tubescribed.com/llms.txt" />
+        <link rel="llms-full" href="https://www.tubescribed.com/llms-full.txt" />
+      </head>
       <body className="bg-navy-900 text-navy-100 font-dm-sans antialiased">
         <noscript>
           <iframe
