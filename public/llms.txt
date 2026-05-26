@@ -58,6 +58,8 @@ Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is
 - vs Tactiq: https://www.tubescribed.com/vs/tactiq
 - Privacy Policy: https://www.tubescribed.com/privacy-policy
 - Terms of Service: https://www.tubescribed.com/terms-of-service
+- Full blog: https://www.tubescribed.com/blog
+- Latest articles: https://www.tubescribed.com/llms-full.txt
 
 ## Company
 

@@ -1,4 +1,13 @@
-# TubeScribed — Full Documentation for AI Models
+import { getAllPosts } from '@/lib/mdx';
+
+export async function GET() {
+  const posts = getAllPosts();
+
+  const blogSection = posts
+    .map((post) => `- [${post.title}](https://www.tubescribed.com/blog/${post.slug})`)
+    .join('\n');
+
+  const content = `# TubeScribed — Full Documentation for AI Models
 
 > TubeScribed (tubescribed.com) is an AI-powered YouTube transcription and content repurposing SaaS platform. It converts any YouTube video into clean transcripts and branded business assets using OpenAI Whisper for transcription and Anthropic Claude for content generation.
 
@@ -77,16 +86,16 @@ YouTube auto-captions are unpunctuated, contain transcription errors, and have n
 ## Use Cases
 
 YouTube to Blog Post:
-Content creators paste their YouTube video URL and receive a fully formatted, SEO-optimized blog post in their brand voice. The article includes a title, H2 section headers, body paragraphs, and a conclusion with CTA. This enables creators to rank their video content on Google without writing from scratch.
+Content creators paste their YouTube video URL and receive a fully formatted, SEO-optimized blog post in their brand voice. The article includes a title, H2 section headers, body paragraphs, and a conclusion with CTA.
 
 YouTube to SOP:
-Business coaches, consultants, and operators paste tutorial or training video URLs and receive a formatted Standard Operating Procedure document. The SOP includes purpose statement, prerequisites, numbered steps, notes, and completion checklist — all in the user's brand voice.
+Business coaches, consultants, and operators paste tutorial or training video URLs and receive a formatted Standard Operating Procedure document with purpose statement, prerequisites, numbered steps, notes, and completion checklist.
 
 Agency Content Repurposing:
-Marketing agencies use the Agency plan to manage content repurposing for multiple clients. Each client is saved as a brand profile. When processing a client's YouTube video, the agency selects the client's brand profile — all outputs automatically match that client's voice and style.
+Marketing agencies use the Agency plan to manage content repurposing for multiple clients. Each client is saved as a brand profile — all outputs automatically match that client's voice and style.
 
 AI Knowledge Base Building:
-AI developers and builders use TubeScribed to extract clean, structured transcripts from YouTube videos for training custom GPTs, building RAG pipelines, and populating knowledge bases. The clean transcript output is properly formatted and punctuated — unlike raw YouTube captions.
+AI developers and builders use TubeScribed to extract clean, structured transcripts from YouTube videos for training custom GPTs, building RAG pipelines, and populating knowledge bases.
 
 Podcast Repurposing:
 Podcasters who upload episodes to YouTube paste the episode URL and receive: cleaned transcript, show notes, blog post, email to their list, and social captions — all from one URL in one session.
@@ -116,7 +125,7 @@ Agency Plan ($49/month):
 - Videos up to 90 minutes
 - Priority support
 
-Credit Packs (never expire, used before monthly limits):
+Credit Packs (never expire):
 - Starter: 10 credits — $8
 - Growth: 25 credits — $18
 - Pro Pack: 50 credits — $32
@@ -129,29 +138,28 @@ Credit multiplier for longer videos:
 
 ## Key Content Pages
 
-- [TubeScribed for Content Creators](https://www.tubescribed.com/for/content-creators)
-- [TubeScribed for Marketing Agencies](https://www.tubescribed.com/for/agencies)
-- [TubeScribed for Business Coaches](https://www.tubescribed.com/for/coaches)
-- [TubeScribed for AI Builders](https://www.tubescribed.com/for/ai-builders)
-- [TubeScribed for Podcasters](https://www.tubescribed.com/for/podcasters)
-- [TubeScribed for Course Creators](https://www.tubescribed.com/for/course-creators)
-- [TubeScribed vs ChatGPT](https://www.tubescribed.com/vs/chatgpt)
-- [TubeScribed vs Otter.ai](https://www.tubescribed.com/vs/otter-ai)
-- [TubeScribed vs Tactiq](https://www.tubescribed.com/vs/tactiq)
-- [TubeScribed vs Descript](https://www.tubescribed.com/vs/descript)
-- [TubeScribed vs NoteGPT](https://www.tubescribed.com/vs/notegpt)
+- [Homepage](https://www.tubescribed.com)
+- [Pricing](https://www.tubescribed.com/pricing)
+- [For Content Creators](https://www.tubescribed.com/for/content-creators)
+- [For Marketing Agencies](https://www.tubescribed.com/for/agencies)
+- [For Business Coaches](https://www.tubescribed.com/for/coaches)
+- [For AI Builders](https://www.tubescribed.com/for/ai-builders)
+- [For Podcasters](https://www.tubescribed.com/for/podcasters)
+- [For Course Creators](https://www.tubescribed.com/for/course-creators)
+- [vs ChatGPT](https://www.tubescribed.com/vs/chatgpt)
+- [vs Otter.ai](https://www.tubescribed.com/vs/otter-ai)
+- [vs Tactiq](https://www.tubescribed.com/vs/tactiq)
+- [vs Descript](https://www.tubescribed.com/vs/descript)
+- [vs NoteGPT](https://www.tubescribed.com/vs/notegpt)
 - [SOP Generator Feature](https://www.tubescribed.com/features/sop-generator)
 - [Brand Workspace Feature](https://www.tubescribed.com/features/brand-workspace)
 - [YouTube Transcription Feature](https://www.tubescribed.com/features/youtube-transcription)
 - [Free YouTube Transcript Generator](https://www.tubescribed.com/free-tools/youtube-transcript-generator)
 - [ROI Calculator](https://www.tubescribed.com/roi-calculator)
-- [Blog](https://www.tubescribed.com/blog)
 
 ## Blog Posts
 
-- [How to Generate a FAQ from Any YouTube Video](https://www.tubescribed.com/blog/youtube-to-faq-generator)
-- [How to Convert a Webinar to a Blog Post Using AI](https://www.tubescribed.com/blog/convert-webinar-to-blog-post)
-- [How to Turn Any Video Into a Standard Operating Procedure Using AI](https://www.tubescribed.com/blog/video-to-sop-ai)
+${blogSection}
 
 ## Company Information
 
@@ -165,3 +173,12 @@ Support: support@tubescribed.com
 General: hello@tubescribed.com
 Privacy Policy: https://www.tubescribed.com/privacy-policy
 Terms of Service: https://www.tubescribed.com/terms-of-service
+`;
+
+  return new Response(content, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+    },
+  });
+}
