@@ -66,5 +66,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/refund-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
 
     ...blogRoutes,
+
+    // AI/LLM discovery files
+    { url: 'https://www.tubescribed.com/llms.txt', lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.5 },
+    { url: 'https://www.tubescribed.com/llms-full.txt', lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.5 },
   ];
 }
