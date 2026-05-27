@@ -9,6 +9,7 @@ import TableOfContents from '@/components/TableOfContents';
 import RelatedPosts from '@/components/RelatedPosts';
 import AuthorCard from '@/components/AuthorCard';
 import FAQSection from '@/components/FAQSection';
+import NextStepsBlockComponent from '@/components/NextStepsBlock';
 
 interface Props {
   params: { slug: string };
@@ -49,6 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 type NodeProps = { children?: React.ReactNode };
 type AnchorProps = { href?: string; children?: React.ReactNode };
+type ImgProps = { src?: string; alt?: string };
 
 const components = {
   h2: ({ children }: NodeProps) => (
@@ -104,7 +106,23 @@ const components = {
     </pre>
   ),
   hr: () => <hr className="border-[#2D3F55] my-8" />,
+  img: ({ src, alt }: ImgProps) => (
+    <figure className="my-8">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full rounded-xl border border-[#2D3F55]"
+        loading="lazy"
+        width={1200}
+        height={630}
+      />
+      {alt && (
+        <figcaption className="text-center text-[#94A3B8] text-sm mt-2">{alt}</figcaption>
+      )}
+    </figure>
+  ),
   BlogCTA: ({ variant }: { variant?: 'default' | 'final' }) => <BlogCTA variant={variant} />,
+  NextStepsBlock: NextStepsBlockComponent,
 };
 
 export default function BlogPostPage({ params }: Props) {
