@@ -1,43 +1,62 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
-import { UseCasePageClient } from "@/components/UseCasePageClient";
+import { AvatarLandingPage } from "@/components/AvatarLandingPage";
 
 export const metadata: Metadata = buildMetadata({
-  title: "TubeScribed for YouTube Creators — Repurpose Every Video Automatically",
-  description: "Turn every YouTube video into a blog post, email, SOP, and social content automatically. TubeScribed repurposes your content in 8 seconds, in your brand voice.",
+  title: "TubeScribed for YouTube Creators — Turn Every Video Into a Blog Post Automatically",
+  description:
+    "Every YouTube video you make is also a blog post, email, and week of social content. TubeScribed extracts it all automatically — in your brand voice — in under 2 minutes.",
   path: "/for/content-creators",
 });
 
-const data = {
-  category: "For YouTube Creators",
-  headline: "You're Already Creating the Content.",
-  headlineGradient: "Start Using It.",
-  subheadline: "Every video you post is a blog post, email, and SOP waiting to happen. TubeScribed unlocks all of it in 8 seconds — in your brand voice.",
-  painHeading: "Sound familiar?",
-  painPoints: [
-    "I post 3 videos a week but my blog has one post from 6 months ago",
-    "My best content is buried in a YouTube video nobody will watch twice",
-    "I spent 4 hours this week manually turning a video into a blog post",
-    "I know I should repurpose content but I never have time",
-  ],
-  featureCallout: {
-    icon: "Grid3x3" as const,
-    heading: "15 content formats from every video",
-    body: "Blog posts, email sequences, social captions, LinkedIn posts, YouTube descriptions, newsletters, SOPs, training guides — all generated from one URL paste. In your brand voice. In seconds.",
-    subBody: "Set up your Brand Workspace once with your tone, audience, and style. Every output TubeScribed generates matches automatically — no prompting, no editing.",
-    note: "Marcus is a 32-year-old YouTube creator and course builder. Here's what changed.",
-  },
-  outcomeHeading: "With TubeScribed, publish 3x more without making more videos",
-  outcomes: [
-    "Every video becomes a blog post, email, and SOP — automatically",
-    "Your YouTube content works across every platform and channel",
-    "8 seconds per transcript instead of 4 hours of manual editing",
-    "Your brand voice stays consistent across every output, every time",
-  ],
-  ctaHref: "https://app.tubescribed.com/signup",
-  showcaseVideoTitle: "How I Built a $50K/Year Content Business from YouTube",
-};
-
 export default function ForContentCreatorsPage() {
-  return <UseCasePageClient {...data} />;
+  return (
+    <AvatarLandingPage
+      category="For YouTube Creators"
+      heroHeadline="Every YouTube Video You Make Is Also a Blog Post."
+      heroHeadlineGradient="You Just Haven't Extracted It Yet."
+      heroSub="TubeScribed turns any YouTube URL into a publication-ready blog post, email sequence, and social content — in your brand voice — in under 2 minutes."
+      socialProof="Used by 500+ YouTube creators to repurpose video content automatically"
+      ctaHref="https://app.tubescribed.com/signup"
+      problems={[
+        "Your videos are invisible on Google — creators who also publish blog posts get 3x more total reach from the same video.",
+        "Manual repurposing takes 3–4 hours per video — you're either skipping it entirely or burning out trying to keep up.",
+        "ChatGPT can't access your YouTube videos — you'd still have to copy captions, clean them, prompt the AI, and reformat everything manually.",
+      ]}
+      showcaseVideoTitle="How I Built a $50K/Year Content Business from YouTube"
+      benefits={[
+        "Publish 3x more content without creating anything new",
+        "Every video becomes 15 content assets automatically",
+        "Brand voice stays consistent across every output",
+        "Your YouTube library becomes an SEO content machine",
+        "No VA, no manual editing, no extra hours",
+        "First transcript free — see the magic before spending a cent",
+      ]}
+      testimonial={{
+        quote:
+          "I used to spend 3–4 hours every week turning YouTube content into blog posts and emails. TubeScribed does it in seconds. I honestly can't believe I waited this long.",
+        name: "Marcus T.",
+        role: "YouTube Creator & Course Builder",
+      }}
+      faqs={[
+        {
+          q: "Will the blog post sound like me or generic AI?",
+          a: "Set up your Brand Workspace with your writing style, tone, audience, and a few examples of your voice — and every output will sound like you wrote it. Without a Brand Workspace, you'll get a clean professional draft that needs light editing (most creators spend 5–10 minutes personalizing it). Your first run is free so you can test this before spending anything.",
+        },
+        {
+          q: "What types of YouTube videos work best?",
+          a: "Tutorial videos, educational walkthroughs, 'how I did X' content, and topic explainers produce the strongest outputs. Videos with clear structure and distinct points convert best. Long-form conversational content still transcribes accurately but may need a bit more editing on the output side. Current processing limit is approximately 25–30 minutes per video.",
+        },
+        {
+          q: "How long does it take to process a 30-minute video?",
+          a: "About 60–90 seconds. TubeScribed extracts the audio, runs it through OpenAI Whisper for transcription, then Claude AI cleans and structures the output — removing filler words, adding punctuation, and formatting it into sections with timestamps. From paste to ready transcript, it's typically under 2 minutes.",
+        },
+        {
+          q: "Can I edit the output before publishing?",
+          a: "Yes — every output is fully editable text. Most creators make light edits in under 10 minutes: adding a personal anecdote, inserting internal links, or tweaking a sentence to sound more natural. The heavy lifting — structure, voice matching, formatting — is already done for you.",
+        },
+      ]}
+      finalCtaLine="Your next video is already a blog post, email, and week of social content. You just haven't clicked yet."
+    />
+  );
 }
