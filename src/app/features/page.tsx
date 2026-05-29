@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
-import { FileText, ClipboardList, Layers, Grid3x3, Wand2, TrendingUp, ArrowRight } from "lucide-react";
+import {
+  FileText, ClipboardList, Layers, Grid3x3, Wand2, TrendingUp, ArrowRight,
+  Target, LayoutGrid, BarChart2, RefreshCw, CheckCircle, XCircle,
+} from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 
 export const metadata: Metadata = buildMetadata({
@@ -55,23 +58,94 @@ const features = [
   },
 ];
 
+const trustSignals = [
+  { icon: Target, label: "Co-built with working marketers" },
+  { icon: TrendingUp, label: "Every output optimized for conversions" },
+  { icon: LayoutGrid, label: "15 content formats from one URL" },
+  { icon: BarChart2, label: "Prompts updated quarterly" },
+];
+
+const promptCards = [
+  {
+    label: "What Others Do",
+    sublabel: "Generic ChatGPT Wrapper",
+    bg: "#2A1A1A",
+    border: "#7F1D1D",
+    icon: XCircle,
+    iconColor: "#EF4444",
+    points: [
+      "Paste transcript, get generic output",
+      "Same results as anyone else using the same tool",
+      "No brand context, no marketing logic",
+      "You spend hours editing to make it usable",
+    ],
+  },
+  {
+    label: "What Most 'AI Tools' Do",
+    sublabel: "Template-Level Prompting",
+    bg: "#1A2A1A",
+    border: "#166534",
+    icon: XCircle,
+    iconColor: "#86EFAC",
+    points: [
+      "Pre-built prompts that format content",
+      "Not written by actual marketers",
+      "Can't adapt to your brand voice",
+      "Output looks the same for every user",
+    ],
+  },
+  {
+    label: "What TubeScribed Does",
+    sublabel: "Proprietary Prompt Engineering",
+    bg: "#243447",
+    border: "#FF3B30",
+    icon: CheckCircle,
+    iconColor: "#FF3B30",
+    points: [
+      "Every prompt co-built with marketing professionals",
+      "Optimized for the specific output type",
+      "Automatically matched to your brand voice",
+      "Updated quarterly with new techniques",
+    ],
+  },
+];
+
 export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-navy-900">
+      {/* Hero */}
       <section className="py-24 lg:py-32 bg-navy-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">Features</p>
           <h1 className="font-syne font-bold text-4xl lg:text-6xl text-navy-100 mb-6 leading-tight">
-            Everything you need to turn{" "}
-            <GradientText>YouTube into business assets</GradientText>
+            Every Output Is Built by{" "}
+            <GradientText>Seasoned Marketers.</GradientText>{" "}
+            Delivered by AI. At Scale.
           </h1>
           <p className="font-dm-sans text-navy-400 text-xl max-w-2xl mx-auto leading-relaxed">
-            TubeScribed handles the entire pipeline — from YouTube URL to publication-ready content — in seconds.
+            TubeScribed handles the entire pipeline — from YouTube URL to publication-ready content — with prompts engineered by real marketing professionals.
           </p>
         </div>
       </section>
 
-      <section className="py-16 pb-32 bg-navy-900">
+      {/* Trust signals bar */}
+      <section className="pb-8 bg-navy-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {trustSignals.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-3 bg-navy-800 border border-navy-700 rounded-xl px-4 py-3">
+                <div className="w-8 h-8 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center shrink-0">
+                  <Icon size={15} className="text-brand-red" />
+                </div>
+                <p className="font-dm-sans text-navy-300 text-xs leading-snug">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features grid */}
+      <section className="py-16 bg-navy-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature) => {
@@ -92,6 +166,76 @@ export default function FeaturesPage() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* The Prompt Advantage */}
+      <section className="py-20 bg-navy-950">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">The Prompt Advantage</p>
+            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4 leading-tight">
+              The output quality gap isn&apos;t the AI.<br />It&apos;s the prompts.
+            </h2>
+            <p className="font-dm-sans text-navy-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              Most tools hand you a blank box and a generic model. TubeScribed ships every output type with prompts co-engineered by seasoned marketing professionals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {promptCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.label}
+                  className="rounded-2xl p-6"
+                  style={{ backgroundColor: card.bg, border: `1.5px solid ${card.border}` }}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <Icon size={15} style={{ color: card.iconColor }} />
+                    <p className="font-dm-sans text-xs font-semibold tracking-wide uppercase" style={{ color: card.iconColor }}>
+                      {card.label}
+                    </p>
+                  </div>
+                  <p className="font-syne font-bold text-navy-100 text-base mb-4">{card.sublabel}</p>
+                  <ul className="space-y-2">
+                    {card.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2">
+                        <span className="mt-1 w-1 h-1 rounded-full bg-navy-500 shrink-0" />
+                        <p className="font-dm-sans text-navy-400 text-xs leading-relaxed">{point}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Continuously Updated callout */}
+      <section className="py-16 pb-32 bg-navy-950">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+            style={{ backgroundColor: "#243447", borderLeft: "4px solid #FF3B30" }}
+          >
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(255,59,48,0.12)", border: "1px solid rgba(255,59,48,0.3)" }}>
+              <RefreshCw size={20} className="text-brand-red" />
+            </div>
+            <div className="flex-1">
+              <p className="font-syne font-bold text-navy-100 text-lg mb-1">Prompts Updated Quarterly</p>
+              <p className="font-dm-sans text-navy-400 text-sm leading-relaxed">
+                Marketing best practices change. Algorithm shifts happen. Our prompt engineering team reviews and updates every output type each quarter — so your content stays ahead of what&apos;s working, not stuck with what worked two years ago.
+              </p>
+            </div>
+            <Link
+              href="/features/content-repurposing"
+              className="shrink-0 inline-flex items-center gap-1.5 text-brand-red text-sm font-medium hover:opacity-80 transition-opacity"
+            >
+              See all formats <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
