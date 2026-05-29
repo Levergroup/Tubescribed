@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/for/course-creators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/for/automation-builders', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/for/enterprise', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/for/seo-agencies', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
 
     // Vs (competitors)
     { url: 'https://www.tubescribed.com/vs/chatgpt', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
