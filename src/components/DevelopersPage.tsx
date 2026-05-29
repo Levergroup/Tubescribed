@@ -1,36 +1,122 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Database, Bot, Zap, Network, Check, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Brain,
+  Bot,
+  CircuitBoard,
+  ArrowLeftRight,
+  Building2,
+  FileCode,
+  Check,
+  ChevronDown,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
+import { faqSchema } from "@/lib/schema";
+
+// ─── Data ────────────────────────────────────────────────────────────────────
 
 const USE_CASES = [
   {
-    icon: Database,
-    title: "RAG & Knowledge Bases",
-    description:
-      "Feed clean YouTube transcripts directly into your vector database. TubeScribed's structured output is optimized for embedding — clean text, clear sections, no noise.",
+    icon: Brain,
+    title: "RAG pipelines and vector databases",
+    body: "Clean, properly formatted transcripts ready for chunking and embedding. No preprocessing required before inserting into Pinecone, Weaviate, or any vector store.",
   },
   {
     icon: Bot,
-    title: "Custom GPTs",
-    description:
-      "Build domain-specific GPTs trained on YouTube expertise. Pull any channel's content via API and feed it to your GPT as structured, reliable knowledge.",
+    title: "Custom GPTs and Claude projects",
+    body: "Build domain-specific AI assistants trained on YouTube expertise. Process entire channels into knowledge bases. Clean structured input produces dramatically better AI outputs.",
   },
   {
-    icon: Zap,
-    title: "Automation Workflows",
-    description:
-      "Zapier, Make, n8n — trigger transcription from any event. New video published? New client video uploaded? Transcribe and generate content automatically.",
+    icon: CircuitBoard,
+    title: "AI agents with video comprehension",
+    body: "Give your AI agents the ability to read, understand, and extract information from any YouTube video. Pass a URL, receive structured knowledge.",
   },
   {
-    icon: Network,
-    title: "AI Agents",
-    description:
-      "Give your agents the ability to read and process any YouTube video. TubeScribed becomes the tool call that unlocks YouTube's audio layer for any LLM.",
+    icon: ArrowLeftRight,
+    title: "Automation workflows",
+    body: "Integrate via Zapier, Make, n8n, or direct API call. Trigger from any event — new video published, URL added to database, webhook fired.",
   },
+  {
+    icon: Building2,
+    title: "SaaS feature augmentation",
+    body: "Add YouTube transcription as a feature in your own SaaS product. Your users paste a URL, your product receives clean content. White label coming soon.",
+  },
+  {
+    icon: FileCode,
+    title: "Content management systems",
+    body: "Automatically populate CMS drafts from YouTube videos. New video published → TubeScribed generates blog post → WordPress/Webflow draft created.",
+  },
+];
+
+const API_REQUEST = `// POST https://api.tubescribed.com/v1/transcribe
+
+{
+  "url": "https://youtube.com/watch?v=VIDEO_ID",
+  "output_type": "blog_post",
+  "brand_id": "optional_brand_profile_id",
+  "options": {
+    "include_timestamps": true,
+    "include_summary": true,
+    "include_key_takeaways": true
+  }
+}`;
+
+const API_RESPONSE = `// 200 OK
+
+{
+  "transcript": {
+    "text": "Clean punctuated transcript...",
+    "word_count": 4821,
+    "segments": [
+      { "start": 0, "end": 14.2, "text": "First segment..." },
+      ...
+    ]
+  },
+  "summary": "Two-sentence video summary...",
+  "key_takeaways": ["Takeaway 1", "Takeaway 2", "Takeaway 3"],
+  "output": {
+    "type": "blog_post",
+    "content": "Full formatted blog post...",
+    "word_count": 1247
+  },
+  "metadata": {
+    "video_id": "VIDEO_ID",
+    "video_length_seconds": 2847,
+    "processing_time_ms": 14200,
+    "credits_used": 3
+  }
+}`;
+
+const OUTPUT_TYPES = `// output_type options:
+"transcript"       // Clean punctuated transcript only
+"blog_post"        // SEO-formatted article
+"sop"              // Standard Operating Procedure
+"email_sequence"   // 5-email nurture sequence
+"social_captions"  // Platform-optimized captions
+"x_thread"         // Twitter/X thread
+"faq"              // FAQ document
+"sales_script"     // Sales script
+"ad_copy"          // Ad copy variants
+"case_study"       // Case study format
+"training_guide"   // Training/learning guide
+"newsletter"       // Newsletter issue
+"linkedin_article" // LinkedIn long-form
+"key_takeaways"    // Bullet point insights
+"summary"          // Executive summary`;
+
+const TECH_SPECS = [
+  { label: "Authentication", value: "API key via Authorization header" },
+  { label: "Response format", value: "Clean JSON with consistent schema across all output types" },
+  { label: "Processing time", value: "15s (under 10 min video) to 120s (60–90 min videos)" },
+  { label: "Error handling", value: "Standard HTTP status codes with descriptive error messages" },
+  { label: "Rate limits", value: "Per-plan limits with X-RateLimit headers on all responses" },
+  { label: "Max video length", value: "90 minutes. Credit multiplier scales with video length." },
+  { label: "Supported languages", value: "50+ languages for transcription. English optimized for outputs." },
+  { label: "Idempotency", value: "Duplicate URL requests return cached results within 24 hours" },
 ];
 
 const API_PRICING = [
@@ -41,11 +127,10 @@ const API_PRICING = [
     calls: "500 API calls / month",
     popular: false,
     features: [
-      "Transcription endpoint",
       "All 15 output types",
       "Brand profile support",
-      "JSON response format",
-      "99.9% uptime SLA",
+      "Standard rate limits",
+      "Email support",
     ],
   },
   {
@@ -55,11 +140,11 @@ const API_PRICING = [
     calls: "2,000 API calls / month",
     popular: true,
     features: [
-      "Everything in Starter",
-      "Webhook callbacks",
-      "Priority processing queue",
-      "Rate limit: 10 req/sec",
-      "Dedicated support channel",
+      "All 15 output types",
+      "Brand profile support",
+      "Higher rate limits",
+      "Priority support",
+      "Webhook support",
     ],
   },
   {
@@ -69,71 +154,56 @@ const API_PRICING = [
     calls: "10,000 API calls / month",
     popular: false,
     features: [
-      "Everything in Growth",
-      "Batch processing endpoint",
-      "Custom output templates",
-      "Rate limit: 50 req/sec",
-      "Response time SLA guarantee",
+      "All 15 output types",
+      "Unlimited brand profiles",
+      "Highest rate limits",
+      "Dedicated support",
+      "Custom SLA",
     ],
   },
 ];
 
 const INTEGRATIONS = [
-  { name: "Zapier", bg: "#FF4A00", label: "Z" },
-  { name: "Make", bg: "#6D00F5", label: "M" },
-  { name: "n8n", bg: "#EA4B00", label: "n8n" },
+  { name: "Direct API", badge: "Available now", badgeColor: "green" },
+  { name: "Zapier", badge: "Coming soon", badgeColor: "amber" },
+  { name: "Make", badge: "Coming soon", badgeColor: "amber" },
+  { name: "n8n", badge: "Coming soon", badgeColor: "amber" },
+  { name: "Webhook support", badge: "Coming soon", badgeColor: "amber" },
+  { name: "White label SDK", badge: "On roadmap", badgeColor: "gray" },
 ];
 
-const JS_CODE = `const response = await fetch(
-  'https://api.tubescribed.com/v1/transcribe',
+const BADGE_STYLES: Record<string, string> = {
+  green: "bg-green-500/10 text-green-400 border border-green-500/20",
+  amber: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
+  gray: "bg-navy-700/50 text-navy-400 border border-navy-700",
+};
+
+const FAQS = [
   {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer YOUR_API_KEY',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      url: 'https://youtube.com/watch?v=...',
-      output_types: [
-        'transcript',
-        'blog_post',
-        'key_takeaways'
-      ],
-      brand_id: 'optional_brand_profile_id'
-    })
-  }
-)
-
-const { transcript, outputs } = await response.json()`;
-
-const JSON_RESPONSE = `{
-  "id": "txn_01J8K2M4N5P6Q7R8",
-  "status": "completed",
-  "transcript": {
-    "text": "Welcome to this tutorial on...",
-    "duration": 847,
-    "word_count": 3241,
-    "segments": [...]
+    q: "When will the API be available?",
+    a: "The TubeScribed API is in early access. We're onboarding developers from the waitlist in batches. Join above and we'll email you when your access is ready — typically within 2–4 weeks of joining.",
   },
-  "outputs": {
-    "blog_post": "## How to Build a RAG System...",
-    "key_takeaways": [
-      "Clean transcripts outperform raw captions",
-      "Structured JSON is ready for embedding"
-    ],
-    "summary": "A practical guide covering vector storage..."
-  }
-}`;
+  {
+    q: "Can I use the API to build a product on top of TubeScribed?",
+    a: "Yes — with the Growth and Scale API plans you can build applications powered by TubeScribed. Please review our acceptable use policy and terms of service. White label options for removing TubeScribed branding are available on enterprise plans.",
+  },
+  {
+    q: "How does brand profile support work in the API?",
+    a: "Create brand profiles in your TubeScribed dashboard and reference them by ID in your API calls via the brand_id parameter. Every output is automatically generated in that brand's voice. Manage unlimited profiles on Growth and Scale plans.",
+  },
+  {
+    q: "Is there a free tier for the API?",
+    a: "The API does not have a free tier but your TubeScribed account's Pro or Agency plan credits can be used to test API calls during development. Dedicated API plans with higher volume launch soon.",
+  },
+  {
+    q: "What happens when I hit my rate limit?",
+    a: "Requests over your plan limit return a 429 status with a Retry-After header. Upgrade your plan or contact us for burst capacity on Scale plans.",
+  },
+];
 
-function CodeWindow({
-  filename,
-  code,
-  badge,
-}: {
-  filename: string;
-  code: string;
-  badge?: string;
-}) {
+// ─── Helper components ────────────────────────────────────────────────────────
+
+function CodeWindow({ filename, code, badge }: { filename: string; code: string; badge?: string }) {
   return (
     <div className="rounded-2xl overflow-hidden border border-navy-700">
       <div className="flex items-center gap-2 px-4 py-3 bg-navy-800 border-b border-navy-700">
@@ -142,7 +212,7 @@ function CodeWindow({
         <span className="w-3 h-3 rounded-full bg-green-500 opacity-75" />
         <span className="font-mono text-navy-400 text-xs ml-2">{filename}</span>
         {badge && (
-          <span className="ml-auto px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-xs font-semibold font-dm-sans">
+          <span className="ml-auto px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-xs font-semibold font-dm-sans border border-green-500/20">
             {badge}
           </span>
         )}
@@ -154,36 +224,49 @@ function CodeWindow({
   );
 }
 
+// ─── Page component ───────────────────────────────────────────────────────────
+
 export function DevelopersPage() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [formEmail, setFormEmail] = useState("");
+  const [formName, setFormName] = useState("");
+  const [formBuilding, setFormBuilding] = useState("");
+  const [formVolume, setFormVolume] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formError, setFormError] = useState("");
 
-  async function handleSubmit(e: React.FormEvent) {
+  const schema = faqSchema(FAQS);
+
+  async function handleWaitlistSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email || !email.includes("@")) return;
+    if (!formEmail || !formEmail.includes("@") || !formName.trim()) return;
 
-    setStatus("loading");
+    setFormStatus("loading");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email: formEmail,
+          name: formName,
+          building: formBuilding,
+          expected_calls: formVolume,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong");
-      setStatus("success");
+      setFormStatus("success");
     } catch (err) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Please try again");
+      setFormStatus("error");
+      setFormError(err instanceof Error ? err.message : "Please try again");
     }
   }
 
   return (
-    <div className="min-h-screen bg-navy-900">
+    <div className="min-h-screen bg-navy-950">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-900">
+      {/* 1. Hero */}
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-navy-950">
         <div className="section-glow-tr" />
         <div className="section-glow-bl" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -201,8 +284,8 @@ export function DevelopersPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-syne font-bold text-4xl lg:text-6xl text-navy-100 mb-6 leading-tight"
           >
-            TubeScribed for{" "}
-            <GradientText>Developers</GradientText>
+            YouTube Transcription API.{" "}
+            <GradientText>Clean Data. Instant Output.</GradientText> Built for Production.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -210,27 +293,37 @@ export function DevelopersPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-dm-sans text-navy-400 text-xl max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            Add YouTube transcription and AI content generation to any application, agent, or
-            automation workflow.
+            One API call. Any YouTube URL. Clean structured transcript + any of 15 content output
+            types returned as JSON. Add YouTube transcription to any application, agent, or pipeline
+            in minutes.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col items-center gap-4"
           >
-            <Button href="#waitlist" variant="primary" className="px-8 py-4 text-lg">
-              Join API Waitlist
-            </Button>
-            <Button href="/docs" variant="secondary" className="px-8 py-4 text-lg">
-              View Documentation
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="#waitlist" variant="primary" className="px-8 py-4 text-lg">
+                Join API Waitlist
+              </Button>
+              <Button
+                href="https://app.tubescribed.com/signup"
+                variant="secondary"
+                className="px-8 py-4 text-lg"
+              >
+                Try the Product Free
+              </Button>
+            </div>
+            <p className="font-mono text-navy-500 text-xs tracking-wide">
+              Powered by OpenAI Whisper + Anthropic Claude · Clean JSON responses · 15 output types
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="relative overflow-hidden py-24 bg-navy-800">
+      {/* 2. Use Cases Grid */}
+      <section className="relative overflow-hidden py-24 bg-navy-900">
         <div className="section-glow-mid-left" />
         <div className="section-glow-tr" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -242,13 +335,13 @@ export function DevelopersPage() {
             className="text-center mb-14"
           >
             <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
-              What You Can Build
+              Use Cases
             </p>
             <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
-              One API. Unlimited use cases.
+              What developers build with TubeScribed
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {USE_CASES.map((uc, index) => {
               const Icon = uc.icon;
               return (
@@ -257,16 +350,14 @@ export function DevelopersPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-navy-900 border border-navy-700 rounded-2xl p-6 hover:border-brand-red transition-colors duration-300"
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  className="bg-navy-800 border border-navy-700 rounded-2xl p-6 hover:border-brand-red/50 transition-colors duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-navy-800 border border-navy-700 flex items-center justify-center mb-4">
-                    <Icon size={22} className="text-brand-red" />
+                  <div className="w-11 h-11 rounded-xl bg-navy-950 border border-navy-700 flex items-center justify-center mb-4">
+                    <Icon size={20} className="text-brand-red" />
                   </div>
-                  <h3 className="font-syne font-semibold text-navy-100 text-lg mb-2">{uc.title}</h3>
-                  <p className="font-dm-sans text-navy-400 text-sm leading-relaxed">
-                    {uc.description}
-                  </p>
+                  <h3 className="font-syne font-semibold text-navy-100 text-base mb-2">{uc.title}</h3>
+                  <p className="font-dm-sans text-navy-400 text-sm leading-relaxed">{uc.body}</p>
                 </motion.div>
               );
             })}
@@ -274,8 +365,8 @@ export function DevelopersPage() {
         </div>
       </section>
 
-      {/* API Code Preview */}
-      <section className="relative overflow-hidden py-24 bg-navy-900">
+      {/* 3. API Preview */}
+      <section className="relative overflow-hidden py-24 bg-navy-950">
         <div className="section-glow-tl" />
         <div className="section-glow-mid-right" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -290,24 +381,42 @@ export function DevelopersPage() {
               API Preview
             </p>
             <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
-              One request. Everything you need.
+              Simple, predictable API design
             </h2>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <CodeWindow filename="request.js" code={JS_CODE} />
-          </motion.div>
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <CodeWindow filename="request.json" code={API_REQUEST} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <CodeWindow filename="response.json" code={API_RESPONSE} badge="200 OK" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <CodeWindow filename="output_types.js" code={OUTPUT_TYPES} />
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* JSON Response */}
-      <section className="relative overflow-hidden py-24 bg-navy-800">
+      {/* 4. Technical Specs */}
+      <section className="relative overflow-hidden py-24 bg-navy-900">
         <div className="section-glow-bl" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -316,46 +425,32 @@ export function DevelopersPage() {
             className="text-center mb-12"
           >
             <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
-              Response Shape
+              Specs
             </p>
             <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
-              Everything structured and ready.
+              Production-ready specs
             </h2>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <CodeWindow filename="response.json" code={JSON_RESPONSE} badge="200 OK" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8"
-          >
-            {[
-              { label: "transcript", desc: "Full cleaned text with segments and timestamps" },
-              { label: "outputs", desc: "Up to 15 formats: blog post, SOP, email, social, and more" },
-              { label: "metadata", desc: "Duration, word count, language, confidence score" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-navy-900 border border-navy-700 rounded-xl p-4"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TECH_SPECS.map((spec, index) => (
+              <motion.div
+                key={spec.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="bg-navy-800 border border-navy-700 rounded-xl p-5"
               >
-                <p className="font-mono text-brand-red text-sm mb-1">{`"${item.label}"`}</p>
-                <p className="font-dm-sans text-navy-400 text-xs leading-relaxed">{item.desc}</p>
-              </div>
+                <p className="font-mono text-brand-red text-xs mb-2 tracking-wide">{spec.label}</p>
+                <p className="font-dm-sans text-navy-300 text-sm leading-snug">{spec.value}</p>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* API Pricing */}
-      <section className="relative overflow-hidden py-24 bg-navy-900">
+      {/* 5. API Pricing */}
+      <section className="relative overflow-hidden py-24 bg-navy-950">
         <div className="section-glow-tl" />
         <div className="section-glow-mid-right" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -367,10 +462,10 @@ export function DevelopersPage() {
             className="text-center mb-14"
           >
             <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
-              API Pricing
+              Pricing
             </p>
-            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
-              Volume pricing for production use
+            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">
+              API pricing
             </h2>
           </motion.div>
 
@@ -402,9 +497,7 @@ export function DevelopersPage() {
                 )}
                 <div className="mb-6">
                   <h3 className="font-syne font-bold text-xl text-navy-100 mb-1">{plan.name}</h3>
-                  <p className="font-dm-sans text-brand-red text-sm font-medium mb-4">
-                    {plan.calls}
-                  </p>
+                  <p className="font-dm-sans text-brand-red text-sm font-medium mb-4">{plan.calls}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="font-syne font-bold text-4xl text-navy-100">{plan.price}</span>
                     <span className="text-navy-400 text-sm">{plan.period}</span>
@@ -420,7 +513,7 @@ export function DevelopersPage() {
                 </ul>
                 <a
                   href="#waitlist"
-                  className="block w-full text-center font-semibold py-3 rounded-xl transition-opacity duration-200 btn-gradient text-white hover:opacity-90"
+                  className="block w-full text-center font-semibold py-3 rounded-xl transition-opacity duration-200 btn-gradient text-white hover:opacity-90 text-sm"
                 >
                   Join Waitlist
                 </a>
@@ -429,102 +522,32 @@ export function DevelopersPage() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="max-w-sm mx-auto"
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-2"
           >
-            <div className="bg-navy-800 border border-navy-700 rounded-2xl p-6 text-center">
-              <p className="font-syne font-semibold text-navy-100 mb-1">Enterprise</p>
-              <p className="font-dm-sans text-navy-400 text-sm mb-4">
-                Custom volume, SLA, and support. HIPAA-eligible plans available.
-              </p>
+            <p className="font-dm-sans text-navy-400 text-sm">
+              Processing more than 10,000 calls/month?{" "}
               <a
-                href="mailto:hello@tubescribed.com"
-                className="font-dm-sans text-brand-red text-sm font-medium hover:text-brand-orange transition-colors inline-flex items-center gap-1"
+                href="mailto:hello@tubescribed.com?subject=Enterprise API Pricing"
+                className="text-brand-red hover:opacity-80 transition-opacity"
               >
-                Contact us <ArrowRight size={14} />
+                Contact us for enterprise API pricing.
               </a>
-            </div>
+            </p>
+            <p className="font-dm-sans text-navy-500 text-xs italic">
+              API in early access. Join waitlist below for founding member pricing (30% off first 6
+              months).
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Waitlist Form */}
-      <section id="waitlist" className="relative overflow-hidden py-24 bg-navy-800">
-        <div className="section-glow-mid-left" />
-        <div className="section-glow-tr" />
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
-              Early Access
-            </p>
-            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">
-              API launching soon
-            </h2>
-            <p className="font-dm-sans text-navy-400 text-lg leading-relaxed">
-              Join the waitlist for early access and founding member pricing.
-            </p>
-          </motion.div>
-
-          {status === "success" ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-navy-900 border border-green-500/30 rounded-2xl p-8 text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
-                <Check size={24} className="text-green-400" />
-              </div>
-              <p className="font-syne font-semibold text-navy-100 text-lg mb-2">
-                You&apos;re on the list
-              </p>
-              <p className="font-dm-sans text-navy-400 text-sm">
-                We&apos;ll email you when API access opens, along with founding member pricing.
-              </p>
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 bg-navy-900 border border-navy-700 rounded-xl px-4 py-3 font-dm-sans text-navy-100 text-sm placeholder:text-navy-400 focus:outline-none focus:border-brand-red transition-colors duration-200"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading" || !email}
-                  className="btn-gradient text-white font-semibold px-6 py-3 rounded-xl transition-opacity duration-200 hover:opacity-90 disabled:opacity-50 whitespace-nowrap text-sm"
-                >
-                  {status === "loading" ? "Joining..." : "Join Waitlist"}
-                </button>
-              </form>
-              {status === "error" && (
-                <p className="font-dm-sans text-brand-red text-sm text-center mt-3">{errorMsg}</p>
-              )}
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Integration Logos */}
+      {/* 6. Integrations */}
       <section className="relative overflow-hidden py-24 bg-navy-900">
-        <div className="section-glow-tl" />
+        <div className="section-glow-mid-left" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -536,38 +559,262 @@ export function DevelopersPage() {
             <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
               Integrations
             </p>
-            <h2 className="font-syne font-bold text-3xl text-navy-100 mb-4">
-              Native integrations coming soon
-            </h2>
-            <p className="font-dm-sans text-navy-400 text-base max-w-lg mx-auto">
-              Until then, use the REST API with any platform that supports HTTP requests or
-              webhooks.
-            </p>
+            <h2 className="font-syne font-bold text-3xl text-navy-100">Integrations</h2>
           </motion.div>
-
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {INTEGRATIONS.map((integration, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {INTEGRATIONS.map((item, index) => (
               <motion.div
-                key={integration.name}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.name}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-navy-800 border border-navy-700 rounded-2xl p-6 flex flex-col items-center gap-3 w-40 hover:border-navy-600 transition-colors duration-300"
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                className="flex items-center justify-between bg-navy-800 border border-navy-700 rounded-xl px-5 py-4"
               >
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center font-syne font-bold text-white text-xl"
-                  style={{ backgroundColor: integration.bg }}
+                <span className="font-syne font-semibold text-navy-100 text-sm">{item.name}</span>
+                <span
+                  className={`text-xs font-medium font-dm-sans px-2.5 py-1 rounded-full ${BADGE_STYLES[item.badgeColor]}`}
                 >
-                  {integration.label}
-                </div>
-                <p className="font-syne font-semibold text-navy-100 text-sm">{integration.name}</p>
-                <span className="px-2 py-0.5 rounded-full bg-navy-700 text-navy-400 text-xs font-medium font-dm-sans">
-                  Coming soon
+                  {item.badge}
                 </span>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 7. Waitlist Form */}
+      <section id="waitlist" className="relative overflow-hidden py-24 bg-navy-950">
+        <div className="section-glow-tl" />
+        <div className="section-glow-mid-right" />
+        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
+              Early Access
+            </p>
+            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">
+              Join the API waitlist
+            </h2>
+            <p className="font-dm-sans text-navy-400 text-base leading-relaxed">
+              API launching soon. Founding members get 30% off the first 6 months and early access.
+            </p>
+          </motion.div>
+
+          {formStatus === "success" ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-navy-800 border border-green-500/30 rounded-2xl p-10 text-center"
+            >
+              <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+                <Check size={24} className="text-green-400" />
+              </div>
+              <p className="font-syne font-semibold text-navy-100 text-lg mb-2">
+                You&apos;re on the list.
+              </p>
+              <p className="font-dm-sans text-navy-400 text-sm">
+                We&apos;ll email you when API access opens.
+              </p>
+            </motion.div>
+          ) : (
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              onSubmit={handleWaitlistSubmit}
+              className="bg-navy-800 border border-navy-700 rounded-2xl p-8 space-y-5"
+            >
+              <div>
+                <label className="block font-dm-sans text-navy-300 text-xs font-medium mb-1.5">
+                  Email address <span className="text-brand-red">*</span>
+                </label>
+                <input
+                  type="email"
+                  value={formEmail}
+                  onChange={(e) => setFormEmail(e.target.value)}
+                  placeholder="you@company.com"
+                  required
+                  className="w-full bg-navy-900 border border-navy-700 rounded-xl px-4 py-3 font-dm-sans text-navy-100 text-sm placeholder:text-navy-500 focus:outline-none focus:border-brand-red transition-colors duration-200"
+                />
+              </div>
+              <div>
+                <label className="block font-dm-sans text-navy-300 text-xs font-medium mb-1.5">
+                  Name <span className="text-brand-red">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formName}
+                  onChange={(e) => setFormName(e.target.value)}
+                  placeholder="Your name"
+                  required
+                  className="w-full bg-navy-900 border border-navy-700 rounded-xl px-4 py-3 font-dm-sans text-navy-100 text-sm placeholder:text-navy-500 focus:outline-none focus:border-brand-red transition-colors duration-200"
+                />
+              </div>
+              <div>
+                <label className="block font-dm-sans text-navy-300 text-xs font-medium mb-1.5">
+                  What are you building?{" "}
+                  <span className="text-navy-500 font-normal">(optional)</span>
+                </label>
+                <textarea
+                  value={formBuilding}
+                  onChange={(e) => setFormBuilding(e.target.value)}
+                  placeholder="RAG pipeline, SaaS product, automation workflow..."
+                  rows={3}
+                  className="w-full bg-navy-900 border border-navy-700 rounded-xl px-4 py-3 font-dm-sans text-navy-100 text-sm placeholder:text-navy-500 focus:outline-none focus:border-brand-red transition-colors duration-200 resize-none"
+                />
+              </div>
+              <div>
+                <label className="block font-dm-sans text-navy-300 text-xs font-medium mb-1.5">
+                  Expected monthly API calls
+                </label>
+                <select
+                  value={formVolume}
+                  onChange={(e) => setFormVolume(e.target.value)}
+                  className="w-full bg-navy-900 border border-navy-700 rounded-xl px-4 py-3 font-dm-sans text-navy-100 text-sm focus:outline-none focus:border-brand-red transition-colors duration-200 appearance-none cursor-pointer"
+                >
+                  <option value="" className="text-navy-500">Select a range...</option>
+                  <option value="under_100">Under 100</option>
+                  <option value="100_500">100–500</option>
+                  <option value="500_2000">500–2,000</option>
+                  <option value="2000_10000">2,000–10,000</option>
+                  <option value="10000_plus">10,000+</option>
+                </select>
+              </div>
+              {formStatus === "error" && (
+                <p className="font-dm-sans text-brand-red text-sm">{formError}</p>
+              )}
+              <button
+                type="submit"
+                disabled={formStatus === "loading" || !formEmail || !formName.trim()}
+                className="w-full btn-gradient text-white font-semibold px-6 py-3.5 rounded-xl transition-opacity duration-200 hover:opacity-90 disabled:opacity-50 text-sm"
+              >
+                {formStatus === "loading" ? "Joining..." : "Join Waitlist"}
+              </button>
+            </motion.form>
+          )}
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="relative overflow-hidden py-24 bg-navy-900">
+        <div className="section-glow-tl" />
+        <div className="section-glow-mid-right" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">
+              FAQ
+            </p>
+            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
+              Developer questions, answered
+            </h2>
+          </motion.div>
+          <div className="space-y-3">
+            {FAQS.map((faq, index) => (
+              <motion.div
+                key={faq.q}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-left gap-4"
+                >
+                  <span className="font-syne font-semibold text-navy-100 text-sm">{faq.q}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`text-navy-400 shrink-0 transition-transform duration-200 ${openFaq === index ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <p className="font-dm-sans text-navy-400 text-sm leading-relaxed px-6 pb-5">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Final CTA */}
+      <section className="py-24 lg:py-32 cta-section">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative rounded-3xl p-12 lg:p-16 text-center"
+            style={{
+              background:
+                "linear-gradient(#2C3E52, #2C3E52) padding-box, linear-gradient(135deg, rgba(255,59,48,0.4), rgba(255,140,66,0.4)) border-box",
+              border: "1px solid transparent",
+            }}
+          >
+            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-6">
+              Ready to Build?
+            </p>
+            <h2 className="font-syne font-bold text-3xl lg:text-5xl text-navy-100 leading-tight mb-6 max-w-2xl mx-auto">
+              Ready to add YouTube transcription to your stack?
+            </h2>
+            <p className="font-dm-sans text-navy-400 text-base mb-10 max-w-xl mx-auto">
+              Join the API waitlist for early access and founding member pricing. Or try the product
+              now.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <Button href="#waitlist" variant="primary" className="px-8 py-4 text-lg">
+                Join API Waitlist
+              </Button>
+              <Button
+                href="https://app.tubescribed.com/signup"
+                variant="secondary"
+                className="px-8 py-4 text-lg"
+              >
+                Try the Product Free
+              </Button>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {[
+                "Founding member pricing — 30% off 6 months",
+                "Early API access",
+                "All 15 output types",
+              ].map((signal) => (
+                <span key={signal} className="flex items-center gap-2 text-navy-400 text-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-navy-700" />
+                  {signal}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

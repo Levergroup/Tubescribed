@@ -8,6 +8,7 @@ export const NAV_LINKS = [
   { label: "For Agencies", href: "/for/agencies" },
   { label: "For Coaches", href: "/for/coaches" },
   { label: "Blog", href: "/blog" },
+  { label: "Developers", href: "/developers" },
 ];
 
 export const METRICS = [

@@ -55,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/free-tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
 
     // Developer
-    { url: 'https://www.tubescribed.com/developers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/developers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // Company
     { url: 'https://www.tubescribed.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
