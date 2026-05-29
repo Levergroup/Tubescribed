@@ -18,11 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Features
     { url: 'https://www.tubescribed.com/features', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: 'https://www.tubescribed.com/features/sop-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://www.tubescribed.com/features/brand-workspace', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/features/sop-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/features/brand-workspace', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/features/ai-transcript-cleaner', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://www.tubescribed.com/features/content-repurposing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://www.tubescribed.com/features/youtube-transcription', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/features/content-repurposing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/features/youtube-transcription', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/features/progress-reports', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // For (use cases)
@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/alternatives/tactiq', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
 
     // Free tools
-    { url: 'https://www.tubescribed.com/free-tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://www.tubescribed.com/free-tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // Developer
     { url: 'https://www.tubescribed.com/developers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
