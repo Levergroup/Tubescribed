@@ -1,4 +1,5 @@
 import { BlogPost } from '@/lib/mdx';
+import BlogThumbnail from '@/components/BlogThumbnail';
 
 export default function BlogHeader({ post }: { post: BlogPost }) {
   return (
@@ -45,6 +46,10 @@ export default function BlogHeader({ post }: { post: BlogPost }) {
             ))}
           </div>
         )}
+        {/* Featured image */}
+        <div className="mt-8 rounded-xl overflow-hidden border border-[#2D3F55] aspect-video">
+          <BlogThumbnail slug={post.slug} category={post.category} />
+        </div>
       </div>
     </header>
   );

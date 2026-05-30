@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from '@/lib/mdx';
 import BlogHeader from '@/components/BlogHeader';
 import BlogCTA from '@/components/BlogCTA';
@@ -220,7 +221,7 @@ export default function BlogPostPage({ params }: Props) {
               <InlineTOC content={post.content} />
               <div className="max-w-[680px]">
                 <div className="prose prose-invert max-w-none">
-                  <MDXRemote source={post.content} components={components} />
+                  <MDXRemote source={post.content} components={components} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </div>
                 {post.faq.length > 0 && <FAQSection faqs={post.faq} />}
                 <AuthorCard author={post.author} authorTitle={post.author_title} />

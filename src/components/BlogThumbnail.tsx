@@ -238,6 +238,77 @@ function YouTubeToFAQSVG() {
 }
 
 /* ─────────────────────────────────────────────────────
+   DIAGRAM 4 — Tool Comparison Grid
+───────────────────────────────────────────────────── */
+function Check({ cx, cy, val }: { cx: number; cy: number; val: boolean | null }) {
+  if (val === true) return (
+    <g>
+      <circle cx={cx} cy={cy} r="9" fill="rgba(74,222,128,0.15)" />
+      <text x={cx} y={cy + 4} fontSize="11" textAnchor="middle" fontFamily="sans-serif" fill="#4ADE80" fontWeight="bold">✓</text>
+    </g>
+  );
+  if (val === false) return (
+    <g>
+      <circle cx={cx} cy={cy} r="9" fill="rgba(248,113,113,0.15)" />
+      <text x={cx} y={cy + 4} fontSize="11" textAnchor="middle" fontFamily="sans-serif" fill="#F87171" fontWeight="bold">✕</text>
+    </g>
+  );
+  return <rect x={cx - 9} y={cy - 2.5} width="18" height="5" rx="2.5" fill="rgba(255,140,66,0.4)" />;
+}
+
+function ToolComparisonSVG() {
+  const tools: { name: string; cols: (boolean | null)[]; hi?: boolean }[] = [
+    { name: "TubeScribed", cols: [true, true, true, true], hi: true },
+    { name: "Tactiq",      cols: [true, null, false, false] },
+    { name: "Otter.ai",    cols: [true, null, null,  false] },
+    { name: "Descript",    cols: [true, true, null,  false] },
+    { name: "NoteGPT",     cols: [false, false, false, false] },
+    { name: "ChatGPT",     cols: [false, true, null, false] },
+  ];
+  const colXs = [196, 268, 340, 412];
+  const colLabels = ["TRANSCRIPT", "CLEANUP", "CONTENT", "BRAND VOICE"];
+  return (
+    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <defs>
+        <linearGradient id="bg-tc" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#131B28" />
+          <stop offset="100%" stopColor="#1E2A3A" />
+        </linearGradient>
+        <linearGradient id="accent-tc" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#FF3B30" />
+          <stop offset="100%" stopColor="#FF8C42" />
+        </linearGradient>
+      </defs>
+      <rect width="480" height="270" fill="url(#bg-tc)" />
+      {/* Title */}
+      <text x="240" y="24" fill="#E2E8F0" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+        YouTube Transcript Tools — Side-by-Side
+      </text>
+      {/* Column headers */}
+      <text x="96" y="44" fill="#94A3B8" fontSize="7.5" fontWeight="600" textAnchor="middle" fontFamily="sans-serif">TOOL</text>
+      {colLabels.map((h, i) => (
+        <text key={h} x={colXs[i]} y="44" fill="#94A3B8" fontSize="7.5" fontWeight="600" textAnchor="middle" fontFamily="sans-serif">{h}</text>
+      ))}
+      <line x1="24" y1="50" x2="456" y2="50" stroke="#2D3F55" strokeWidth="1" />
+      {/* Rows */}
+      {tools.map((tool, ri) => {
+        const cy = 50 + ri * 33 + 18;
+        return (
+          <g key={tool.name}>
+            {tool.hi && <rect x="24" y={cy - 14} width="432" height="28" rx="5" fill="rgba(255,59,48,0.10)" stroke="rgba(255,59,48,0.28)" strokeWidth="1" />}
+            <text x="96" y={cy + 4} fill={tool.hi ? "#FF8C42" : "#8BA3B8"} fontSize={tool.hi ? "10" : "9"} fontWeight={tool.hi ? "700" : "400"} textAnchor="middle" fontFamily="sans-serif">{tool.name}</text>
+            {tool.cols.map((v, ci) => <Check key={ci} cx={colXs[ci]} cy={cy} val={v} />)}
+            {!tool.hi && ri < tools.length - 1 && <line x1="24" y1={cy + 14} x2="456" y2={cy + 14} stroke="#2D3F55" strokeWidth="0.5" opacity="0.5" />}
+          </g>
+        );
+      })}
+      {/* Bottom accent bar */}
+      <rect x="24" y="254" width="432" height="2" rx="1" fill="url(#accent-tc)" opacity="0.3" />
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
    FALLBACK — generic category thumbnail
 ───────────────────────────────────────────────────── */
 function CategoryFallbackSVG({ category }: { category: string }) {
@@ -267,6 +338,7 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
   "convert-webinar-to-blog-post": <WebinarToBlogSVG />,
   "video-to-sop-ai": <VideoToSOPSVG />,
   "youtube-to-faq-generator": <YouTubeToFAQSVG />,
+  "best-youtube-transcript-tools-2026": <ToolComparisonSVG />,
 };
 
 export default function BlogThumbnail({
