@@ -6,6 +6,7 @@ import {
   Target, LayoutGrid, BarChart2, RefreshCw, CheckCircle, XCircle,
 } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
+import { OutputShowcase } from "@/components/OutputShowcase";
 
 export const metadata: Metadata = buildMetadata({
   title: "TubeScribed Features — YouTube Transcription, SOPs, Brand Workspace & More",
@@ -167,6 +168,22 @@ export default function FeaturesPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Output Showcase */}
+      <section className="py-20" style={{ backgroundColor: "#1a2535" }}>
+        <div className="max-w-[860px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-brand-red text-sm font-semibold tracking-widest uppercase mb-4">15 Output Types</p>
+            <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4 leading-tight">
+              One URL. Every asset your business needs.
+            </h2>
+            <p className="font-dm-sans text-navy-400 text-lg max-w-xl mx-auto leading-relaxed">
+              Click any output to preview it. Each one built by a dedicated expert prompt.
+            </p>
+          </div>
+          <OutputShowcase />
         </div>
       </section>
 
