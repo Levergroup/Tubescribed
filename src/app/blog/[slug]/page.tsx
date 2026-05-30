@@ -6,6 +6,7 @@ import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from '@/lib/mdx';
 import BlogHeader from '@/components/BlogHeader';
 import BlogCTA from '@/components/BlogCTA';
 import TableOfContents from '@/components/TableOfContents';
+import InlineTOC from '@/components/InlineTOC';
 import RelatedPosts from '@/components/RelatedPosts';
 import AuthorCard from '@/components/AuthorCard';
 import FAQSection from '@/components/FAQSection';
@@ -53,9 +54,11 @@ type AnchorProps = { href?: string; children?: React.ReactNode };
 type ImgProps = { src?: string; alt?: string };
 
 const components = {
-  h2: ({ children }: NodeProps) => (
-    <h2 className="text-2xl font-bold text-white mt-12 mb-4 scroll-mt-20">{children}</h2>
-  ),
+  h2: ({ children }: NodeProps) => {
+    const text = typeof children === 'string' ? children : '';
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return <h2 id={id} className="text-2xl font-bold text-white mt-12 mb-4 scroll-mt-24">{children}</h2>;
+  },
   h3: ({ children }: NodeProps) => (
     <h3 className="text-xl font-semibold text-white mt-8 mb-3 scroll-mt-20">{children}</h3>
   ),
@@ -192,6 +195,7 @@ export default function BlogPostPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
             <article className="min-w-0">
               <BlogCTA />
+              <InlineTOC content={post.content} />
               <div className="prose prose-invert max-w-none">
                 <MDXRemote source={post.content} components={components} />
               </div>
