@@ -242,4 +242,16 @@
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ── Blog comparison table helpers ───────────── */
+  .overflow-x-auto table td,
+  .overflow-x-auto table th {
+    min-width: 80px;
+  }
+  .overflow-x-auto table td:first-child,
+  .overflow-x-auto table th:first-child {
+    font-weight: 500;
+    color: #E2E8F0;
+    min-width: 120px;
+  }
 }
