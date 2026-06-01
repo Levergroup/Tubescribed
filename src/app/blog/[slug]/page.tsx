@@ -219,7 +219,6 @@ export default function BlogPostPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
             <article className="min-w-0">
-              <BlogCTA />
               <InlineTOC content={post.content} />
               <div className="max-w-[680px]">
                 <div className="prose max-w-none">
