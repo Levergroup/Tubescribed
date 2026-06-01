@@ -332,6 +332,54 @@ function CategoryFallbackSVG({ category }: { category: string }) {
 }
 
 /* ─────────────────────────────────────────────────────
+   DIAGRAM 5 — YouTube Video → Blog Post
+───────────────────────────────────────────────────── */
+function YouTubeToBlogSVG() {
+  return (
+    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <SharedDefs id="yt2b" />
+      <rect width="480" height="270" fill="url(#bg-yt2b)" />
+
+      {/* ── Source: YouTube play button circle ── */}
+      <circle cx="117" cy="135" r="56" fill="#2C3E52" stroke="#3D5166" strokeWidth="1.5" />
+      <circle cx="117" cy="135" r="44" fill="#1E2A3A" />
+      {/* YouTube-style red play button */}
+      <rect x="88" y="118" width="58" height="34" rx="10" fill="#FF3B30" opacity="0.9" />
+      <polygon points="109,127 109,143 128,135" fill="white" opacity="0.95" />
+      {/* label */}
+      <text x="117" y="210" fill="#8BA3B8" fontSize="11" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">
+        YouTube Video
+      </text>
+
+      {/* ── Flow arrow ── */}
+      <FlowArrow id="yt2b" cx={240} />
+
+      {/* ── Output: Blog Post document ── */}
+      <rect x="298" y="72" width="110" height="132" rx="8" fill="#2C3E52" stroke="#3D5166" strokeWidth="1.5" />
+      {/* dog-ear */}
+      <polygon points="378,72 408,102 378,102" fill="#1E2A3A" />
+      <line x1="378" y1="72" x2="378" y2="102" stroke="#3D5166" strokeWidth="1" />
+      <line x1="378" y1="102" x2="408" y2="102" stroke="#3D5166" strokeWidth="1" />
+      {/* gradient title bar */}
+      <rect x="308" y="86" width="58" height="5" rx="2.5" fill="url(#accent-yt2b)" opacity="0.75" />
+      {/* body lines */}
+      <rect x="308" y="100" width="80" height="3" rx="1.5" fill="#8BA3B8" opacity="0.45" />
+      <rect x="308" y="109" width="73" height="3" rx="1.5" fill="#8BA3B8" opacity="0.4" />
+      <rect x="308" y="118" width="78" height="3" rx="1.5" fill="#8BA3B8" opacity="0.4" />
+      <rect x="308" y="127" width="62" height="3" rx="1.5" fill="#8BA3B8" opacity="0.35" />
+      <line x1="308" y1="138" x2="388" y2="138" stroke="#3D5166" strokeWidth="0.8" opacity="0.6" />
+      <rect x="308" y="146" width="52" height="3" rx="1.5" fill="#8BA3B8" opacity="0.3" />
+      <rect x="308" y="155" width="68" height="3" rx="1.5" fill="#8BA3B8" opacity="0.3" />
+      <rect x="308" y="164" width="45" height="3" rx="1.5" fill="#8BA3B8" opacity="0.25" />
+      {/* label */}
+      <text x="353" y="225" fill="#8BA3B8" fontSize="11" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">
+        Blog Post
+      </text>
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
    EXPORTED COMPONENT — maps slug → diagram
 ───────────────────────────────────────────────────── */
 const SLUG_MAP: Record<string, React.ReactElement> = {
@@ -339,6 +387,7 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
   "video-to-sop-ai": <VideoToSOPSVG />,
   "youtube-to-faq-generator": <YouTubeToFAQSVG />,
   "best-youtube-transcript-tools-2026": <ToolComparisonSVG />,
+  "youtube-to-blog-post": <YouTubeToBlogSVG />,
 };
 
 export default function BlogThumbnail({
