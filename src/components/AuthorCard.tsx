@@ -5,8 +5,8 @@ interface Props {
 
 export default function AuthorCard({ author, authorTitle }: Props) {
   return (
-    <div className="mt-12 pt-8 border-t border-[#2D3F55] flex items-start gap-4">
-      <div className="w-12 h-12 rounded-full bg-[#0D1829] flex items-center justify-center flex-shrink-0">
+    <div className="mt-12 pt-8 border-t border-gray-200 flex items-start gap-4">
+      <div className="w-12 h-12 rounded-full bg-[#1E2A3A] flex items-center justify-center flex-shrink-0">
         <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
           <mask id="ts-authorcard">
             <rect width="40" height="40" fill="white" />
@@ -16,9 +16,9 @@ export default function AuthorCard({ author, authorTitle }: Props) {
         </svg>
       </div>
       <div>
-        <p className="text-white font-semibold">{author}</p>
-        <p className="text-[#94A3B8] text-sm">{authorTitle}</p>
-        <p className="text-[#94A3B8] text-sm mt-2">
+        <p className="text-gray-900 font-semibold">{author}</p>
+        <p className="text-gray-500 text-sm">{authorTitle}</p>
+        <p className="text-gray-500 text-sm mt-2">
           The TubeScribed team helps creators, agencies, and coaches turn YouTube content into
           business assets using AI.
         </p>

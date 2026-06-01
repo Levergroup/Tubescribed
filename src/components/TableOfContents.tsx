@@ -17,14 +17,14 @@ export default function TableOfContents({ content }: Props) {
   if (headings.length < 2) return null;
 
   return (
-    <nav className="bg-[#243447] border border-[#2D3F55] rounded-xl p-5">
-      <p className="text-white font-semibold text-sm mb-4">In This Article</p>
+    <nav className="bg-white border border-gray-200 rounded-xl p-5">
+      <p className="text-gray-900 font-semibold text-sm mb-4">In This Article</p>
       <ul className="space-y-2">
         {headings.map((heading) => (
           <li key={heading.id}>
             <a
               href={`#${heading.id}`}
-              className="text-[#94A3B8] text-sm hover:text-[#FF3B30] transition-colors block py-0.5"
+              className="text-gray-500 text-sm hover:text-[#FF3B30] transition-colors block py-0.5"
             >
               {heading.text}
             </a>

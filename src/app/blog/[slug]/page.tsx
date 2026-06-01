@@ -13,6 +13,7 @@ import AuthorCard from '@/components/AuthorCard';
 import FAQSection from '@/components/FAQSection';
 import NextStepsBlockComponent from '@/components/NextStepsBlock';
 import ReadingProgress from '@/components/ReadingProgress';
+import MidArticleCTA from '@/components/MidArticleCTA';
 
 interface Props {
   params: { slug: string };
@@ -60,89 +61,89 @@ const components = {
     const text = typeof children === 'string' ? children : '';
     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     return (
-      <h2 id={id} className="text-white text-xl font-bold mt-12 mb-4 pb-2 border-b border-[#2D3F55] scroll-mt-24">
+      <h2 id={id} className="text-gray-900 text-2xl font-bold mt-12 mb-4 pb-2 border-b border-gray-200 scroll-mt-24">
         {children}
       </h2>
     );
   },
   h3: ({ children }: NodeProps) => (
-    <h3 className="text-[#FF8C42] text-lg font-semibold mt-8 mb-3 scroll-mt-24">{children}</h3>
+    <h3 className="text-gray-900 text-xl font-semibold mt-8 mb-3 scroll-mt-24">{children}</h3>
   ),
   p: ({ children }: NodeProps) => (
-    <p className="text-[#94A3B8] leading-7 mb-5 text-base">{children}</p>
+    <p className="text-gray-700 leading-7 mb-5 text-base">{children}</p>
   ),
   a: ({ href, children }: AnchorProps) => (
-    <a href={href} className="text-[#FF3B30] hover:text-[#FF8C42] underline transition-colors">
+    <a href={href} className="text-[#FF3B30] hover:text-[#E63528] underline underline-offset-2 transition-colors">
       {children}
     </a>
   ),
   strong: ({ children }: NodeProps) => (
-    <strong className="text-white font-semibold">{children}</strong>
+    <strong className="text-gray-900 font-semibold">{children}</strong>
   ),
   ul: ({ children }: NodeProps) => (
     <ul className="space-y-2 my-5 ml-4">{children}</ul>
   ),
   li: ({ children }: NodeProps) => (
-    <li className="text-[#94A3B8] leading-7 flex items-start gap-2">
+    <li className="text-gray-700 leading-7 flex items-start gap-2">
       <span className="text-[#FF3B30] flex-shrink-0 mt-0.5">→</span>
       <span>{children}</span>
     </li>
   ),
   ol: ({ children }: NodeProps) => (
-    <ol className="list-decimal list-outside space-y-2 my-5 ml-6 text-[#94A3B8]">{children}</ol>
+    <ol className="list-decimal list-outside space-y-2 my-5 ml-6 text-gray-700">{children}</ol>
   ),
   blockquote: ({ children }: NodeProps) => (
-    <blockquote className="border-l-4 border-[#FF3B30] bg-[#243447] rounded-r-xl px-5 py-4 my-6 text-[#CBD5E1] italic">
+    <blockquote className="border-l-4 border-[#FF3B30] bg-gray-50 rounded-r-lg px-5 py-4 my-6 text-gray-700 italic">
       {children}
     </blockquote>
   ),
   table: ({ children }: NodeProps) => (
-    <div className="overflow-x-auto my-8 rounded-xl border border-[#2D3F55]">
+    <div className="overflow-x-auto my-8 rounded-xl border border-gray-200 shadow-sm">
       <table className="w-full border-collapse text-sm">{children}</table>
     </div>
   ),
   thead: ({ children }: NodeProps) => (
-    <thead className="bg-[#1a2535]">{children}</thead>
+    <thead className="bg-gray-50">{children}</thead>
   ),
   tbody: ({ children }: NodeProps) => (
-    <tbody className="divide-y divide-[#2D3F55]">{children}</tbody>
+    <tbody className="divide-y divide-gray-100">{children}</tbody>
   ),
   tr: ({ children }: NodeProps) => (
-    <tr className="hover:bg-[#1a2535] transition-colors">{children}</tr>
+    <tr className="hover:bg-gray-50 transition-colors">{children}</tr>
   ),
   th: ({ children }: NodeProps) => (
-    <th className="px-4 py-3 text-left font-semibold text-white text-xs uppercase tracking-wider border-b border-[#2D3F55] whitespace-nowrap">
+    <th className="px-4 py-3 text-left font-semibold text-gray-900 text-xs uppercase tracking-wider border-b border-gray-200 whitespace-nowrap bg-gray-50">
       {children}
     </th>
   ),
   td: ({ children }: NodeProps) => (
-    <td className="px-4 py-3 text-[#CBD5E1] align-middle border-r border-[#2D3F55] last:border-r-0">
+    <td className="px-4 py-3 text-gray-700 align-middle border-r border-gray-100 last:border-r-0">
       {children}
     </td>
   ),
   code: ({ children }: NodeProps) => (
-    <code className="bg-[#243447] text-[#FF8C42] px-1.5 py-0.5 rounded text-sm font-mono">
+    <code className="bg-gray-100 text-[#FF3B30] px-1.5 py-0.5 rounded text-sm font-mono">
       {children}
     </code>
   ),
   pre: ({ children }: NodeProps) => (
-    <pre className="bg-[#243447] border border-[#2D3F55] rounded-lg p-4 overflow-x-auto mb-6 text-sm">
+    <pre className="bg-gray-100 border border-gray-200 rounded-lg p-4 overflow-x-auto mb-6 text-sm">
       {children}
     </pre>
   ),
-  hr: () => <hr className="border-[#2D3F55] my-10" />,
+  hr: () => <hr className="border-gray-200 my-10" />,
   img: ({ src, alt }: ImgProps) => (
     <figure className="my-8">
       <img
         src={src}
         alt={alt}
-        className="w-full rounded-xl border border-[#2D3F55]"
+        className="w-full rounded-xl border border-gray-200"
         loading="lazy"
         width={1200}
         height={630}
       />
       {alt && (
-        <figcaption className="text-center text-[#94A3B8] text-sm mt-2">{alt}</figcaption>
+        <figcaption className="text-center text-gray-400 text-sm mt-2">{alt}</figcaption>
       )}
     </figure>
   ),
@@ -200,6 +201,7 @@ export default function BlogPostPage({ params }: Props) {
   return (
     <>
       <ReadingProgress />
+      <MidArticleCTA />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -211,7 +213,7 @@ export default function BlogPostPage({ params }: Props) {
         />
       )}
 
-      <main className="min-h-screen bg-[#1E2A3A]">
+      <main className="min-h-screen bg-white">
         <BlogHeader post={post} />
 
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -220,7 +222,7 @@ export default function BlogPostPage({ params }: Props) {
               <BlogCTA />
               <InlineTOC content={post.content} />
               <div className="max-w-[680px]">
-                <div className="prose prose-invert max-w-none">
+                <div className="prose max-w-none">
                   <MDXRemote source={post.content} components={components} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </div>
                 {post.faq.length > 0 && <FAQSection faqs={post.faq} />}
@@ -232,14 +234,14 @@ export default function BlogPostPage({ params }: Props) {
             <aside className="hidden lg:block">
               <div className="sticky top-8 space-y-6">
                 <TableOfContents content={post.content} />
-                <div className="bg-[#243447] border border-[#2D3F55] rounded-xl p-6">
+                <div className="bg-[#1E2A3A] rounded-xl p-6">
                   <p className="text-white font-semibold mb-2">Try TubeScribed Free</p>
-                  <p className="text-[#94A3B8] text-sm mb-4">
+                  <p className="text-gray-300 text-sm mb-4">
                     1 free transcript + 1 free output. No credit card needed.
                   </p>
                   <a
                     href="https://app.tubescribed.com/signup"
-                    className="block w-full text-center py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-[#FF3B30] to-[#FF8C42] hover:opacity-90 transition-opacity text-sm"
+                    className="block w-full text-center py-3 rounded-lg font-semibold text-white bg-[#FF3B30] hover:bg-[#E63528] transition-colors text-sm"
                   >
                     Start Free →
                   </a>
