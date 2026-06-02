@@ -1,17 +1,20 @@
 export const APP_URL = "https://app.tubescribed.com";
 
+export const USE_CASE_LINKS = [
+  { label: "For Creators",                  href: "/for/content-creators" },
+  { label: "For Agencies",                   href: "/for/agencies" },
+  { label: "For Coaches",                    href: "/for/coaches" },
+  { label: "For Researchers",               href: "/for/researchers" },
+  { label: "For Educators",                  href: "/for/educators" },
+  { label: "For International Professionals", href: "/for/international-professionals" },
+];
+
 export const NAV_LINKS = [
   { label: "How it Works", href: "/#how-it-works" },
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "For Creators", href: "/for/content-creators" },
-  { label: "For Agencies", href: "/for/agencies" },
-  { label: "For Coaches", href: "/for/coaches" },
-  { label: "For Researchers", href: "/for/researchers" },
-  { label: "For Educators", href: "/for/educators" },
-  { label: "For International Professionals", href: "/for/international-professionals" },
-  { label: "Blog", href: "/blog" },
-  { label: "Developers", href: "/developers" },
+  { label: "Features",     href: "/features" },
+  { label: "Pricing",      href: "/pricing" },
+  { label: "Blog",         href: "/blog" },
+  { label: "Developers",   href: "/developers" },
 ];
 
 export const METRICS = [
