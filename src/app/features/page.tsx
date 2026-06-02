@@ -187,6 +187,25 @@ export default function FeaturesPage() {
         </div>
       </section>
 
+      {/* Better Context — Core Principle */}
+      <section className="py-20 bg-[#1E2A3A]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[#FF3B30] text-sm font-semibold tracking-widest uppercase mb-6 text-center">THE CORE PRINCIPLE</p>
+          <div className="border-l-4 border-[#FF3B30] bg-[#243447] rounded-r-2xl p-10">
+            <h2 className="font-syne font-bold text-4xl lg:text-5xl text-white mb-8 leading-tight text-center">
+              Better Context. Better Results.
+            </h2>
+            <div className="space-y-4 text-[#94A3B8] text-lg leading-relaxed max-w-2xl mx-auto">
+              <p>Every AI tool, every agent, every custom GPT, every piece of content you create — the output quality is limited by the input quality.</p>
+              <p>Garbled captions produce garbled AI outputs. Raw unstructured text produces weak blog posts. Missing context produces incomplete strategies.</p>
+              <p>TubeScribed&apos;s core job is to give you better context from the video content that already exists.</p>
+              <p>Clean, accurate, structured, timestamped, brand-voice-ready context — from any YouTube URL in under 30 seconds.</p>
+              <p className="text-white font-semibold">Better raw material. Better everything after it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Prompt Advantage */}
       <section className="py-20 bg-navy-950">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

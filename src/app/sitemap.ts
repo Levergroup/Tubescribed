@@ -35,7 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/for/automation-builders', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/for/enterprise', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://www.tubescribed.com/for/seo-agencies', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://www.tubescribed.com/for/researchers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: 'https://www.tubescribed.com/for/researchers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/for/educators', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/for/international-professionals', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/for/channel-managers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
 
     // Vs (competitors)

@@ -7,6 +7,9 @@ export const NAV_LINKS = [
   { label: "For Creators", href: "/for/content-creators" },
   { label: "For Agencies", href: "/for/agencies" },
   { label: "For Coaches", href: "/for/coaches" },
+  { label: "For Researchers", href: "/for/researchers" },
+  { label: "For Educators", href: "/for/educators" },
+  { label: "For International Professionals", href: "/for/international-professionals" },
   { label: "Blog", href: "/blog" },
   { label: "Developers", href: "/developers" },
 ];
@@ -27,6 +30,8 @@ export const FEATURES = [
   { icon: "Users", title: "Unlimited Brand Profiles", description: "Agency plan: save every client as a separate brand profile. Every transcript comes out in their voice. One tool, every client." },
   { icon: "Wand2", title: "Claude AI Powered", description: "Powered by Anthropic's Claude — the same AI used by Fortune 500 companies. Not generic captions. Clean, structured, intelligent output." },
   { icon: "TrendingUp", title: "Monthly Progress Reports", description: "Every month you get a personal report: hours saved, content pieces created, and your growing content library score — calculated from your real usage." },
+  { icon: "TrendingUp", title: "Turn competitor videos into structured intelligence", description: "Process any competitor's YouTube content — interviews, product demos, conference talks. Extract their key talking points, identify content gaps, and understand their positioning. Better context for every strategic decision." },
+  { icon: "Users", title: "Make your content accessible to everyone", description: "Every transcript TubeScribed generates meets readability standards for hearing-impaired users, non-native English speakers, and readers who process faster than they listen. Better context. Broader reach." },
 ];
 
 export const PLANS = [

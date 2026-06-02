@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ResearchersPage } from "@/components/ResearchersPage";
 
 export const metadata: Metadata = {
-  title: "TubeScribed for Researchers — Turn Hours of Video Into Searchable Research Notes Instantly",
+  title: "TubeScribed for Researchers & Journalists — Turn Video Research Into Searchable Notes",
   description:
-    "Extract quotes, insights, and key information from any YouTube video, interview, or conference talk instantly. TubeScribed for journalists, analysts, and researchers.",
+    "Process any YouTube interview, conference talk, or expert video into accurate, quotable, timestamped transcripts instantly. Better context. Better results.",
   alternates: {
     canonical: "https://www.tubescribed.com/for/researchers",
   },
