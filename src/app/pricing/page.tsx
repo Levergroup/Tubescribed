@@ -169,7 +169,7 @@ export default function PricingPage() {
                     className={`block w-full text-center font-semibold py-3 rounded-xl transition-all duration-200 ${
                       plan.popular
                         ? "btn-gradient text-white"
-                        : "border border-navy-700 text-navy-100 hover:bg-navy-700"
+                        : "btn-gradient text-white"
                     }`}
                   >
                     {plan.cta}
