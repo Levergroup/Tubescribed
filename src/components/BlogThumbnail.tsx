@@ -379,6 +379,49 @@ function YouTubeToBlogSVG() {
   );
 }
 
+function YouTubeToLinkedInSVG() {
+  return (
+    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <SharedDefs id="yt2li" />
+      <rect width="480" height="270" fill="url(#bg-yt2li)" />
+
+      {/* ── Source: YouTube play button circle ── */}
+      <circle cx="90" cy="135" r="52" fill="#2C3E52" stroke="#3D5166" strokeWidth="1.5" />
+      <circle cx="90" cy="135" r="40" fill="#1E2A3A" />
+      <rect x="63" y="120" width="54" height="30" rx="9" fill="#FF3B30" opacity="0.9" />
+      <polygon points="82,128 82,142 99,135" fill="white" opacity="0.95" />
+      <text x="90" y="205" fill="#8BA3B8" fontSize="10" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">YouTube Video</text>
+
+      {/* ── Flow arrow 1 ── */}
+      <line x1="146" y1="135" x2="186" y2="135" stroke="#FF6B35" strokeWidth="2" opacity="0.8" />
+      <polygon points="186,130 196,135 186,140" fill="#FF6B35" opacity="0.8" />
+
+      {/* ── AI Chip ── */}
+      <rect x="198" y="112" width="46" height="46" rx="8" fill="#2C3E52" stroke="#FF6B35" strokeWidth="1.5" />
+      <text x="221" y="141" fill="#FF6B35" fontSize="13" textAnchor="middle" fontFamily="sans-serif" fontWeight="bold">AI</text>
+      <text x="221" y="178" fill="#8BA3B8" fontSize="10" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">TubeScribed</text>
+
+      {/* ── Flow arrow 2 ── */}
+      <line x1="248" y1="135" x2="288" y2="135" stroke="#FF6B35" strokeWidth="2" opacity="0.8" />
+      <polygon points="288,130 298,135 288,140" fill="#FF6B35" opacity="0.8" />
+
+      {/* ── Output: LinkedIn card ── */}
+      <rect x="300" y="88" width="120" height="94" rx="8" fill="#0A66C2" opacity="0.9" />
+      {/* LinkedIn 'in' logo */}
+      <text x="360" y="148" fill="white" fontSize="36" textAnchor="middle" fontFamily="serif" fontWeight="bold" opacity="0.95">in</text>
+      <text x="360" y="205" fill="#8BA3B8" fontSize="10" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">LinkedIn Post</text>
+
+      {/* ── Output format badges ── */}
+      <rect x="300" y="218" width="34" height="14" rx="3" fill="#2C3E52" stroke="#3D5166" strokeWidth="1" />
+      <text x="317" y="228" fill="#8BA3B8" fontSize="7" textAnchor="middle" fontFamily="sans-serif">Text</text>
+      <rect x="340" y="218" width="40" height="14" rx="3" fill="#2C3E52" stroke="#3D5166" strokeWidth="1" />
+      <text x="360" y="228" fill="#8BA3B8" fontSize="7" textAnchor="middle" fontFamily="sans-serif">Carousel</text>
+      <rect x="386" y="218" width="34" height="14" rx="3" fill="#2C3E52" stroke="#3D5166" strokeWidth="1" />
+      <text x="403" y="228" fill="#8BA3B8" fontSize="7" textAnchor="middle" fontFamily="sans-serif">Quote</text>
+    </svg>
+  );
+}
+
 /* ─────────────────────────────────────────────────────
    EXPORTED COMPONENT — maps slug → diagram
 ───────────────────────────────────────────────────── */
@@ -389,6 +432,7 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
   "best-youtube-transcript-tools-2026": <ToolComparisonSVG />,
   "youtube-to-blog-post": <YouTubeToBlogSVG />,
   "youtube-to-blog-post-ai": <YouTubeToBlogSVG />,
+  "youtube-video-to-linkedin-post": <YouTubeToLinkedInSVG />,
 };
 
 export default function BlogThumbnail({
