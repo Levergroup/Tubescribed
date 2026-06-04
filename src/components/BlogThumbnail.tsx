@@ -388,6 +388,7 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
   "youtube-to-faq-generator": <YouTubeToFAQSVG />,
   "best-youtube-transcript-tools-2026": <ToolComparisonSVG />,
   "youtube-to-blog-post": <YouTubeToBlogSVG />,
+  "youtube-to-blog-post-ai": <YouTubeToBlogSVG />,
 };
 
 export default function BlogThumbnail({
