@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getAllPosts } from '@/lib/mdx';
 import BlogCard from '@/components/BlogCard';
+import { NewsletterForm } from '@/components/NewsletterForm';
 
 export const metadata: Metadata = {
   title: 'TubeScribed Blog — YouTube Transcription, Content Repurposing & AI Tips',
@@ -78,16 +79,7 @@ export default function BlogPage() {
             Get Weekly Content Repurposing Tips
           </h2>
           <p className="text-gray-300 mb-6">One email per week. No fluff. Just workflows that work.</p>
-          <div className="flex gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#FF3B30]"
-            />
-            <button className="px-6 py-3 rounded-lg font-semibold text-white bg-[#FF3B30] hover:bg-[#E63528] transition-colors whitespace-nowrap">
-              Subscribe
-            </button>
-          </div>
+          <NewsletterForm source="newsletter_footer" />
         </div>
       </section>
     </main>

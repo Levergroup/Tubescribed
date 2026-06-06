@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Brain,
@@ -234,6 +235,7 @@ export function DevelopersPage() {
   const [formVolume, setFormVolume] = useState("");
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formError, setFormError] = useState("");
+  const router = useRouter();
 
   const schema = faqSchema(FAQS);
 
@@ -243,6 +245,7 @@ export function DevelopersPage() {
 
     setFormStatus("loading");
     try {
+      // Save to Supabase waitlist
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -255,7 +258,19 @@ export function DevelopersPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong");
-      setFormStatus("success");
+
+      // Add to Loops
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formEmail,
+          firstName: formName.split(" ")[0],
+          source: "lead_magnet",
+        }),
+      });
+
+      router.push("/thank-you");
     } catch (err) {
       setFormStatus("error");
       setFormError(err instanceof Error ? err.message : "Please try again");

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { GradientText } from "@/components/ui/GradientText";
 import { CheckCircle2, Mail, MessageCircle } from "lucide-react";
@@ -11,10 +12,25 @@ export function ContactClient() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!name || !email || !message) return;
     setSubmitted(true);
+    try {
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName: name.split(" ")[0],
+          source: "lead_magnet",
+        }),
+      });
+    } catch {
+      // Subscribe failure is non-blocking for a contact form
+    }
+    router.push("/thank-you");
   }
 
   return (
