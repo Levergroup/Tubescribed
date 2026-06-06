@@ -434,6 +434,7 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
   "youtube-to-blog-post-ai": <YouTubeToBlogSVG />,
   "youtube-video-to-linkedin-post": <YouTubeToLinkedInSVG />,
   "youtube-transcript-to-blog-post": <YouTubeToBlogSVG />,
+  "repurpose-youtube-video-to-social-media": <YouTubeToLinkedInSVG />,
 };
 
 export default function BlogThumbnail({
