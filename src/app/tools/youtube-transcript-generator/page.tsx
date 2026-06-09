@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import ToolEmbed from '@/components/ToolEmbed'
 
 export const metadata: Metadata = buildMetadata({
   title: "Free YouTube Transcript Generator — Clean Accurate Transcripts Instantly",
@@ -64,6 +65,16 @@ export default function YouTubeTranscriptGeneratorPage() {
     url: "https://app.tubescribed.com/signup",
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tubescribed.com" },
+      { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://www.tubescribed.com/tools" },
+      { "@type": "ListItem", position: 3, name: "YouTube Transcript Generator", item: "https://www.tubescribed.com/tools/youtube-transcript-generator" },
+    ],
+  }
+
   return (
     <>
       {/* JSON-LD */}
@@ -75,6 +86,15 @@ export default function YouTubeTranscriptGeneratorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* TLDR */}
+      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
+        <strong>TL;DR:</strong> Paste a YouTube URL → get a clean, punctuated, timestamped transcript in under 30 seconds. Free, no credit card.
+      </div>
 
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 text-center">
@@ -89,13 +109,15 @@ export default function YouTubeTranscriptGeneratorPage() {
             Paste any YouTube URL. Get a clean, punctuated, timestamped transcript in under 30
             seconds.
           </p>
-          <a
-            href="https://app.tubescribed.com/signup"
-            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-sm"
-          >
-            Generate Free Transcript
-          </a>
-          <p className="mt-3 font-dm-sans text-gray-500 text-sm">Free — 1 transcript, no credit card</p>
+          <ToolEmbed
+            placeholder="Paste YouTube URL to transcribe..."
+            buttonText="Generate Transcript →"
+            successBadges={[
+              "✓ Transcript Ready",
+              "✓ Filler Words Removed",
+              "✓ Timestamps Added",
+            ]}
+          />
         </div>
       </section>
 
@@ -131,10 +153,52 @@ export default function YouTubeTranscriptGeneratorPage() {
         </div>
       </section>
 
+      {/* How to use */}
+      <section className="bg-white py-14 px-4 border-t border-gray-100">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-6">How to Generate a YouTube Transcript for Free</h2>
+          <ol className="space-y-4">
+            {[
+              "Copy any YouTube video URL from your browser address bar.",
+              "Paste it into the input field above.",
+              "Click Generate — processing takes under 30 seconds for most videos.",
+              "Download your clean, punctuated, timestamped transcript.",
+            ].map((step, i) => (
+              <li key={i} className="flex items-start gap-4">
+                <span className="w-7 h-7 rounded-full bg-[#FF3B30] text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                <span className="font-dm-sans text-gray-700 text-base">{step}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-5 font-dm-sans text-gray-500 text-sm">No account required for your first transcript.</p>
+        </div>
+      </section>
+
+      {/* Who uses this */}
+      <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-6">Who Uses a YouTube Transcript Generator?</h2>
+          <ul className="space-y-3">
+            {[
+              { who: "Content creators", why: "turning videos into blog posts, emails, and social content" },
+              { who: "Researchers & journalists", why: "extracting quotes accurately with timestamps for verification" },
+              { who: "Educators", why: "creating study materials and course notes from lecture videos" },
+              { who: "Agencies", why: "processing client video content at scale without manual work" },
+              { who: "AI builders", why: "cleaning transcript data for custom GPTs and RAG pipelines" },
+            ].map(({ who, why }) => (
+              <li key={who} className="flex items-start gap-3">
+                <CheckCircle2 size={18} className="text-[#FF3B30] shrink-0 mt-0.5" />
+                <span className="font-dm-sans text-gray-700 text-base"><strong>{who}</strong> — {why}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Sample output preview */}
       <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">Sample output</h2>
+          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">What Does a TubeScribed YouTube Transcript Look Like?</h2>
           <div className="bg-[#0F1923] border border-[#2D3F55] rounded-xl p-6 font-mono text-sm">
             <p className="text-gray-400 mb-4 text-xs tracking-wide">
               Transcript · &ldquo;How to Repurpose YouTube Content&rdquo; · 18:34
@@ -184,7 +248,7 @@ export default function YouTubeTranscriptGeneratorPage() {
       {/* Related tools */}
       <section className="bg-gray-50 border-y border-gray-200 py-12 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">Related tools</h2>
+          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">More Free YouTube Content Tools</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             {[
               {
@@ -216,7 +280,7 @@ export default function YouTubeTranscriptGeneratorPage() {
       {/* FAQ */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">Common questions</h2>
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">YouTube Transcript Generator — Frequently Asked Questions</h2>
           <dl>
             {[
               {

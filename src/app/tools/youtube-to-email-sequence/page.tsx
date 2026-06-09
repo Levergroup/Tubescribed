@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import ToolEmbed from '@/components/ToolEmbed'
 
 export const metadata: Metadata = buildMetadata({
   title: "YouTube to Email Sequence — Turn Any Video Into 5 Emails",
@@ -10,6 +11,16 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function YouTubeToEmailSequencePage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tubescribed.com" },
+      { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://www.tubescribed.com/tools" },
+      { "@type": "ListItem", position: 3, name: "YouTube to Email Sequence Generator", item: "https://www.tubescribed.com/tools/youtube-to-email-sequence" },
+    ],
+  }
+
   return (
     <>
       {/* JSON-LD */}
@@ -74,6 +85,15 @@ export default function YouTubeToEmailSequencePage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* TLDR */}
+      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
+        <strong>TL;DR:</strong> Paste a YouTube URL → get a 5-email nurture sequence with subject lines and CTAs in under 3 minutes. Free, no credit card.
+      </div>
 
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 text-center">
@@ -89,13 +109,16 @@ export default function YouTubeToEmailSequencePage() {
             lines and one CTA per email. Direct response principles. Your brand
             voice.
           </p>
-          <a
-            href="https://app.tubescribed.com/signup"
-            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-sm"
-          >
-            Generate My Email Sequence Free
-          </a>
-          <p className="mt-3 font-dm-sans text-gray-500 text-sm">Free — first sequence, no credit card</p>
+          <ToolEmbed
+            outputType="email_sequence"
+            placeholder="Paste YouTube URL for email content..."
+            buttonText="Generate Email Sequence →"
+            successBadges={[
+              "✓ 5 Emails Generated",
+              "✓ Subject Lines Written",
+              "✓ CTAs Included",
+            ]}
+          />
         </div>
       </section>
 
@@ -138,7 +161,7 @@ export default function YouTubeToEmailSequencePage() {
       {/* Sample output preview */}
       <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">Sample output</h2>
+          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">What Does a YouTube to Email Sequence Output Look Like?</h2>
           <div className="bg-[#0F1923] border border-[#2D3F55] rounded-xl p-6 text-sm font-dm-sans">
             {/* Email label */}
             <p className="text-[#FF3B30] font-semibold text-xs uppercase tracking-wide mb-4">
@@ -222,7 +245,7 @@ export default function YouTubeToEmailSequencePage() {
       {/* Related tools */}
       <section className="bg-gray-50 border-y border-gray-200 py-12 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">Related tools</h2>
+          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">More Free YouTube Content Tools</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             {[
               {
@@ -254,7 +277,7 @@ export default function YouTubeToEmailSequencePage() {
       {/* FAQ */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">Common questions</h2>
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">YouTube to Email Sequence Generator — Frequently Asked Questions</h2>
           <dl>
             {[
               {

@@ -266,6 +266,21 @@ export default function YouTubeTranscriptionFeaturePage() {
           </div>
         </div>
       </section>
+
+      {/* Free tool CTA */}
+      <section className="py-16 bg-navy-800 border-t border-navy-700">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="font-dm-sans text-navy-400 text-sm uppercase tracking-widest font-semibold mb-3">Try it now</p>
+          <h2 className="font-syne font-bold text-2xl text-navy-100 mb-4">Generate your first YouTube transcript free</h2>
+          <p className="font-dm-sans text-navy-400 mb-6 max-w-xl mx-auto">No credit card. Paste a URL, get a clean transcript in 30 seconds.</p>
+          <a
+            href="/tools/youtube-transcript-generator"
+            className="inline-flex items-center gap-2 bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold px-8 py-3.5 rounded-xl transition-colors"
+          >
+            Try the Free YouTube Transcript Generator →
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import ToolEmbed from '@/components/ToolEmbed'
 
 export const metadata: Metadata = buildMetadata({
   title: "YouTube to SOP Generator — Turn Any Tutorial Into a Process Doc",
@@ -10,6 +11,16 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function YouTubeToSOPPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tubescribed.com" },
+      { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://www.tubescribed.com/tools" },
+      { "@type": "ListItem", position: 3, name: "YouTube to SOP Generator", item: "https://www.tubescribed.com/tools/youtube-to-sop" },
+    ],
+  }
+
   return (
     <>
       {/* JSON-LD */}
@@ -74,6 +85,15 @@ export default function YouTubeToSOPPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* TLDR */}
+      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
+        <strong>TL;DR:</strong> Paste a tutorial video URL → get a formatted SOP with steps, warnings, and completion checklist in under 3 minutes. Free, no credit card.
+      </div>
 
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 text-center">
@@ -88,13 +108,16 @@ export default function YouTubeToSOPPage() {
             Paste any tutorial or training video URL. Get a formatted SOP —
             purpose, steps, warnings, checklist — ready to delegate.
           </p>
-          <a
-            href="https://app.tubescribed.com/signup"
-            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-sm"
-          >
-            Generate My SOP Free
-          </a>
-          <p className="mt-3 font-dm-sans text-gray-500 text-sm">Free — first SOP, no credit card</p>
+          <ToolEmbed
+            outputType="sop"
+            placeholder="Paste tutorial or process video URL..."
+            buttonText="Generate SOP →"
+            successBadges={[
+              "✓ SOP Generated",
+              "✓ Steps Numbered",
+              "✓ Completion Checklist Added",
+            ]}
+          />
         </div>
       </section>
 
@@ -137,7 +160,7 @@ export default function YouTubeToSOPPage() {
       {/* Sample output preview */}
       <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">Sample output</h2>
+          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">What Does a YouTube SOP Generator Output Look Like?</h2>
           <div className="bg-[#0F1923] border border-[#2D3F55] rounded-xl p-6 text-sm font-dm-sans">
             {/* Card header */}
             <p className="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">
@@ -219,7 +242,7 @@ export default function YouTubeToSOPPage() {
       {/* Related tools */}
       <section className="bg-gray-50 border-y border-gray-200 py-12 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">Related tools</h2>
+          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">More Free YouTube Tools</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             {[
               {
@@ -251,7 +274,7 @@ export default function YouTubeToSOPPage() {
       {/* FAQ */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">Common questions</h2>
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">YouTube to SOP Generator — Frequently Asked Questions</h2>
           <dl>
             {[
               {

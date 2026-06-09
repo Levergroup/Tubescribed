@@ -224,6 +224,15 @@ export default function BlogPostPage({ params }: Props) {
                 <div className="prose max-w-none">
                   <MDXRemote source={post.content} components={components} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </div>
+                {/* Free tools callout */}
+                <div className="bg-gray-50 rounded-xl p-6 my-8 border border-gray-200">
+                  <p className="font-semibold text-gray-900 mb-3">Free tools to try:</p>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    <a href="/tools/youtube-transcript-generator" className="text-[#FF3B30] text-sm hover:underline">YouTube Transcript Generator →</a>
+                    <a href="/tools/youtube-to-blog-post" className="text-[#FF3B30] text-sm hover:underline">YouTube to Blog Post →</a>
+                    <a href="/tools/youtube-to-sop" className="text-[#FF3B30] text-sm hover:underline">YouTube to SOP →</a>
+                  </div>
+                </div>
                 {post.faq.length > 0 && <FAQSection faqs={post.faq} />}
                 <AuthorCard author={post.author} authorTitle={post.author_title} />
                 <BlogCTA variant="final" />

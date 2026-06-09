@@ -244,6 +244,35 @@ export default function ContentRepurposingFeaturePage() {
           </div>
         </div>
       </section>
+
+      {/* Free tool CTA */}
+      <section className="py-16 bg-navy-800 border-t border-navy-700">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="font-dm-sans text-navy-400 text-sm uppercase tracking-widest font-semibold mb-3">Try it now</p>
+          <h2 className="font-syne font-bold text-2xl text-navy-100 mb-4">Free content repurposing tools</h2>
+          <p className="font-dm-sans text-navy-400 mb-6 max-w-xl mx-auto">Try any output type for free — no credit card, no setup.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/tools/youtube-to-blog-post"
+              className="inline-flex items-center gap-2 bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold px-6 py-3 rounded-xl transition-colors text-sm"
+            >
+              YouTube to Blog Post →
+            </a>
+            <a
+              href="/tools/youtube-to-sop"
+              className="inline-flex items-center gap-2 bg-navy-700 hover:bg-navy-600 text-navy-100 font-syne font-bold px-6 py-3 rounded-xl transition-colors text-sm border border-navy-600"
+            >
+              YouTube to SOP →
+            </a>
+            <a
+              href="/tools/youtube-to-email-sequence"
+              className="inline-flex items-center gap-2 bg-navy-700 hover:bg-navy-600 text-navy-100 font-syne font-bold px-6 py-3 rounded-xl transition-colors text-sm border border-navy-600"
+            >
+              YouTube to Email Sequence →
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import ToolEmbed from '@/components/ToolEmbed'
 
 export const metadata: Metadata = buildMetadata({
   title: "YouTube to FAQ Generator — Google Featured Snippet Ready",
@@ -64,6 +65,16 @@ export default function YouTubeToFAQPage() {
     url: "https://app.tubescribed.com/signup",
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tubescribed.com" },
+      { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://www.tubescribed.com/tools" },
+      { "@type": "ListItem", position: 3, name: "YouTube to FAQ Generator", item: "https://www.tubescribed.com/tools/youtube-to-faq" },
+    ],
+  }
+
   const relatedTools = [
     {
       title: "YouTube to Blog Post Generator",
@@ -93,6 +104,15 @@ export default function YouTubeToFAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* TLDR */}
+      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
+        <strong>TL;DR:</strong> Paste a YouTube URL → get a featured-snippet-ready FAQ document with schema markup in under 2 minutes. Free, no credit card.
+      </div>
 
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 px-4 text-center">
@@ -107,15 +127,16 @@ export default function YouTubeToFAQPage() {
             Paste a YouTube URL. Get a FAQ document with questions written as search queries and
             answers calibrated for Google featured snippets.
           </p>
-          <a
-            href="https://app.tubescribed.com/signup"
-            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-sm"
-          >
-            Generate My FAQ Free
-          </a>
-          <p className="mt-3 font-dm-sans text-gray-500 text-sm">
-            Free — first FAQ document, no credit card
-          </p>
+          <ToolEmbed
+            outputType="faq"
+            placeholder="Paste YouTube URL to generate FAQ..."
+            buttonText="Generate FAQ →"
+            successBadges={[
+              "✓ FAQ Generated",
+              "✓ Schema Markup Ready",
+              "✓ Google-Optimized",
+            ]}
+          />
         </div>
       </section>
 
@@ -155,7 +176,7 @@ export default function YouTubeToFAQPage() {
       {/* Sample output */}
       <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">Sample output</h2>
+          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">What Does a YouTube FAQ Generator Output Look Like?</h2>
           <div className="bg-[#0F1923] border border-[#2D3F55] rounded-xl p-6 text-sm font-dm-sans">
             <p className="text-[#94A3B8] text-xs mb-4 uppercase tracking-wide">
               FAQ &middot; &ldquo;How to Repurpose YouTube Content&rdquo; &middot; 11 questions
@@ -191,7 +212,7 @@ export default function YouTubeToFAQPage() {
       {/* Related tools */}
       <section className="bg-white py-12 px-4">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">Related tools</h2>
+          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">More Free YouTube Content Tools</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             {relatedTools.map((tool) => (
               <div
@@ -233,7 +254,7 @@ export default function YouTubeToFAQPage() {
       {/* FAQ */}
       <section className="bg-gray-50 border-t border-gray-200 py-16 px-4">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">Common questions</h2>
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">YouTube to FAQ Generator — Frequently Asked Questions</h2>
           <dl>
             {[
               {
