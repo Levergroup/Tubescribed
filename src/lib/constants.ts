@@ -12,6 +12,7 @@ export const USE_CASE_LINKS = [
 export const NAV_LINKS = [
   { label: "How it Works", href: "/#how-it-works" },
   { label: "Features",     href: "/features" },
+  { label: "Tools",        href: "/tools" },
   { label: "Pricing",      href: "/pricing" },
   { label: "Blog",         href: "/blog" },
   { label: "Developers",   href: "/developers" },
@@ -93,6 +94,7 @@ export const FOOTER_LINKS = {
   product: [
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Features", href: "/features" },
+    { label: "Tools", href: "/tools" },
     { label: "Pricing", href: "/pricing" },
     { label: "Free Transcript Tool", href: "/free-tools/youtube-transcript-generator" },
     { label: "ROI Calculator", href: "/roi-calculator" },

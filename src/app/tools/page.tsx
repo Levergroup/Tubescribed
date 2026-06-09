@@ -72,15 +72,15 @@ export default function ToolsIndexPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gray-50 border-b border-gray-200 pt-16 pb-14 px-4 text-center">
+      <section className="bg-[#1E2A3A] pt-16 pb-14 px-4 text-center">
         <div className="max-w-2xl mx-auto">
           <span className="inline-block bg-[#FF3B30] text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide uppercase mb-5 font-dm-sans">
             Free Tools
           </span>
-          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-gray-900 leading-tight mb-4">
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-white leading-tight mb-4">
             Free AI Tools for YouTube Content
           </h1>
-          <p className="font-dm-sans text-gray-600 text-xl leading-relaxed max-w-xl mx-auto">
+          <p className="font-dm-sans text-gray-300 text-xl leading-relaxed max-w-xl mx-auto">
             Paste a YouTube URL. Get a transcript, blog post, SOP, email sequence, social captions, FAQ, or training guide — in under 2 minutes.
           </p>
         </div>
