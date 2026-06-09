@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Syne, DM_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { ConditionalNav } from "@/components/layout/ConditionalNav";
+import { ConditionalFooter } from "@/components/layout/ConditionalFooter";
 import { CookieConsent } from "@/components/CookieConsent";
 
 const syne = Syne({
@@ -84,9 +84,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <Navbar />
+        <ConditionalNav />
         <main className="pt-16">{children}</main>
-        <Footer />
+        <ConditionalFooter />
         <CookieConsent />
         <Script id="gtm" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

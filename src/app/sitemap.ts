@@ -57,10 +57,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.tubescribed.com/free-tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // Tools (conversion landing pages)
+    { url: 'https://www.tubescribed.com/tools', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/tools/youtube-transcript-generator', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/tools/youtube-to-blog-post', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/tools/youtube-to-sop', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.tubescribed.com/tools/youtube-to-email-sequence', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/tools/youtube-to-social-captions', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/tools/youtube-to-faq', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/tools/video-to-training-guide', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // Developer
     { url: 'https://www.tubescribed.com/developers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

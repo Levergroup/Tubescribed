@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 export default function YouTubeToEmailSequencePage() {
   return (
     <>
-      {/* ── JSON-LD ── */}
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -75,115 +75,103 @@ export default function YouTubeToEmailSequencePage() {
         }}
       />
 
-      {/* ── 1. Hero ── */}
-      <section className="bg-navy-950 pt-20 pb-14 text-center px-4">
-        <span className="inline-block mb-5 px-3 py-1 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold tracking-wide uppercase font-dm-sans">
-          TubeScribed Tools
-        </span>
-
-        <h1 className="font-syne font-bold text-4xl sm:text-5xl text-navy-100 max-w-3xl mx-auto leading-tight">
-          YouTube to Email Sequence Generator
-        </h1>
-
-        <p className="mt-5 text-navy-300 text-xl max-w-2xl mx-auto font-dm-sans leading-relaxed">
-          Paste a YouTube URL. Get a 5-email sequence with open-rate subject
-          lines and one CTA per email. Direct response principles. Your brand
-          voice.
-        </p>
-
-        <div className="mt-8">
+      {/* Hero */}
+      <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 text-center">
+        <div className="mx-auto max-w-3xl px-6">
+          <span className="inline-block bg-[#FF3B30] text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide uppercase mb-5 font-dm-sans">
+            TubeScribed Tools
+          </span>
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-gray-900 leading-tight mb-4">
+            YouTube to Email Sequence Generator
+          </h1>
+          <p className="font-dm-sans text-gray-600 text-xl leading-relaxed mb-8 max-w-xl mx-auto">
+            Paste a YouTube URL. Get a 5-email sequence with open-rate subject
+            lines and one CTA per email. Direct response principles. Your brand
+            voice.
+          </p>
           <a
             href="https://app.tubescribed.com/signup"
-            className="btn-gradient text-white font-syne font-bold text-lg px-10 py-4 rounded-xl inline-block"
+            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-sm"
           >
             Generate My Email Sequence Free
           </a>
+          <p className="mt-3 font-dm-sans text-gray-500 text-sm">Free — first sequence, no credit card</p>
         </div>
-
-        <p className="mt-4 text-navy-400 text-sm font-dm-sans">
-          Free — first sequence, no credit card
-        </p>
       </section>
 
-      {/* ── 2. What it does ── */}
-      <section className="bg-navy-900 py-14 px-4">
+      {/* What it does */}
+      <section className="bg-white py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <div className="space-y-5 font-dm-sans text-navy-300 text-base leading-relaxed">
-            <p>
-              Most creators have a YouTube library full of content that never
-              reaches their email list. Every tutorial, case study, or how-to
-              video contains enough material for a complete email nurture
-              sequence.
-            </p>
-            <p>
-              TubeScribed converts the video into 5 emails: a welcome + quick
-              win, a deeper dive, a proof email, an objection handler, and a
-              direct ask. Each email has a subject line written for open rates,
-              preview text, and one CTA.
-            </p>
-            <p>
-              The sequence follows direct response principles — each email earns
-              the next one. You get a complete draft ready for your ESP in under
-              3 minutes.
-            </p>
-          </div>
-
-          <ul className="mt-8 space-y-3">
+          <p className="font-dm-sans text-gray-700 text-lg leading-relaxed mb-4">
+            Most creators have a YouTube library full of content that never
+            reaches their email list. Every tutorial, case study, or how-to
+            video contains enough material for a complete email nurture
+            sequence.
+          </p>
+          <p className="font-dm-sans text-gray-700 text-lg leading-relaxed mb-4">
+            TubeScribed converts the video into 5 emails: a welcome + quick
+            win, a deeper dive, a proof email, an objection handler, and a
+            direct ask. Each email has a subject line written for open rates,
+            preview text, and one CTA.
+          </p>
+          <p className="font-dm-sans text-gray-700 text-lg leading-relaxed mb-8">
+            The sequence follows direct response principles — each email earns
+            the next one. You get a complete draft ready for your ESP in under
+            3 minutes.
+          </p>
+          <ul className="space-y-4">
             {[
               "5 complete emails with subject lines and preview text",
               "Direct response structure — each email earns the next",
               "One CTA per email — no diluted attention",
               "Brand voice applied — reads like your emails, not generic AI",
-            ].map((benefit) => (
-              <li key={benefit} className="flex items-start gap-3 font-dm-sans text-navy-200">
-                <CheckCircle2 className="w-5 h-5 text-brand-red flex-shrink-0 mt-0.5" />
-                <span>{benefit}</span>
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <CheckCircle2 size={18} className="text-[#FF3B30] shrink-0 mt-0.5" />
+                <span className="font-dm-sans text-gray-700 text-base">{item}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* ── 3. Sample output preview ── */}
-      <section className="bg-navy-950 py-14 px-4">
+      {/* Sample output preview */}
+      <section className="bg-gray-50 border-y border-gray-200 py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl text-navy-100 mb-6">
-            Sample output
-          </h2>
-
-          <div className="bg-navy-800 border border-navy-700 rounded-xl p-6 text-sm font-dm-sans">
+          <h2 className="font-syne font-bold text-xl text-gray-900 mb-5">Sample output</h2>
+          <div className="bg-[#0F1923] border border-[#2D3F55] rounded-xl p-6 text-sm font-dm-sans">
             {/* Email label */}
-            <p className="text-brand-red font-semibold text-xs uppercase tracking-wide mb-4">
+            <p className="text-[#FF3B30] font-semibold text-xs uppercase tracking-wide mb-4">
               Email 1 of 5 — Welcome + Quick Win
             </p>
 
             {/* Subject line */}
             <div className="mb-1">
-              <span className="text-navy-500 text-xs">Subject: </span>
-              <span className="text-navy-200">
+              <span className="text-gray-500 text-xs">Subject: </span>
+              <span className="text-gray-200">
                 Your first result in 5 minutes (here&rsquo;s how)
               </span>
             </div>
 
             {/* Preview text */}
             <div className="mb-4">
-              <span className="text-navy-500 text-xs">Preview: </span>
-              <span className="text-navy-400 italic">
+              <span className="text-gray-500 text-xs">Preview: </span>
+              <span className="text-gray-400 italic">
                 Skip the setup overwhelm. One thing, right now.
               </span>
             </div>
 
-            <hr className="border-navy-700 mb-4" />
+            <hr className="border-[#2D3F55] mb-4" />
 
             {/* Email body */}
-            <div className="text-navy-300 text-sm leading-relaxed space-y-2">
+            <div className="text-gray-300 text-sm leading-relaxed space-y-2">
               <p>Hey [First Name],</p>
               <p>
                 Welcome. You can spend the next hour reading documentation, or
                 you can get your first result in the next five minutes.
               </p>
               <p>Here&rsquo;s the fastest path:</p>
-              <ol className="list-decimal list-inside space-y-1 text-navy-300 pl-1">
+              <ol className="list-decimal list-inside space-y-1 text-gray-300 pl-1">
                 <li>Paste any YouTube tutorial URL into the input field.</li>
                 <li>Select your output format (SOP, email sequence, or summary).</li>
                 <li>Click Generate — your draft is ready in under 3 minutes.</li>
@@ -194,54 +182,80 @@ export default function YouTubeToEmailSequencePage() {
               <p>
                 <a
                   href="https://app.tubescribed.com/signup"
-                  className="text-brand-red"
+                  className="text-[#FF3B30]"
                 >
                   &rarr; Try it now: [Link]
                 </a>
               </p>
             </div>
 
-            <hr className="border-navy-700 my-4" />
+            <hr className="border-[#2D3F55] my-4" />
 
-            <p className="text-navy-500 text-xs">— [Sender Name]</p>
+            <p className="text-gray-500 text-xs">— [Sender Name]</p>
           </div>
-
-          <p className="mt-4 text-navy-400 text-xs font-dm-sans text-center">
+          <p className="mt-3 font-dm-sans text-gray-500 text-xs text-center">
             5-email sequence including subject lines, preview text, and direct
             response body copy — from a 19-minute tutorial video.
           </p>
         </div>
       </section>
 
-      {/* ── 4. Second CTA ── */}
-      <section className="bg-[#1E2A3A] py-12 text-center px-4">
-        <div className="max-w-xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl text-navy-100 mb-3">
+      {/* Second CTA */}
+      <section className="bg-[#1E2A3A] py-14 px-4 text-center">
+        <div className="mx-auto max-w-2xl px-6">
+          <h2 className="font-syne font-bold text-2xl text-white mb-3">
             Turn your best tutorial into an email sequence
           </h2>
-          <p className="text-navy-300 font-dm-sans text-base mb-7">
+          <p className="font-dm-sans text-gray-300 mb-6">
             Your subscribers should know about every useful video you make.
           </p>
           <a
             href="https://app.tubescribed.com/signup"
-            className="btn-gradient text-white font-syne font-bold text-lg px-10 py-4 rounded-xl inline-block"
+            className="inline-flex items-center justify-center bg-[#FF3B30] hover:bg-[#E53528] text-white font-syne font-bold text-base px-8 py-3.5 rounded-xl transition-colors"
           >
             Generate My Email Sequence Free
           </a>
-          <p className="mt-4 text-navy-400 text-sm font-dm-sans">
-            No credit card. Your first sequence is free.
-          </p>
+          <p className="mt-3 text-gray-400 text-sm font-dm-sans">No credit card. Your first sequence is free.</p>
         </div>
       </section>
 
-      {/* ── 5. FAQ ── */}
-      <section className="bg-navy-950 py-16 px-4">
+      {/* Related tools */}
+      <section className="bg-gray-50 border-y border-gray-200 py-12 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl text-navy-100 mb-10">
-            Common questions
-          </h2>
+          <h2 className="font-syne font-semibold text-lg text-gray-900 mb-5">Related tools</h2>
+          <div className="flex flex-col sm:flex-row gap-4">
+            {[
+              {
+                title: "YouTube to Social Captions",
+                desc: "LinkedIn, X, and Instagram — each rewritten",
+                href: "/tools/youtube-to-social-captions",
+              },
+              {
+                title: "YouTube to Blog Post Generator",
+                desc: "SEO article from any video",
+                href: "/tools/youtube-to-blog-post",
+              },
+            ].map((tool) => (
+              <div
+                key={tool.href}
+                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-[#FF3B30] transition-colors flex-1"
+              >
+                <p className="font-syne font-semibold text-gray-900 text-sm mb-1">{tool.title}</p>
+                <p className="text-gray-500 text-xs mb-3">{tool.desc}</p>
+                <a href={tool.href} className="text-[#FF3B30] text-xs font-semibold hover:underline">
+                  Try it free &rarr;
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="space-y-0">
+      {/* FAQ */}
+      <section className="bg-white py-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-syne font-bold text-2xl text-gray-900 mb-8">Common questions</h2>
+          <dl>
             {[
               {
                 q: "How many emails does the sequence include?",
@@ -259,17 +273,13 @@ export default function YouTubeToEmailSequencePage() {
                 q: "Can I use these emails in any ESP?",
                 a: "Yes. TubeScribed delivers the sequences as plain text that imports into any email service provider — Loops, Mailchimp, ConvertKit, ActiveCampaign, Klaviyo, and others. Copy, paste, and schedule.",
               },
-            ].map(({ q, a }) => (
-              <div key={q} className="border-b border-navy-800 pb-6 pt-6 first:pt-0">
-                <p className="font-syne font-semibold text-navy-100 text-base mb-2">
-                  {q}
-                </p>
-                <p className="font-dm-sans text-navy-400 text-sm leading-relaxed">
-                  {a}
-                </p>
+            ].map((faq) => (
+              <div key={faq.q} className="border-b border-gray-100 pb-6 last:border-0 mb-6 last:mb-0">
+                <dt className="font-syne font-semibold text-gray-900 mb-2">{faq.q}</dt>
+                <dd className="font-dm-sans text-gray-600 text-sm leading-relaxed">{faq.a}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
     </>
