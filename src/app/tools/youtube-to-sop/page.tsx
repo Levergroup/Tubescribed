@@ -89,12 +89,6 @@ export default function YouTubeToSOPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-
-      {/* TLDR */}
-      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
-        <strong>TL;DR:</strong> Paste a tutorial video URL → get a formatted SOP with steps, warnings, and completion checklist in under 3 minutes. Free, no credit card.
-      </div>
-
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 text-center">
         <div className="mx-auto max-w-3xl px-6">

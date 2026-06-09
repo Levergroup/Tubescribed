@@ -108,12 +108,6 @@ export default function YouTubeToFAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-
-      {/* TLDR */}
-      <div className="bg-gray-100 border-b border-gray-200 py-2 px-4 text-center text-sm text-gray-600">
-        <strong>TL;DR:</strong> Paste a YouTube URL → get a featured-snippet-ready FAQ document with schema markup in under 2 minutes. Free, no credit card.
-      </div>
-
       {/* Hero */}
       <section className="bg-gray-50 border-b border-gray-200 pt-20 pb-14 px-4 text-center">
         <div className="mx-auto max-w-3xl">
