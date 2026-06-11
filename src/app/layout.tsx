@@ -74,6 +74,7 @@ export default function RootLayout({
       <head>
         <link rel="llms" href="https://www.tubescribed.com/llms.txt" />
         <link rel="llms-full" href="https://www.tubescribed.com/llms-full.txt" />
+        <link rel="mcp" href="https://www.tubescribed.com/api/mcp" />
       </head>
       <body className="bg-navy-900 text-navy-100 font-dm-sans antialiased">
         <noscript>
