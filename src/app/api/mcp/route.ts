@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { addToList } from '@/lib/getresponse'
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -304,29 +305,14 @@ async function submitEmail(args: { email: string; source?: string }) {
   if (!args.email || !args.email.includes('@')) {
     return { success: false, error: 'Invalid email address.' }
   }
-  const apiKey = process.env.LOOPS_API_KEY
-  if (!apiKey) return { success: false, error: 'Service unavailable.' }
-  try {
-    await fetch('https://app.loops.so/api/v1/contacts/create', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: args.email,
-        source: args.source ?? 'mcp_agent',
-        plan: 'lead',
-        userGroup: 'lead',
-        subscribed: true,
-      }),
-    })
-    await fetch('https://app.loops.so/api/v1/events/send', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: args.email, eventName: 'marketing_site_signup' }),
-    })
-    return { success: true, message: 'Subscribed successfully.' }
-  } catch {
-    return { success: false, error: 'Subscription failed.' }
-  }
+  const ok = await addToList({
+    email: args.email,
+    listId: process.env.GR_LIST_LEADS ?? '',
+    source: args.source ?? 'other',
+  })
+  return ok
+    ? { success: true, message: 'Subscribed successfully.' }
+    : { success: false, error: 'Subscription failed.' }
 }
 
 // ─── Route handlers ───────────────────────────────────────────────────────────

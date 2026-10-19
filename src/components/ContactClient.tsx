@@ -11,6 +11,7 @@ export function ContactClient() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState(""); // honeypot
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
 
@@ -24,9 +25,14 @@ export function ContactClient() {
         body: JSON.stringify({
           email,
           firstName: name.split(" ")[0],
-          source: "lead_magnet",
+          source: "other",
+          company_website: company,
         }),
       });
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "generate_lead", lead_source: "other" });
+      }
     } catch {
       // Subscribe failure is non-blocking for a contact form
     }
@@ -86,6 +92,17 @@ export function ContactClient() {
                   <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="your@email.com" className="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-navy-100 placeholder-navy-500 text-sm focus:outline-none focus:border-brand-red transition-colors" />
                 </div>
               </div>
+              {/* Honeypot — hidden from humans, catches bots */}
+              <input
+                type="text"
+                name="company_website"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden opacity-0"
+              />
               <div>
                 <label className="font-dm-sans text-navy-300 text-sm mb-2 block">Subject</label>
                 <select value={subject} onChange={(e) => setSubject(e.target.value)} className="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-navy-100 text-sm focus:outline-none focus:border-brand-red transition-colors appearance-none">

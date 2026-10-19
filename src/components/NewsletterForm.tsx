@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+
+type Source = "free_tool" | "blog" | "newsletter" | "other";
 
 interface Props {
-  source?: string;
+  source?: Source;
 }
 
-export function NewsletterForm({ source = "newsletter_footer" }: Props) {
+export function NewsletterForm({ source = "newsletter" }: Props) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
-  const router = useRouter();
+  const [company, setCompany] = useState(""); // honeypot
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -20,17 +23,41 @@ export function NewsletterForm({ source = "newsletter_footer" }: Props) {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source }),
+        body: JSON.stringify({ email, source, company_website: company }),
       });
       if (!res.ok) throw new Error("Failed");
-      router.push("/thank-you");
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "generate_lead", lead_source: source });
+      }
+      setStatus("success");
+      setEmail("");
     } catch {
       setStatus("error");
     }
   }
 
+  if (status === "success") {
+    return (
+      <p className="max-w-md mx-auto text-center font-dm-sans text-green-400">
+        You&apos;re in. Check your inbox for your first email.
+      </p>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="flex gap-3 max-w-md mx-auto">
+      {/* Honeypot — hidden from humans, catches bots */}
+      <input
+        type="text"
+        name="company_website"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden opacity-0"
+      />
       <input
         type="email"
         value={email}
