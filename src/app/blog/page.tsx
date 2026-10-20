@@ -79,7 +79,7 @@ export default function BlogPage() {
             Get Weekly Content Repurposing Tips
           </h2>
           <p className="text-gray-300 mb-6">One email per week. No fluff. Just workflows that work.</p>
-          <NewsletterForm source="newsletter_footer" />
+          <NewsletterForm source="newsletter" />
         </div>
       </section>
     </main>

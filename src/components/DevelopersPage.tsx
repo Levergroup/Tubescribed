@@ -233,6 +233,7 @@ export function DevelopersPage() {
   const [formName, setFormName] = useState("");
   const [formBuilding, setFormBuilding] = useState("");
   const [formVolume, setFormVolume] = useState("");
+  const [formCompany, setFormCompany] = useState(""); // honeypot
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formError, setFormError] = useState("");
   const router = useRouter();
@@ -259,16 +260,22 @@ export function DevelopersPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong");
 
-      // Add to Loops
+      // Add to GetResponse leads list
       await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: formEmail,
           firstName: formName.split(" ")[0],
-          source: "lead_magnet",
+          source: "other",
+          company_website: formCompany,
         }),
       });
+
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "generate_lead", lead_source: "other" });
+      }
 
       router.push("/thank-you");
     } catch (err) {
@@ -646,6 +653,17 @@ export function DevelopersPage() {
               onSubmit={handleWaitlistSubmit}
               className="bg-navy-800 border border-navy-700 rounded-2xl p-8 space-y-5"
             >
+              {/* Honeypot — hidden from humans, catches bots */}
+              <input
+                type="text"
+                name="company_website"
+                value={formCompany}
+                onChange={(e) => setFormCompany(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden opacity-0"
+              />
               <div>
                 <label className="block font-dm-sans text-navy-300 text-xs font-medium mb-1.5">
                   Email address <span className="text-brand-red">*</span>
