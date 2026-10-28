@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   FileText, ClipboardList, Layers, Grid3x3, Wand2, TrendingUp, ArrowRight,
-  Target, LayoutGrid, BarChart2, RefreshCw, CheckCircle, XCircle,
+  Target, LayoutGrid, BarChart2, RefreshCw, CheckCircle, XCircle, Sparkles, Code2,
 } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 import { OutputShowcase } from "@/components/OutputShowcase";
@@ -18,7 +18,7 @@ const features = [
   {
     icon: FileText,
     title: "YouTube Transcription",
-    description: "Paste any YouTube URL and get a publication-ready transcript in 8 seconds. Powered by OpenAI Whisper for accuracy.",
+    description: "Paste any captioned YouTube URL and get a publication-ready transcript in seconds. Built from the video's captions and cleaned by Claude AI.",
     href: "/features/youtube-transcription",
     tag: "Core",
   },
@@ -56,6 +56,20 @@ const features = [
     description: "Every month: hours saved, content pieces created, and your growing library score — all calculated from your real usage and delivered to your inbox.",
     href: "/features/progress-reports",
     tag: "Reports",
+  },
+  {
+    icon: Sparkles,
+    title: "Claude Connector",
+    description: "Use TubeScribed inside Claude. Ask Claude to transcribe a captioned YouTube video or turn it into an SOP, blog post or email sequence, right in the chat.",
+    href: "/integrations/claude",
+    tag: "Integrations",
+  },
+  {
+    icon: Code2,
+    title: "Developer API",
+    description: "One endpoint, four tools, clean JSON. Add YouTube transcripts and assets to n8n, Make, Zapier, AI agents or your own app. Included in every plan.",
+    href: "/developers",
+    tag: "Integrations",
   },
 ];
 

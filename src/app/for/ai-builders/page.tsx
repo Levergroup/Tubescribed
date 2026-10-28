@@ -23,7 +23,7 @@ const data = {
   featureCallout: {
     icon: "Wand2" as const,
     heading: "Structured output. Ready to paste.",
-    body: "TubeScribed runs YouTube audio through OpenAI Whisper for accurate transcription, then Claude AI structures the output — adding punctuation, fixing errors, removing filler words, and producing a title, summary, key takeaways, and timestamped segments.",
+    body: "TubeScribed pulls the video's captions, then Claude AI structures the output — adding punctuation, fixing errors and removing filler words. Prefer to build? Use the TubeScribed API, or connect TubeScribed to Claude directly.",
     subBody: "The result is a clean document you can paste directly into any AI tool, RAG pipeline, vector database, or knowledge base — no prep work, no cleaning, no prompting required.",
     note: "AI builders use TubeScribed as the first step in their YouTube-to-knowledge-base pipelines.",
   },

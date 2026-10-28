@@ -51,7 +51,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: Cpu,
     title: "TubeScribed processes it automatically",
     description:
-      "OpenAI Whisper transcribes the audio. Claude AI cleans, structures, and generates your chosen output type. Clean transcript, blog post, SOP, FAQ — whatever your workflow needs. No human in the loop.",
+      "TubeScribed pulls the video's captions. Claude AI cleans, structures, and generates your chosen output type. Clean transcript, blog post, SOP, FAQ — whatever your workflow needs. No human in the loop.",
   },
   {
     number: "03",

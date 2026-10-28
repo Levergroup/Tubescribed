@@ -5,6 +5,7 @@ import { ProblemAgitation } from "@/components/sections/ProblemAgitation";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ContentOutputShowcase } from "@/components/ContentOutputShowcase";
 import { WhyNotChatGPT } from "@/components/sections/WhyNotChatGPT";
+import { WorksWithClaude } from "@/components/sections/WorksWithClaude";
 import { Features } from "@/components/sections/Features";
 import { UseCaseTabs } from "@/components/sections/UseCaseTabs";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -45,6 +46,7 @@ export default function HomePage() {
       <HowItWorks />
       <ContentOutputShowcase videoTitle="How I Built a $50K/Year Content Business from YouTube" />
       <WhyNotChatGPT />
+      <WorksWithClaude />
       <Features />
       <UseCaseTabs />
       <Testimonials />

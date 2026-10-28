@@ -51,7 +51,7 @@ export default function AboutPage() {
               { title: "The best content is already created", body: "Most creators and businesses have more valuable content than they realize — it's just locked in video format. Our job is to unlock it." },
               { title: "Brand voice matters", body: "Generic AI output doesn't build trust. Everything TubeScribed generates should sound like you — not like a machine." },
               { title: "Tools should do more than one thing", body: "We don't want to be another point solution. TubeScribed handles the entire pipeline from YouTube URL to finished business asset." },
-              { title: "Speed shouldn't mean sacrifice", body: "8 seconds per transcript shouldn't mean lower quality. Powered by OpenAI Whisper and Claude AI — the same tools used by Fortune 500 companies." },
+              { title: "Speed shouldn't mean sacrifice", body: "8 seconds per transcript shouldn't mean lower quality. Powered by Claude AI, the same AI used by Fortune 500 companies." },
             ].map((item) => (
               <div key={item.title} className="bg-navy-800 border border-navy-700 rounded-2xl p-6">
                 <h3 className="font-syne font-semibold text-navy-100 text-base mb-2">{item.title}</h3>

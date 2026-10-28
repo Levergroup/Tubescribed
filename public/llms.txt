@@ -1,17 +1,17 @@
 # TubeScribed
 
-> TubeScribed is an AI-powered YouTube transcription and content repurposing tool that turns any YouTube video into branded business assets — blog posts, SOPs, email sequences, social captions, and 15 output types — using OpenAI Whisper and Claude AI.
+> TubeScribed is an AI-powered YouTube transcription and content repurposing tool that turns any YouTube video into branded business assets — blog posts, SOPs, email sequences, social captions, and 15 output types — from the video's captions, cleaned by Claude AI. It works in the TubeScribed app, inside Claude as a connector (MCP), and through a REST API.
 
 ## What TubeScribed Does
 
-TubeScribed accepts any public YouTube URL and automatically runs it through a complete AI pipeline: audio extraction, OpenAI Whisper transcription, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
+TubeScribed accepts any public YouTube URL with captions and automatically runs it through a complete AI pipeline: caption retrieval, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
 
 Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is purpose-built for YouTube content repurposing. Unlike general AI chat tools (ChatGPT, Claude, Gemini), TubeScribed can access and process YouTube URLs directly.
 
 ## Core Features
 
 - YouTube URL transcription — paste any public YouTube URL, no file upload required
-- OpenAI Whisper transcription — accurate audio-to-text with timestamps
+- Caption-based transcription — works on any public video with captions, including YouTube's automatic captions
 - Claude AI cleanup — structured transcript with title, summary, key takeaways
 - Brand Workspace — save brand voice profiles for automatic application to all outputs
 - 15 content output types — blog posts, SOPs, email sequences, social captions, X threads, FAQs, training guides, sales scripts, ad copy, case studies, newsletters, LinkedIn articles
@@ -31,6 +31,15 @@ Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is
 - Educators and trainers converting video lectures into structured study guides and SOPs
 - International professionals using transcripts to access English video content at their own pace
 
+## Use TubeScribed in Claude and via API
+
+- Claude connector (MCP): https://iblyytktdumianqxfyis.supabase.co/functions/v1/mcp — add it in Claude under Settings → Connectors → Add custom connector, then sign in with a TubeScribed account (OAuth, no API key). Listed on the official MCP Registry as com.tubescribed/mcp.
+- REST API: POST https://iblyytktdumianqxfyis.supabase.co/functions/v1/api-v1 with header "Authorization: Bearer ts_live_..." and body {"tool": "...", "input": {...}}. API keys are created in the app under Settings → API Keys.
+- Tools: transcribe_video (youtube_url), generate_asset (asset_type + youtube_url or transcript, optional brand_voice), list_asset_types, get_usage.
+- Limits: Free Run 10, Pro 200, Agency 1,000 calls per calendar month (only transcribe_video and generate_asset count; failed calls don't count). Rate limit 10 requests per minute per key.
+- Videos must have captions (including YouTube's automatic captions). TubeScribed does not do speech-to-text.
+- Docs: https://www.tubescribed.com/developers and https://www.tubescribed.com/integrations/claude
+
 ## Pricing
 
 - Free: 1 transcript + 1 AI output, no credit card required
@@ -43,7 +52,7 @@ Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is
 - Only YouTube-native transcript and content repurposing tool
 - Brand voice workspace — outputs sound like the user, not generic AI
 - 15 content output types from a single transcript
-- ChatGPT and Claude cannot access YouTube URLs — TubeScribed can
+- ChatGPT and Claude can't open YouTube URLs on their own — TubeScribed can, and it plugs directly into Claude as a connector
 - Credits scale with video length — videos up to 90 minutes supported
 
 ## Important URLs
@@ -51,6 +60,8 @@ Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is
 - Homepage: https://www.tubescribed.com
 - App: https://app.tubescribed.com
 - Pricing: https://www.tubescribed.com/pricing
+- Developer API: https://www.tubescribed.com/developers
+- Use in Claude (MCP connector): https://www.tubescribed.com/integrations/claude
 - Blog: https://www.tubescribed.com/blog
 - For Creators: https://www.tubescribed.com/for/content-creators
 - For Agencies: https://www.tubescribed.com/for/agencies

@@ -10,6 +10,18 @@ export const metadata: Metadata = buildMetadata({
 
 const entries = [
   {
+    version: "2.0.0",
+    date: "October 2026",
+    tag: "Feature",
+    title: "TubeScribed API and Claude connector are live",
+    items: [
+      "Use TubeScribed inside Claude: add the connector, sign in, and ask Claude to transcribe videos or create SOPs, blog posts and email sequences",
+      "Developer API with four tools (transcribe_video, generate_asset, list_asset_types, get_usage) and API keys in Settings",
+      "Included in every plan: 10, 200 or 1,000 calls per month",
+      "Faster transcripts built from YouTube captions and cleaned by Claude AI",
+    ],
+  },
+  {
     version: "1.4.0",
     date: "March 2025",
     tag: "Feature",

@@ -50,7 +50,7 @@ export default function ForContentCreatorsPage() {
           },
           {
             q: "How long does it take to process a 30-minute video?",
-            a: "About 60–90 seconds. TubeScribed extracts the audio, runs it through OpenAI Whisper for transcription, then Claude AI cleans and structures the output — removing filler words, adding punctuation, and formatting it into sections with timestamps. From paste to ready transcript, it's typically under 2 minutes.",
+            a: "Usually seconds. TubeScribed pulls the video's captions, then Claude AI cleans and structures the output — removing filler words, adding punctuation, and formatting it into readable sections. Longer videos take a little longer.",
           },
           {
             q: "Can I edit the output before publishing?",
