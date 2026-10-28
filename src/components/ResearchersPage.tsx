@@ -45,7 +45,7 @@ const HOW_IT_WORKS = [
     number: "02",
     title: "Get accurate searchable transcript",
     description:
-      "OpenAI Whisper produces a highly accurate transcript with proper punctuation and paragraph breaks — suitable for quotation. Every segment is timestamped so you can verify the exact moment of any quote.",
+      "TubeScribed turns the video's captions into a clean transcript with proper punctuation and paragraph breaks. Always check direct quotes against the original video before publishing.",
   },
   {
     number: "03",
@@ -89,7 +89,7 @@ const USE_CASES = [
 ];
 
 const BENEFITS = [
-  "Highly accurate transcription — powered by OpenAI Whisper, suitable for direct quotation",
+  "Clean, punctuated transcripts built from the video's captions",
   "Timestamps on every segment — verify and link to exact moments",
   "Summary and key takeaways — know if a video is worth your full attention",
   "Searchable workspace — all transcripts saved and searchable in your account",
@@ -100,11 +100,11 @@ const BENEFITS = [
 const FAQS = [
   {
     q: "How accurate is the transcription for quotation purposes?",
-    a: "TubeScribed uses OpenAI Whisper — one of the most accurate transcription models available. Accuracy on clear audio is typically 95–98%. Always verify direct quotes against the original video using the timestamps provided. Transcription accuracy may vary with heavy accents, technical jargon, or poor audio quality.",
+    a: "TubeScribed builds transcripts from the video's captions, and Claude AI fixes punctuation and common errors. Accuracy depends on the captions, so always verify direct quotes against the original video before publishing.",
   },
   {
     q: "Can I process videos in languages other than English?",
-    a: "Whisper supports transcription in 50+ languages. The transcript will be generated in the video's original language. Content generation outputs (summaries, key takeaways) currently perform best on English content.",
+    a: "TubeScribed uses the captions a video already has, in the language they're published in. Content generation outputs (summaries, key takeaways) currently perform best on English content.",
   },
   {
     q: "Can I process a live stream or video that was streamed and archived?",

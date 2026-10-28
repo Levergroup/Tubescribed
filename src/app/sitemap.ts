@@ -68,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Developer
     { url: 'https://www.tubescribed.com/developers', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.tubescribed.com/integrations/claude', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
     // Company
     { url: 'https://www.tubescribed.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },

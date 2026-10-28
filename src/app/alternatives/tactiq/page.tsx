@@ -17,7 +17,7 @@ const reasons = [
   "Brand workspace produces branded outputs automatically — Tactiq has no brand voice system",
   "15 content output types built-in — Tactiq only captures live captions",
   "SOP generator from any video or recording — Tactiq doesn't support this",
-  "Accurate Whisper transcription vs. live caption capture — better accuracy on pre-recorded content",
+  "Full YouTube transcripts cleaned by Claude AI vs. live meeting caption capture",
 ];
 
 export default function TactiqAlternativesPage() {

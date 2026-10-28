@@ -29,8 +29,8 @@ const PROBLEMS = [
     body: "Earnings calls, conference presentations, client video messages — these move at the speaker's pace, not yours. Missing a number, a commitment, or a key decision in a business context has real consequences.",
   },
   {
-    title: "YouTube auto-captions are worse in fast or accented speech",
-    body: "The situations where you need captions most — fast speakers, technical topics, non-standard accents — are exactly where YouTube's auto-captions fail most. TubeScribed uses OpenAI Whisper — the most accurate speech recognition model available.",
+    title: "Raw auto-captions are hardest to follow in fast or accented speech",
+    body: "The situations where you need captions most — fast speakers, technical topics, non-standard accents — are exactly where raw auto-captions are hardest to read. TubeScribed turns them into a clean, punctuated transcript with Claude AI so you can read at your own pace.",
   },
 ];
 
@@ -45,7 +45,7 @@ const HOW_IT_WORKS = [
     icon: Cpu,
     title: "Get a clean, accurate transcript in 30 seconds",
     description:
-      "OpenAI Whisper delivers 95–98% accuracy with proper punctuation and paragraph breaks. Read it like an article — every word exactly as spoken.",
+      "Claude AI adds proper punctuation and paragraph breaks to the video's captions. Read it like an article, at your own pace.",
   },
   {
     icon: Search,
@@ -81,11 +81,11 @@ const WHO_THIS_HELPS = [
 const FAQS = [
   {
     q: "What languages are supported?",
-    a: "Whisper supports transcription in 50+ languages. For international professionals, English videos are transcribed with 95–98% accuracy. You can read the English transcript at your own pace.",
+    a: "TubeScribed works with the captions a video already has, in the language they're published in. Most English videos have captions, including YouTube's automatic ones, so you can read the English transcript at your own pace.",
   },
   {
     q: "Does it work on fast speakers?",
-    a: "Yes. Whisper is specifically trained to handle fast speech, regional accents, and technical vocabulary — all the situations where YouTube auto-captions struggle most.",
+    a: "Yes. Speaking speed doesn't matter because TubeScribed works from the captions, not from listening. Claude AI also fixes common caption errors, like misheard technical terms, using the surrounding context.",
   },
   {
     q: "Can I export transcripts to my notes app?",
@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "What types of English video work best?",
-    a: "Business content — earnings calls, conferences, interviews, podcasts, lectures — works best. Whisper is particularly strong on professional speech. Casual vlog content or heavy slang may have lower accuracy.",
+    a: "Business content — earnings calls, conferences, interviews, podcasts, lectures — works best. Professional speech usually has the cleanest captions. Casual vlog content or heavy slang may have lower accuracy.",
   },
 ];
 
@@ -307,7 +307,7 @@ export function InternationalProfessionalsPage() {
               Accuracy
             </p>
             <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100">
-              95–98% accuracy. Suitable for business use.
+              Clean, readable transcripts. Built for business use.
             </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

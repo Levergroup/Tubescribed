@@ -29,7 +29,7 @@ const CLEANUP_STEPS = [
   {
     step: "03",
     title: "Error correction",
-    body: "Whisper and YouTube's caption system both make mistakes — especially with proper nouns, technical terms, and fast speech. Claude corrects these using context. If the speaker says 'ROI' and it's transcribed as 'Roy,' Claude fixes it.",
+    body: "YouTube's captions make mistakes — especially with proper nouns, technical terms, and fast speech. Claude corrects these using context. If the speaker says 'ROI' and it's transcribed as 'Roy,' Claude fixes it.",
   },
   {
     step: "04",
@@ -70,7 +70,7 @@ const FAQS = [
   },
   {
     q: "Can I see the raw transcript before the cleanup?",
-    a: "No — the cleaned transcript is what TubeScribed delivers. The raw Whisper output is an intermediate step in the processing pipeline, not a deliverable. If you specifically need raw transcription output (for custom processing pipelines), the API plan provides access to raw Whisper output before the Claude cleanup layer is applied.",
+    a: "In the app, the cleaned transcript is what TubeScribed delivers. If you need the raw captions (for your own processing pipeline), the TubeScribed connector for Claude returns raw captions by default.",
   },
 ];
 
@@ -114,7 +114,7 @@ export default function AITranscriptCleanerFeaturePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-2xl p-7" style={{ backgroundColor: "#2A1A1A", border: "1.5px solid #7F1D1D" }}>
               <p className="font-dm-sans text-red-400 text-xs font-semibold uppercase tracking-wide mb-4">
-                ❌ Raw Whisper Output (Before)
+                ❌ Raw Captions (Before)
               </p>
               <p className="font-mono text-sm text-navy-500 leading-relaxed mb-4">
                 so um today were gonna talk about uh transcript cleaning and you know the reason why

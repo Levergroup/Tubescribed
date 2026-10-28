@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
 
 const features = [
   { feature: "Punctuation", tubescribed: "✓ Full punctuation", competitor: "✗ None" },
-  { feature: "Error correction", tubescribed: "✓ OpenAI Whisper + Claude AI", competitor: "✗ Raw machine errors" },
+  { feature: "Error correction", tubescribed: "✓ Claude AI cleanup", competitor: "✗ Raw machine errors" },
   { feature: "Filler word removal", tubescribed: "✓ Automatic", competitor: "✗ All filler included" },
   { feature: "Structured formatting", tubescribed: "✓ Title, summary, takeaways, timestamps", competitor: "✗ Unformatted wall of text" },
   { feature: "Publication ready", tubescribed: "✓ Yes", competitor: "✗ Requires hours of editing" },
@@ -26,7 +26,7 @@ export default function VsYoutubeCaptionsPage() {
       competitorName="YouTube Auto-Captions"
       subtitle="YouTube's automatic captions are free — but they're unpunctuated, error-filled walls of text that require hours of editing before they're usable. TubeScribed turns the same audio into a publication-ready document."
       features={features}
-      verdictBody="YouTube auto-captions are technically free. But they&apos;re unpunctuated, full of transcription errors, stripped of formatting, and completely unusable for any business purpose without significant manual editing.<br /><br />TubeScribed runs the same audio through OpenAI Whisper for accurate transcription, then Claude AI adds punctuation, fixes errors, removes filler words, and structures the output with a title, summary, key takeaways, and timestamped segments. The result is a professional document — not a raw caption dump. Starting at $19/month with a free run to see the difference yourself."
+      verdictBody="YouTube auto-captions are technically free. But they&apos;re unpunctuated, full of transcription errors, stripped of formatting, and completely unusable for any business purpose without significant manual editing.<br /><br />TubeScribed starts from those same captions, then Claude AI adds punctuation, fixes errors, removes filler words, and structures the output with a title, summary, key takeaways, and timestamped segments. The result is a professional document — not a raw caption dump. Starting at $19/month with a free run to see the difference yourself."
       ctaHref={`${APP_URL}/signup`}
     />
   );

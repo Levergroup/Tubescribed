@@ -17,8 +17,8 @@ const tableRows = [
 const cards = [
   {
     icon: Link2,
-    headline: "One Paste. Seven Steps Automated.",
-    body: "URL → Audio extraction → Whisper transcription → AI cleanup → Brand voice applied → 15 asset types generated → saved to your workspace. That's seven steps TubeScribed handles automatically. Your AI chat tool makes you do every one of them by hand.",
+    headline: "One Paste. Six Steps Automated.",
+    body: "URL → Captions pulled → AI cleanup → Brand voice applied → 15 asset types generated → saved to your workspace. That's six steps TubeScribed handles automatically. Your AI chat tool makes you do every one of them by hand.",
   },
   {
     icon: Bot,

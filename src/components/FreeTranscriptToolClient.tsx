@@ -31,7 +31,7 @@ const DEMO_TRANSCRIPT = `**Video Title:** How to Build a YouTube Content Strateg
 [13:45] Here's the thing most people don't realize: the video is actually the hardest version of this content to create. Once you've said it on camera, turning it into written content should take minutes, not hours.`;
 
 const COMPARISON_ROWS = [
-  { feature: "Accurate transcription (OpenAI Whisper)", free: true, yt: false, manual: null },
+  { feature: "Clean, punctuated transcript (Claude AI)", free: true, yt: false, manual: null },
   { feature: "Punctuation and formatting", free: true, yt: false, manual: "Hours" },
   { feature: "Filler word removal", free: true, yt: false, manual: "Hours" },
   { feature: "Summary and key takeaways", free: true, yt: false, manual: "Hours" },
@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: "How is this different from YouTube's built-in captions?",
-    a: "YouTube's auto-captions have no punctuation, are full of errors, and can't be exported as a clean document. TubeScribed uses OpenAI Whisper for transcription and Claude AI for cleanup — producing a properly formatted, filler-free, publication-ready transcript.",
+    a: "YouTube's auto-captions have no punctuation, are full of errors, and can't be exported as a clean document. TubeScribed pulls the video's captions and uses Claude AI to clean them up — producing a properly formatted, filler-free, publication-ready transcript.",
   },
   {
     q: "What can I do with the transcript once I have it?",
@@ -139,7 +139,7 @@ export function FreeTranscriptToolClient() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-dm-sans text-navy-400 text-xl leading-relaxed mb-10"
           >
-            Paste any YouTube URL. Get a clean, accurate transcript powered by OpenAI Whisper —
+            Paste any YouTube URL. Get a clean, readable transcript cleaned up by Claude AI —
             properly punctuated, filler-word-free, and structured with timestamps.
           </motion.p>
 

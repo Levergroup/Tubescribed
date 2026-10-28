@@ -1,6 +1,9 @@
 # AI Crawler Information for TubeScribed
 # Full LLMs documentation: https://www.tubescribed.com/llms.txt
 # Detailed documentation: https://www.tubescribed.com/llms-full.txt
+# Developer API: https://www.tubescribed.com/developers
+# Claude connector (MCP): https://www.tubescribed.com/integrations/claude
+# MCP Registry name: com.tubescribed/mcp
 
 User-agent: GPTBot
 Allow: /

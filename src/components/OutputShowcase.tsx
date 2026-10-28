@@ -13,9 +13,9 @@ const OUTPUTS = [
     title: "Clean Transcript",
     tagline: "Your video, finally readable.",
     description:
-      "OpenAI Whisper transcribes every word with 95–98% accuracy. Claude AI removes filler words, adds punctuation, structures into paragraphs, and timestamps every segment. The output you'd spend 45 minutes cleaning manually — done in 15 seconds.",
-    stat: "95–98% accuracy",
-    statLabel: "via OpenAI Whisper",
+      "TubeScribed pulls every word from the video's captions. Claude AI removes filler words, adds punctuation, and structures it into readable paragraphs. The output you'd spend 45 minutes cleaning manually — done in 15 seconds.",
+    stat: "Seconds, not 45 minutes",
+    statLabel: "cleaned by Claude AI",
     preview: [
       { timestamp: "00:00", text: "The biggest mistake most content creators make is treating every video as a one-time event." },
       { timestamp: "00:18", text: "You spend six hours creating something valuable — and it disappears into the YouTube void after one watch." },
@@ -120,7 +120,7 @@ const OUTPUTS = [
     statLabel: "featured snippet ready",
     preview: [
       { label: "Q", text: "What is the best way to repurpose a YouTube video into a blog post?" },
-      { label: "A", text: "The fastest method is using an AI transcription tool that accepts YouTube URLs directly. The tool extracts audio, transcribes with Whisper, and generates a structured SEO article automatically — the full process takes under 2 minutes." },
+      { label: "A", text: "The fastest method is using an AI transcription tool that accepts YouTube URLs directly. The tool pulls the video's captions, cleans them with AI, and generates a structured SEO article automatically — the full process takes under 2 minutes." },
     ],
   },
   {

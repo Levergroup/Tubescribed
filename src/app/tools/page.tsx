@@ -13,7 +13,7 @@ const TOOLS = [
   {
     icon: Mic,
     title: "YouTube Transcript Generator",
-    description: "Clean, punctuated, timestamped transcript from any YouTube URL. Powered by OpenAI Whisper.",
+    description: "Clean, punctuated transcript from any captioned YouTube video. Cleaned by Claude AI.",
     href: "/tools/youtube-transcript-generator",
     badge: "Most popular",
     badgeColor: "bg-[#FF3B30] text-white",
