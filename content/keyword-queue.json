@@ -1,0 +1,453 @@
+{
+  "_readme": "Daily blog queue. The publisher takes the lowest 'order' with status 'queued', and on publish sets status 'published', published_date and url in the same commit. 'hold' = keywords deliberately not written (would compete with an existing page).",
+  "items": [
+    {
+      "order": 1,
+      "keyword": "YouTube video to SOP template",
+      "secondary": [
+        "SOP template from video",
+        "video SOP template"
+      ],
+      "type": "How-to + template",
+      "free_tool": "youtube-to-sop",
+      "us_volume": 90,
+      "kd": 17,
+      "suggested_slug": "youtube-video-to-sop-template",
+      "notes": "Template angle. Link to /blog/video-to-sop-ai; do not re-target 'video to SOP AI'. | Published by setup run; real example: Darrel Wilson GBP tutorial (brand_sop).",
+      "status": "published",
+      "published_date": "2026-11-13",
+      "url": "https://www.tubescribed.com/blog/youtube-video-to-sop-template"
+    },
+    {
+      "order": 2,
+      "keyword": "repurpose coaching call content",
+      "secondary": [
+        "repurpose coaching calls",
+        "coaching call to content"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-to-blog-post",
+      "us_volume": 329,
+      "kd": 17,
+      "suggested_slug": "repurpose-coaching-call-content",
+      "notes": "Coaches/course creators avatar. Recorded calls uploaded to YouTube (unlisted works only if public link is accessible; say public videos).",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 3,
+      "keyword": "notegpt alternative",
+      "secondary": [
+        "NoteGPT alternatives",
+        "NoteGPT vs TubeScribed"
+      ],
+      "type": "Alternatives",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 200,
+      "kd": 25,
+      "suggested_slug": "notegpt-alternative",
+      "notes": "Verify NoteGPT features and pricing from its own site on the day; cite it.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 4,
+      "keyword": "best AI tool to repurpose YouTube videos",
+      "secondary": [
+        "AI tool to repurpose video content",
+        "YouTube content repurposing tool"
+      ],
+      "type": "Listicle/comparison",
+      "free_tool": "youtube-to-social-captions",
+      "us_volume": 80,
+      "kd": 14,
+      "suggested_slug": "best-ai-tool-to-repurpose-youtube-videos",
+      "notes": "Merges 3 bank rows. Honest list incl. competitors; TubeScribed not automatically #1 for every use case.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 5,
+      "keyword": "transcribetube alternative",
+      "secondary": [
+        "TranscribeTube alternatives"
+      ],
+      "type": "Alternatives",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 50,
+      "kd": 15,
+      "suggested_slug": "transcribetube-alternative",
+      "notes": "Verify competitor facts on its site.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 6,
+      "keyword": "YouTube video to course content",
+      "secondary": [
+        "turn YouTube videos into a course",
+        "video to course outline"
+      ],
+      "type": "How-to",
+      "free_tool": "video-to-training-guide",
+      "us_volume": 250,
+      "kd": 28,
+      "suggested_slug": "youtube-video-to-course-content",
+      "notes": "",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 7,
+      "keyword": "repurpose video content for email",
+      "secondary": [
+        "video to email sequence",
+        "YouTube video to email"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-to-email-sequence",
+      "us_volume": 262,
+      "kd": 25,
+      "suggested_slug": "repurpose-video-content-for-email",
+      "notes": "Link to /blog/video-to-newsletter-ai; focus on sequences, not newsletters.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 8,
+      "keyword": "TubeScribed vs ChatGPT",
+      "secondary": [
+        "can ChatGPT summarize YouTube videos",
+        "ChatGPT YouTube transcript"
+      ],
+      "type": "VS page",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 100,
+      "kd": 20,
+      "suggested_slug": "tubescribed-vs-chatgpt",
+      "notes": "Fair: say what ChatGPT can do today (check). Core point: ChatGPT can't reliably fetch YouTube audio; TubeScribed transcribes audio then writes.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 9,
+      "keyword": "fireflies alternative for content creators",
+      "secondary": [
+        "Fireflies.ai alternative YouTube"
+      ],
+      "type": "Alternatives",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 75,
+      "kd": 20,
+      "suggested_slug": "fireflies-alternative-for-content-creators",
+      "notes": "Fireflies is a meeting notetaker; angle = different job (published video vs meetings).",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 10,
+      "keyword": "TubeScribed vs Tactiq",
+      "secondary": [
+        "Tactiq alternative"
+      ],
+      "type": "VS page",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 100,
+      "kd": 21,
+      "suggested_slug": "tubescribed-vs-tactiq",
+      "notes": "Verify Tactiq features/pricing on its site.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 11,
+      "keyword": "how to build a content machine from video",
+      "secondary": [
+        "video content repurposing system",
+        "one video many pieces of content"
+      ],
+      "type": "Guide",
+      "free_tool": "youtube-to-social-captions",
+      "us_volume": 180,
+      "kd": 30,
+      "suggested_slug": "how-to-build-a-content-machine-from-video",
+      "notes": "Link to /blog/repurpose-youtube-content (pillar).",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 12,
+      "keyword": "how to transcribe YouTube videos free",
+      "secondary": [
+        "transcribe YouTube video free",
+        "free YouTube transcription"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 1200,
+      "kd": 45,
+      "suggested_slug": "how-to-transcribe-youtube-videos-free",
+      "notes": "Honest: show YouTube's built-in transcript first, then when you need more. Do not target 'youtube transcript generator' (tool page owns it).",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 13,
+      "keyword": "TubeScribed vs Otter.ai",
+      "secondary": [
+        "Otter.ai for YouTube videos",
+        "Otter alternative YouTube"
+      ],
+      "type": "VS page",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 80,
+      "kd": 18,
+      "suggested_slug": "tubescribed-vs-otter-ai",
+      "notes": "",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 14,
+      "keyword": "TubeScribed vs Descript",
+      "secondary": [
+        "Descript alternative for transcripts"
+      ],
+      "type": "VS page",
+      "free_tool": "youtube-to-blog-post",
+      "us_volume": 90,
+      "kd": 22,
+      "suggested_slug": "tubescribed-vs-descript",
+      "notes": "",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 15,
+      "keyword": "brand voice AI content",
+      "secondary": [
+        "AI content in your brand voice",
+        "brand voice AI writer"
+      ],
+      "type": "Guide",
+      "free_tool": "youtube-to-blog-post",
+      "us_volume": 200,
+      "kd": 38,
+      "suggested_slug": "brand-voice-ai-content",
+      "notes": "Only claim brand workspaces as listed in FACTS.md.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 16,
+      "keyword": "TubeScribed vs Fireflies",
+      "secondary": [
+        "Fireflies vs TubeScribed"
+      ],
+      "type": "VS page",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 60,
+      "kd": 19,
+      "suggested_slug": "tubescribed-vs-fireflies",
+      "notes": "Different angle from the Fireflies alternative post: direct feature table. Link the two.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 17,
+      "keyword": "youtube video summarizer ai",
+      "secondary": [
+        "AI YouTube summary",
+        "summarize YouTube video with AI"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 1600,
+      "kd": 55,
+      "suggested_slug": "youtube-video-summarizer-ai",
+      "notes": "Key takeaways asset is the summary angle.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 18,
+      "keyword": "how to get transcript from YouTube video",
+      "secondary": [
+        "get YouTube transcript",
+        "copy transcript from YouTube"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 2800,
+      "kd": 55,
+      "suggested_slug": "how-to-get-transcript-from-youtube-video",
+      "notes": "Must cover the free built-in YouTube method step by step (desktop + mobile) honestly.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 19,
+      "keyword": "AI tools for content creators",
+      "secondary": [
+        "best AI tools for YouTubers"
+      ],
+      "type": "Listicle",
+      "free_tool": "youtube-to-social-captions",
+      "us_volume": 1100,
+      "kd": 50,
+      "suggested_slug": "ai-tools-for-content-creators",
+      "notes": "Broad list, TubeScribed one entry among real tools.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 20,
+      "keyword": "YouTube content strategy for business",
+      "secondary": [
+        "B2B YouTube strategy"
+      ],
+      "type": "Guide",
+      "free_tool": "youtube-to-blog-post",
+      "us_volume": 1800,
+      "kd": 60,
+      "suggested_slug": "youtube-content-strategy-for-business",
+      "notes": "Strategy piece; repurposing is one section.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 21,
+      "keyword": "transcribe youtube video",
+      "secondary": [
+        "transcribe a YouTube video",
+        "YouTube video transcription"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 9900,
+      "kd": 43,
+      "suggested_slug": "transcribe-youtube-video",
+      "notes": "Different intent from 'how to transcribe ... free': accuracy, no-caption videos, long videos.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 22,
+      "keyword": "AI transcription tool",
+      "secondary": [
+        "AI transcription for video"
+      ],
+      "type": "Listicle",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 5000,
+      "kd": 68,
+      "suggested_slug": "ai-transcription-tool",
+      "notes": "Hard keyword; write the most useful honest comparison.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 23,
+      "keyword": "video to text AI tool",
+      "secondary": [
+        "convert video to text AI"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 1800,
+      "kd": 70,
+      "suggested_slug": "video-to-text-ai-tool",
+      "notes": "",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 24,
+      "keyword": "youtube to text",
+      "secondary": [
+        "YouTube video to text converter"
+      ],
+      "type": "How-to",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 3500,
+      "kd": 65,
+      "suggested_slug": "youtube-to-text",
+      "notes": "Short, practical.",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    },
+    {
+      "order": 25,
+      "keyword": "video transcription software",
+      "secondary": [
+        "best video transcription software"
+      ],
+      "type": "Listicle",
+      "free_tool": "youtube-transcript-generator",
+      "us_volume": 3500,
+      "kd": 65,
+      "suggested_slug": "video-transcription-software",
+      "notes": "",
+      "status": "queued",
+      "published_date": null,
+      "url": null
+    }
+  ],
+  "hold": [
+    {
+      "keyword": "youtube transcript",
+      "reason": "Owned by /tools/youtube-transcript-generator; improve that page instead of a blog post."
+    },
+    {
+      "keyword": "youtube transcript generator",
+      "reason": "Same as above."
+    },
+    {
+      "keyword": "free youtube transcript generator",
+      "reason": "Same as above."
+    },
+    {
+      "keyword": "video to SOP AI",
+      "reason": "Already live: /blog/video-to-sop-ai."
+    },
+    {
+      "keyword": "video to SOP generator",
+      "reason": "Covered by /blog/video-to-sop-ai and /tools/youtube-to-sop."
+    },
+    {
+      "keyword": "youtube to sop generator",
+      "reason": "Covered by /tools/youtube-to-sop."
+    },
+    {
+      "keyword": "convert youtube video to blog post",
+      "reason": "Covered by /blog/youtube-video-to-blog-post."
+    },
+    {
+      "keyword": "video content to email newsletter",
+      "reason": "Covered by /blog/video-to-newsletter-ai."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: IndexNow ping for new blog posts
+
+on:
+  push:
+    branches: [main]
+    paths: ["content/blog/*.mdx"]
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Find new or changed posts
+        id: posts
+        run: |
+          urls=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'content/blog/*.mdx' \
+            | sed -E 's#content/blog/(.*)\.mdx#https://www.tubescribed.com/blog/\1#' | paste -sd ' ' -)
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+          echo "Posts: $urls"
+      - name: Wait for the Vercel deploy to go live
+        if: steps.posts.outputs.urls != ''
+        run: |
+          for u in ${{ steps.posts.outputs.urls }}; do
+            for i in $(seq 1 30); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "$u")
+              [ "$code" = "200" ] && echo "$u is live" && break
+              sleep 20
+            done
+          done
+      - name: Ping IndexNow (Bing, Yandex, Seznam, Naver)
+        if: steps.posts.outputs.urls != ''
+        run: |
+          list=$(printf '"%s",' ${{ steps.posts.outputs.urls }} https://www.tubescribed.com/sitemap.xml | sed 's/,$//')
+          body="{\"host\":\"www.tubescribed.com\",\"key\":\"tubescribed2026\",\"keyLocation\":\"https://www.tubescribed.com/tubescribed2026.txt\",\"urlList\":[$list]}"
+          echo "$body"
+          curl -s -o /dev/null -w 'IndexNow HTTP %{http_code}\n' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' -d "$body"
