@@ -18,7 +18,7 @@ const cards = [
   {
     icon: Link2,
     headline: "One Paste. Six Steps Automated.",
-    body: "URL → Captions pulled → AI cleanup → Brand voice applied → 15 asset types generated → saved to your workspace. That's six steps TubeScribed handles automatically. Your AI chat tool makes you do every one of them by hand.",
+    body: "URL → Audio transcribed → AI cleanup → Brand voice applied → 15 asset types generated → saved to your workspace. That's six steps TubeScribed handles automatically. Your AI chat tool makes you do every one of them by hand.",
   },
   {
     icon: Bot,
@@ -66,7 +66,7 @@ export function WhyNotChatGPT() {
             <br className="hidden lg:block" /> TubeScribed can — and it does everything after that too.
           </h2>
           <p className="font-dm-sans text-navy-400 text-lg leading-relaxed max-w-3xl mx-auto">
-            Paste a YouTube link into ChatGPT. Watch it fail. ChatGPT, Claude, Gemini — none of them can access YouTube. You&apos;d still have to find the captions, clean the formatting, write the prompt, re-prompt when it&apos;s wrong, copy the output, reformat it, and save it somewhere. TubeScribed does the entire pipeline in one paste.
+            Paste a YouTube link into ChatGPT or Claude. Neither can watch it. Gemini can summarize some videos, but it won&apos;t give you a clean full transcript or business documents in your brand voice. You&apos;d still have to find the captions, clean the formatting, write the prompt, re-prompt when it&apos;s wrong, copy the output, reformat it, and save it somewhere. TubeScribed does the entire pipeline in one paste.
           </p>
         </motion.div>
 

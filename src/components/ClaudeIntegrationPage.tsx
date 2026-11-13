@@ -20,7 +20,7 @@ const PROMPTS = [
 const FLOW = [
   { icon: MessageSquare, title: "You ask Claude", body: "Paste a YouTube link and say what you need, in plain English." },
   { icon: Sparkles, title: "Claude calls TubeScribed", body: "Claude picks the right TubeScribed tool and sends it the video." },
-  { icon: Youtube, title: "TubeScribed does the work", body: "It pulls the video's captions and, if asked, generates the asset." },
+  { icon: Youtube, title: "TubeScribed does the work", body: "It transcribes the video's audio and, if asked, generates the asset." },
   { icon: FileText, title: "Result in your chat", body: "The transcript or finished SOP, blog post or email appears in Claude." },
 ];
 
@@ -74,7 +74,7 @@ export function ClaudeIntegrationPage() {
               Use TubeScribed <GradientText>inside Claude</GradientText>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="font-dm-sans text-navy-400 text-lg leading-relaxed mb-8">
-              Add TubeScribed to Claude as a connector and Claude can transcribe any captioned YouTube video and turn it into blog posts, SOPs, email sequences and more, right inside the chat. Setup takes one minute and uses secure sign-in with your TubeScribed account. No API key needed.
+              Add TubeScribed to Claude as a connector and Claude can transcribe any YouTube video, with or without captions, and turn it into blog posts, SOPs, email sequences and more, right inside the chat. Setup takes one minute and uses secure sign-in with your TubeScribed account. No API key needed.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="flex flex-col sm:flex-row gap-4">
               <Button href="#setup" variant="primary" className="px-7 py-3.5">
@@ -175,10 +175,10 @@ export function ClaudeIntegrationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             <LimitsTable />
             <ul className="space-y-3 font-dm-sans text-navy-400 text-sm leading-relaxed">
-              <li><span className="text-navy-100 font-semibold">Same allowance as the API.</span> Transcriptions and generations in Claude count toward your monthly calls. Failed calls are free.</li>
-              <li><span className="text-navy-100 font-semibold">Raw captions by default.</span> They return in seconds. Ask Claude for a cleaned transcript when you want one.</li>
-              <li><span className="text-navy-100 font-semibold">Captions required.</span> Videos need existing captions, including YouTube&apos;s automatic ones.</li>
-              <li><span className="text-navy-100 font-semibold">Long videos.</span> Get the raw transcript first, then generate assets from that text.</li>
+              <li><span className="text-navy-100 font-semibold">Same allowance as the API.</span> Transcriptions and generations in Claude use your monthly credits. Failed calls are free.</li>
+              <li><span className="text-navy-100 font-semibold">Raw transcript by default.</span> Ask Claude for a cleaned transcript when you want one.</li>
+              <li><span className="text-navy-100 font-semibold">No captions needed.</span> TubeScribed transcribes the audio, so brand-new uploads work too. 1 credit per started 10 minutes.</li>
+              <li><span className="text-navy-100 font-semibold">Long videos.</span> They finish in the background. If Claude says it&apos;s still processing, it can ask again a minute later at no extra cost.</li>
             </ul>
           </div>
           <p className="text-center mt-10">
@@ -201,7 +201,7 @@ export function ClaudeIntegrationPage() {
       <section className="relative overflow-hidden py-24 bg-navy-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">Give Claude a YouTube superpower</h2>
-          <p className="font-dm-sans text-navy-400 text-lg mb-8">Free plan included. 10 calls a month, no credit card.</p>
+          <p className="font-dm-sans text-navy-400 text-lg mb-8">Free plan included. 10 credits a month, no credit card.</p>
           <Button href="https://app.tubescribed.com/signup" variant="primary" className="px-8 py-4 text-lg">
             Create a free account
           </Button>

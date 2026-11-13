@@ -20,10 +20,10 @@ import { DEVELOPER_FAQS } from "@/lib/integrations";
 
 const USE_CASES = [
   { icon: Workflow, title: "Automations", body: "Call TubeScribed from n8n, Make or Zapier with a simple HTTP request. New video published → transcript and blog draft created automatically." },
-  { icon: CircuitBoard, title: "AI agents", body: "Give your agents the ability to read any captioned YouTube video. Pass a URL, get clean text back as JSON." },
+  { icon: CircuitBoard, title: "AI agents", body: "Give your agents the ability to read any YouTube video, with or without captions. Pass a URL, get clean text back as JSON." },
   { icon: Brain, title: "Knowledge bases and RAG", body: "Turn channels and playlists into clean, chunk-ready text for vector databases, custom GPTs and Claude Projects." },
   { icon: FileCode, title: "Content pipelines", body: "Generate blog posts, SOPs and email sequences from videos and push them straight into your CMS as drafts." },
-  { icon: ArrowLeftRight, title: "Internal tools", body: "Add YouTube transcription to your own dashboards and workflows without building or maintaining a caption pipeline." },
+  { icon: ArrowLeftRight, title: "Internal tools", body: "Add YouTube transcription to your own dashboards and workflows without building or maintaining a transcription pipeline." },
   { icon: Bot, title: "Claude, no code", body: "Prefer chatting to coding? Connect TubeScribed to Claude and use the same four tools in plain English." },
 ];
 
@@ -71,7 +71,7 @@ const data = await res.json();
 const ERRORS = [
   { code: "400", meaning: "Bad input: missing or invalid fields" },
   { code: "401", meaning: "Missing or invalid API key" },
-  { code: "422", meaning: "No captions available for this video" },
+  { code: "422", meaning: "Video can't be processed (private, removed or over 90 minutes)" },
   { code: "429", meaning: "Monthly limit or rate limit (10/min) reached" },
   { code: "500", meaning: "Generation failed. Retry once." },
 ];
@@ -93,7 +93,7 @@ export function DevelopersPage() {
             YouTube transcripts and business assets <GradientText>in one call.</GradientText>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="font-dm-sans text-navy-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            TubeScribed is a REST API and Claude connector that turns any captioned YouTube video into a clean transcript and business assets such as blog posts, SOPs and email sequences. Get a key in your TubeScribed account. Included in every plan: 10, 200 or 1,000 calls per month.
+            TubeScribed is a REST API and Claude connector that turns any public YouTube video, with or without captions, into a clean transcript and business assets such as blog posts, SOPs and email sequences. Get a key in your TubeScribed account. Included in every plan: 10, 200 or 1,000 credits per month.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href={APP_KEYS_URL} variant="primary" className="px-8 py-4 text-lg">
@@ -104,7 +104,7 @@ export function DevelopersPage() {
             </Button>
           </motion.div>
           <p className="font-mono text-navy-400 text-xs tracking-wide mt-6">
-            YouTube captions + Claude AI cleanup · JSON responses · 4 tools · 10 requests/min
+            Audio transcription + Claude AI cleanup · JSON responses · 4 tools · 10 requests/min
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export function DevelopersPage() {
       <section className="relative overflow-hidden py-24 bg-navy-950">
         <div className="section-glow-mid-right" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <SectionHeader eyebrow="Limits" title="Included in every plan" body="Only transcribe_video and generate_asset count. Failed calls are free. Rate limit: 10 requests per minute per key." />
+          <SectionHeader eyebrow="Limits" title="Included in every plan" body="1 credit = up to 10 minutes of video (a 23-minute video uses 3). Each generated asset uses 1 credit. Failed calls are free. Rate limit: 10 requests per minute per key." />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <LimitsTable />
             <div className="overflow-x-auto rounded-2xl border border-navy-700">
@@ -232,7 +232,7 @@ export function DevelopersPage() {
       {/* CTA */}
       <section className="relative overflow-hidden py-24 bg-navy-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">Start with 10 free calls</h2>
+          <h2 className="font-syne font-bold text-3xl lg:text-4xl text-navy-100 mb-4">Start with 10 free credits</h2>
           <p className="font-dm-sans text-navy-400 text-lg mb-8">Create a free account, generate a key, and make your first request in under five minutes.</p>
           <Button href={APP_KEYS_URL} variant="primary" className="px-8 py-4 text-lg">
             Get your API key

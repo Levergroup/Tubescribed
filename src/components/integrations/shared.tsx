@@ -16,12 +16,14 @@ export const PLAN_LIMITS = [
   { plan: "Agency", calls: "1,000" },
 ];
 
+export const CREDIT_RULE = "1 credit = up to 10 minutes of video";
+
 export const TOOLS = [
   {
     name: "transcribe_video",
     input: "youtube_url",
     output: "Title, transcript, word count, duration",
-    body: "Pulls the video's captions and returns the transcript. On the API it's cleaned by Claude AI; in Claude it returns raw captions by default (fast), or a cleaned version when you ask.",
+    body: "Transcribes the video from its audio, so it works with or without captions, and returns the transcript with timestamps. Pass clean: true for a Claude-cleaned version. Uses 1 credit per started 10 minutes of video; long videos finish in the background.",
   },
   {
     name: "generate_asset",
@@ -38,8 +40,8 @@ export const TOOLS = [
   {
     name: "get_usage",
     input: "none",
-    output: "Calls used this month, your limit, plan, reset date",
-    body: "Check how many calls you have left before running a batch.",
+    output: "Credits used this month, your limit, plan, reset date",
+    body: "Check how many credits you have left before running a batch.",
   },
 ];
 
@@ -155,7 +157,7 @@ export function LimitsTable() {
         <thead>
           <tr className="bg-navy-800 border-b border-navy-700">
             <th className="text-left px-6 py-4 font-syne font-semibold text-navy-100 text-sm">Plan</th>
-            <th className="text-right px-6 py-4 font-syne font-semibold text-navy-100 text-sm">Calls per month</th>
+            <th className="text-right px-6 py-4 font-syne font-semibold text-navy-100 text-sm">Credits per month</th>
           </tr>
         </thead>
         <tbody>

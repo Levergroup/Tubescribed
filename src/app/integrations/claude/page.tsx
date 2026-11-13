@@ -7,7 +7,7 @@ import { CLAUDE_FAQS, CLAUDE_STEPS } from "@/lib/integrations";
 export const metadata: Metadata = buildMetadata({
   title: "Use TubeScribed Inside Claude — YouTube Transcripts in Claude (MCP Connector)",
   description:
-    "Add TubeScribed to Claude as a connector. Claude can then transcribe any captioned YouTube video and turn it into SOPs, blog posts and email sequences right in the chat. One-minute setup.",
+    "Add TubeScribed to Claude as a connector. Claude can then transcribe any YouTube video, with or without captions, and turn it into SOPs, blog posts and email sequences right in the chat. One-minute setup.",
   path: "/integrations/claude",
 });
 

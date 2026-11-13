@@ -29,7 +29,7 @@ const CLEANUP_STEPS = [
   {
     step: "03",
     title: "Error correction",
-    body: "YouTube's captions make mistakes — especially with proper nouns, technical terms, and fast speech. Claude corrects these using context. If the speaker says 'ROI' and it's transcribed as 'Roy,' Claude fixes it.",
+    body: "Raw transcripts and YouTube's captions both make mistakes — especially with proper nouns, technical terms, and fast speech. Claude corrects these using context. If the speaker says 'ROI' and it's transcribed as 'Roy,' Claude fixes it.",
   },
   {
     step: "04",
@@ -70,7 +70,7 @@ const FAQS = [
   },
   {
     q: "Can I see the raw transcript before the cleanup?",
-    a: "In the app, the cleaned transcript is what TubeScribed delivers. If you need the raw captions (for your own processing pipeline), the TubeScribed connector for Claude returns raw captions by default.",
+    a: "In the app, the cleaned transcript is what TubeScribed delivers. If you need the raw transcript (for your own processing pipeline), the API and the Claude connector return it unless you ask for cleanup.",
   },
 ];
 

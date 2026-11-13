@@ -7,7 +7,7 @@ import { DEVELOPER_FAQS } from "@/lib/integrations";
 export const metadata: Metadata = buildMetadata({
   title: "TubeScribed API — YouTube Transcripts and Business Assets in One Call",
   description:
-    "REST API that turns any captioned YouTube video into a clean transcript, blog post, SOP or email sequence. Included in every plan: 10, 200 or 1,000 calls per month.",
+    "REST API that turns any YouTube video, with or without captions, into a clean transcript, blog post, SOP or email sequence. Included in every plan: 10, 200 or 1,000 credits per month.",
   path: "/developers",
 });
 
@@ -19,11 +19,11 @@ const apiSchema = {
   operatingSystem: "Web",
   url: "https://www.tubescribed.com/developers",
   description:
-    "REST API and Claude connector that turns captioned YouTube videos into clean transcripts and business assets such as blog posts, SOPs and email sequences.",
+    "REST API and Claude connector that turns YouTube videos, with or without captions, into clean transcripts and business assets such as blog posts, SOPs and email sequences.",
   offers: [
-    { "@type": "Offer", name: "Free Run (10 calls/month)", price: "0", priceCurrency: "USD" },
-    { "@type": "Offer", name: "Pro (200 calls/month)", price: "19", priceCurrency: "USD" },
-    { "@type": "Offer", name: "Agency (1,000 calls/month)", price: "49", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Free Run (10 credits/month)", price: "0", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Pro (200 credits/month)", price: "19", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Agency (1,000 credits/month)", price: "49", priceCurrency: "USD" },
   ],
 };
 

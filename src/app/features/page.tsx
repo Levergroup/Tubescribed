@@ -18,7 +18,7 @@ const features = [
   {
     icon: FileText,
     title: "YouTube Transcription",
-    description: "Paste any captioned YouTube URL and get a publication-ready transcript in seconds. Built from the video's captions and cleaned by Claude AI.",
+    description: "Paste any public YouTube URL, with or without captions, and get a publication-ready transcript. Transcribed from the audio and cleaned by Claude AI.",
     href: "/features/youtube-transcription",
     tag: "Core",
   },
@@ -60,7 +60,7 @@ const features = [
   {
     icon: Sparkles,
     title: "Claude Connector",
-    description: "Use TubeScribed inside Claude. Ask Claude to transcribe a captioned YouTube video or turn it into an SOP, blog post or email sequence, right in the chat.",
+    description: "Use TubeScribed inside Claude. Ask Claude to transcribe any YouTube video or turn it into an SOP, blog post or email sequence, right in the chat.",
     href: "/integrations/claude",
     tag: "Integrations",
   },

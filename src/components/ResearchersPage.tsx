@@ -45,7 +45,7 @@ const HOW_IT_WORKS = [
     number: "02",
     title: "Get accurate searchable transcript",
     description:
-      "TubeScribed turns the video's captions into a clean transcript with proper punctuation and paragraph breaks. Always check direct quotes against the original video before publishing.",
+      "TubeScribed transcribes the audio into a clean, timestamped transcript with proper punctuation and paragraph breaks. Use the timestamps to check direct quotes against the original video before publishing.",
   },
   {
     number: "03",
@@ -89,7 +89,7 @@ const USE_CASES = [
 ];
 
 const BENEFITS = [
-  "Clean, punctuated transcripts built from the video's captions",
+  "Clean, punctuated, timestamped transcripts transcribed from the audio",
   "Timestamps on every segment — verify and link to exact moments",
   "Summary and key takeaways — know if a video is worth your full attention",
   "Searchable workspace — all transcripts saved and searchable in your account",
@@ -100,11 +100,11 @@ const BENEFITS = [
 const FAQS = [
   {
     q: "How accurate is the transcription for quotation purposes?",
-    a: "TubeScribed builds transcripts from the video's captions, and Claude AI fixes punctuation and common errors. Accuracy depends on the captions, so always verify direct quotes against the original video before publishing.",
+    a: "TubeScribed transcribes the audio and Claude AI fixes punctuation and common errors. Accuracy is high on clear speech but can vary with accents, jargon or poor audio, so always verify direct quotes against the original video using the timestamps.",
   },
   {
     q: "Can I process videos in languages other than English?",
-    a: "TubeScribed uses the captions a video already has, in the language they're published in. Content generation outputs (summaries, key takeaways) currently perform best on English content.",
+    a: "The transcript is generated in the language spoken in the video. Content generation outputs (summaries, key takeaways) currently perform best on English content.",
   },
   {
     q: "Can I process a live stream or video that was streamed and archived?",

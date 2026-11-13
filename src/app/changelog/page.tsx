@@ -10,6 +10,18 @@ export const metadata: Metadata = buildMetadata({
 
 const entries = [
   {
+    version: "2.1.0",
+    date: "November 2026",
+    tag: "Feature",
+    title: "Audio transcription for every video",
+    items: [
+      "Every video is now transcribed from its audio, so brand-new uploads and videos without captions work",
+      "Timestamped transcripts for videos up to 90 minutes, with long videos finishing in the background",
+      "Simpler credits: 1 credit = up to 10 minutes of video or 1 AI output",
+      "Same audio transcription in the app, the API and the Claude connector",
+    ],
+  },
+  {
     version: "2.0.0",
     date: "October 2026",
     tag: "Feature",

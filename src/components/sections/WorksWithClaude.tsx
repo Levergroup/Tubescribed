@@ -10,7 +10,7 @@ const CARDS = [
     icon: Sparkles,
     eyebrow: "Claude connector",
     title: "Use TubeScribed inside Claude",
-    body: "Connect once, then ask Claude to transcribe any captioned YouTube video or turn it into an SOP, blog post or email sequence, right in the chat.",
+    body: "Connect once, then ask Claude to transcribe any YouTube video, with or without captions, or turn it into an SOP, blog post or email sequence, right in the chat.",
     cta: "Set it up in 1 minute",
     href: "/integrations/claude",
   },

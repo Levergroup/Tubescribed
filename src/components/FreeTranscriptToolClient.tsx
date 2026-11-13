@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: "How is this different from YouTube's built-in captions?",
-    a: "YouTube's auto-captions have no punctuation, are full of errors, and can't be exported as a clean document. TubeScribed pulls the video's captions and uses Claude AI to clean them up — producing a properly formatted, filler-free, publication-ready transcript.",
+    a: "YouTube's auto-captions have no punctuation, are full of errors, and can't be exported as a clean document. TubeScribed transcribes the video's audio and uses Claude AI to clean it up — producing a properly formatted, filler-free, publication-ready transcript.",
   },
   {
     q: "What can I do with the transcript once I have it?",
