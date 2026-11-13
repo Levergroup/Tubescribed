@@ -104,7 +104,8 @@ Required, in this order:
 2. Create the branch `blog/<slug>` and commit three files: the `.mdx`, the cover `.png` and the queue update. Use the message `Blog: <title>` with no Co-Authored-By or other AI attribution lines. The byline is always "TubeScribed Team".
 3. Push and open a PR into `main` with a 3-line description: keyword, word count, real example video.
 4. Wait for the Vercel check on the PR's head commit. Poll `gh api repos/Levergroup/Tubescribed/commits/<sha>/status` (and `/check-runs`) every 30 seconds for up to 15 minutes.
-   - If it reports success: merge with `gh api -X PUT repos/Levergroup/Tubescribed/pulls/<n>/merge -f merge_method=squash`.
+   - If it reports success, **wait a random amount of time first** so posts never go live at the same minute every day. Pick a whole number of minutes from 0 to 60 with `python3 -c "import random; print(random.randint(0, 60))"`. Wait using repeated `sleep 420` commands (7 minutes or less each, so no single command times out), and record the minutes waited for the log. If the wait fails for any reason, skip it and carry on.
+   - Then merge with `gh api -X PUT repos/Levergroup/Tubescribed/pulls/<n>/merge -f merge_method=squash`.
    - If it reports failure or never finishes: don't merge. Log `failed: build`, leave the PR open and stop.
 5. After merging, wait about 3 minutes and confirm the live page:
    - Fetch `https://www.tubescribed.com/blog/<slug>` with WebFetch or the Vercel fetch tool.
@@ -139,7 +140,7 @@ Only run this step if the article is live. Skip it for needs_review and failed r
 
 ## Step 9: Log (replaces SHEET-001)
 Append one line to the Google Doc `15rbLa2kK1FFGdYnCZRpvVUelhlytZdaV531tqRPPpQU`, using `insertText` with `endOfSegmentLocation`:
-`YYYY-MM-DD | order | keyword | url | published / needs_review / skipped / failed | words, example video, free tool, IndexNow pass/fail, distribution pack link, any WARNs`
+`YYYY-MM-DD | order | keyword | url | published / needs_review / skipped / failed | words, minutes waited, example video, free tool, IndexNow pass/fail, distribution pack link, any WARNs`
 
 Then update the master sheet `1o2jec6yLbUftAIk1n772_1Y8eh3pI-mafzJjjpX34Ns` with the Google Sheets tools. Only touch the cells listed here:
 - **Keyword Bank** (tab `🔑 Keyword Bank`): read `B1:N70`. For **every** row whose column B matches the keyword (case-insensitive; bonus rows can repeat it), write K = `PUBLISHED`, M = the live URL and N = today's date. If nothing matches, append one row with B = keyword, K = `PUBLISHED`, L = queue order, M = URL and N = date. Do the same with K = `SKIPPED` or `NEEDS REVIEW` for those outcomes.
