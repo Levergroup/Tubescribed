@@ -14,7 +14,7 @@ const MANIFEST = {
   name: 'tubescribed',
   display_name: 'TubeScribed',
   description:
-    'TubeScribed turns any captioned YouTube video into transcripts, blog posts, SOPs, email sequences, social captions, FAQs, and training guides. Transcripts are built from the video\'s captions and cleaned by Claude AI. Also available as a Claude connector (https://www.tubescribed.com/integrations/claude) and a developer API (https://www.tubescribed.com/developers).',
+    'TubeScribed turns any YouTube video, with or without captions, into transcripts, blog posts, SOPs, email sequences, social captions, FAQs, and training guides. Transcripts are transcribed from the audio and cleaned by Claude AI. Also available as a Claude connector (https://www.tubescribed.com/integrations/claude) and a developer API (https://www.tubescribed.com/developers).',
   contact_email: 'hello@tubescribed.com',
   legal_url: 'https://www.tubescribed.com/terms-of-service',
   logo_url: 'https://www.tubescribed.com/images/logo.png',
@@ -95,7 +95,7 @@ const PAGE_CONTENT: Record<string, unknown> = {
     tagline: 'Paste a YouTube URL. Get a transcript, SOP, blog post, email sequence, and more — in seconds.',
     hero_cta: { label: 'Start Free', url: 'https://app.tubescribed.com/signup' },
     key_points: [
-      'Transcripts built from YouTube captions and cleaned by Claude AI; use it inside Claude via the connector or in any app via the API',
+      'Transcripts transcribed from the audio (no captions needed) and cleaned by Claude AI; use it inside Claude via the connector or in any app via the API',
       'Supports 15 content output types from a single YouTube URL',
       'Brand Workspace stores your voice, tone, and guidelines once — applied to every output',
       'First transcript and output are free, no credit card required',
@@ -120,7 +120,7 @@ const PAGE_CONTENT: Record<string, unknown> = {
     title: 'TubeScribed Features',
     url: 'https://www.tubescribed.com/features',
     core: [
-      'YouTube URL → Clean Transcript (captions cleaned by Claude AI)',
+      'YouTube URL → Clean Transcript (audio transcription + Claude AI cleanup)',
       'Brand Workspace Profiles (custom voice, tone, terminology)',
       'Branded SOP Generator',
       '15 Content Output Types',
@@ -194,7 +194,7 @@ function listFeatures() {
       { name: 'Chapter Markers', description: 'Timestamped chapter list for YouTube descriptions.' },
     ],
     platform_features: [
-      'Transcripts from YouTube captions, cleaned by Claude AI',
+      'Audio transcription for every video, cleaned by Claude AI',
       'Claude AI content generation with brand voice matching',
       'Brand Workspace: save voice, tone, audience, and terminology per client or brand',
       'Unlimited brand workspaces on Agency plan',
@@ -278,7 +278,7 @@ function getUseCases() {
         name: 'Agency',
         url: 'https://www.tubescribed.com/for/agencies',
         problem: 'Manages content for multiple clients with different brand voices, high volume, and tight turnarounds.',
-        solution: 'Unlimited brand workspaces (one per client), 5 team members, 100 transcripts/month. Every output in the right brand voice automatically.',
+        solution: 'Unlimited brand workspaces (one per client), 5 team members, 100 credits/month. Every output in the right brand voice automatically.',
         primary_outputs: ['All 15 output types', 'Branded SOPs', 'Client-ready content'],
         recommended_plan: 'Agency ($49/mo)',
       },

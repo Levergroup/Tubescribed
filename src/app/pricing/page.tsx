@@ -6,8 +6,8 @@ import { PLANS, CREDIT_PACKS, PRICING_FAQ } from "@/lib/constants";
 import { GradientText } from "@/components/ui/GradientText";
 
 const allFeatures = [
-  "Transcripts per month",
-  "AI outputs per month",
+  "Credits per month",
+  "Videos without captions",
   "Brand workspaces",
   "Team members",
   "SOP generator",
@@ -18,7 +18,7 @@ const allFeatures = [
   "YouTube descriptions",
   "Training guides",
   "Download as .txt",
-  "API & Claude connector calls / month",
+  "API & Claude connector credits / month",
   "White-label outputs",
   "Email support",
   "Priority support",
@@ -26,8 +26,8 @@ const allFeatures = [
 
 const planFeatureMap: Record<string, Record<string, string | boolean>> = {
   Pro: {
-    "Transcripts per month": "30",
-    "AI outputs per month": "30",
+    "Credits per month": "30",
+    "Videos without captions": true,
     "Brand workspaces": "3",
     "Team members": "1",
     "SOP generator": true,
@@ -38,14 +38,14 @@ const planFeatureMap: Record<string, Record<string, string | boolean>> = {
     "YouTube descriptions": true,
     "Training guides": true,
     "Download as .txt": true,
-    "API & Claude connector calls / month": "200",
+    "API & Claude connector credits / month": "200",
     "White-label outputs": false,
     "Email support": true,
     "Priority support": false,
   },
   Agency: {
-    "Transcripts per month": "100",
-    "AI outputs per month": "100",
+    "Credits per month": "100",
+    "Videos without captions": true,
     "Brand workspaces": "Unlimited",
     "Team members": "5",
     "SOP generator": true,
@@ -56,7 +56,7 @@ const planFeatureMap: Record<string, Record<string, string | boolean>> = {
     "YouTube descriptions": true,
     "Training guides": true,
     "Download as .txt": true,
-    "API & Claude connector calls / month": "1,000",
+    "API & Claude connector credits / month": "1,000",
     "White-label outputs": true,
     "Email support": true,
     "Priority support": true,
@@ -195,7 +195,7 @@ export default function PricingPage() {
           >
             <div className="text-center mb-8">
               <h2 className="font-syne font-bold text-2xl lg:text-3xl text-navy-100 mb-3">How Credits Work</h2>
-              <p className="font-syne font-bold text-lg text-navy-100 mb-2">One credit. One piece of content. Simple.</p>
+              <p className="font-syne font-bold text-lg text-navy-100 mb-2">1 credit = up to 10 minutes of video. Simple.</p>
               <p className="font-dm-sans text-navy-400 text-sm max-w-xl mx-auto">Credits scale with video length so you only pay for what you actually process.</p>
             </div>
             <div className="overflow-x-auto rounded-2xl border border-navy-700 mb-6">
@@ -209,10 +209,11 @@ export default function PricingPage() {
                 </thead>
                 <tbody>
                   {[
-                    { length: "Under 15 minutes", credits: "1 credit", bestFor: "YouTube Shorts, quick tutorials" },
-                    { length: "15–30 minutes", credits: "2 credits", bestFor: "Podcast clips, interviews" },
-                    { length: "30–60 minutes", credits: "3 credits", bestFor: "Full podcast episodes, webinars" },
-                    { length: "60–90 minutes", credits: "4 credits", bestFor: "Long-form content, courses" },
+                    { length: "Up to 10 minutes", credits: "1 credit", bestFor: "Shorts, quick tutorials" },
+                    { length: "23 minutes", credits: "3 credits", bestFor: "Podcast clips, interviews" },
+                    { length: "60 minutes", credits: "6 credits", bestFor: "Full podcast episodes, webinars" },
+                    { length: "90 minutes (max)", credits: "9 credits", bestFor: "Long-form content, courses" },
+                    { length: "Any AI output", credits: "1 credit", bestFor: "Blog post, SOP, email sequence…" },
                   ].map((row, i) => (
                     <tr key={row.length} className={`border-b border-[#2D3F55] last:border-0 ${i % 2 === 0 ? "bg-[#1E2A3A]" : "bg-[#243447]/50"}`}>
                       <td className="px-6 py-4 font-dm-sans text-navy-100 text-sm">{row.length}</td>
@@ -224,7 +225,7 @@ export default function PricingPage() {
               </table>
             </div>
             <p className="text-center font-dm-sans text-navy-400 text-sm">
-              Credits never expire. Use them for transcripts or outputs — whichever you need more of.{" "}
+              Every video is transcribed from its audio, so captions aren&apos;t needed. Credit pack credits never expire.{" "}
               <span className="text-navy-100">Failed processing never costs credits.</span>
             </p>
           </motion.div>

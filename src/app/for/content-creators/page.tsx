@@ -50,7 +50,7 @@ export default function ForContentCreatorsPage() {
           },
           {
             q: "How long does it take to process a 30-minute video?",
-            a: "Usually seconds. TubeScribed pulls the video's captions, then Claude AI cleans and structures the output — removing filler words, adding punctuation, and formatting it into readable sections. Longer videos take a little longer.",
+            a: "Usually a minute or two. TubeScribed transcribes the video's audio, then Claude AI cleans and structures the output — removing filler words, adding punctuation, and formatting it into readable sections. Longer videos take a little longer.",
           },
           {
             q: "Can I edit the output before publishing?",

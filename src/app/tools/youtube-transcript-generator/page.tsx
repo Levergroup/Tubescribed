@@ -6,7 +6,7 @@ import ToolEmbed from '@/components/ToolEmbed'
 export const metadata: Metadata = buildMetadata({
   title: "Free YouTube Transcript Generator — Clean Accurate Transcripts Instantly",
   description:
-    "Generate a clean transcript from any captioned YouTube video in seconds. Cleaned by Claude AI: punctuated, filler-free and easy to read.",
+    "Generate a clean transcript from any YouTube video, with or without captions. Transcribed from the audio, cleaned by Claude AI, timestamped.",
   path: "/tools/youtube-transcript-generator",
 });
 
@@ -28,7 +28,7 @@ export default function YouTubeTranscriptGeneratorPage() {
         name: "How accurate is the transcript?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "TubeScribed starts from the video's captions, then Claude AI fixes punctuation, filler words and common errors like misheard names or technical terms. The result reads like an article instead of a wall of caption text.",
+          text: "TubeScribed transcribes the audio itself instead of relying on YouTube's auto-captions, then Claude AI fixes punctuation, filler words and common errors like misheard names or technical terms. The result reads like an article instead of a wall of caption text.",
         },
       },
       {
@@ -61,7 +61,7 @@ export default function YouTubeTranscriptGeneratorPage() {
       priceCurrency: "USD",
     },
     description:
-      "Generate a clean transcript from any captioned YouTube video in seconds. Cleaned by Claude AI: punctuated, filler-free and easy to read.",
+      "Generate a clean transcript from any YouTube video, with or without captions. Transcribed from the audio, cleaned by Claude AI, timestamped.",
     url: "https://app.tubescribed.com/signup",
   };
 
@@ -120,7 +120,7 @@ export default function YouTubeTranscriptGeneratorPage() {
         <div className="max-w-2xl mx-auto">
           <p className="font-dm-sans text-gray-700 text-lg leading-relaxed mb-4">
             YouTube&apos;s auto-captions are riddled with errors — no punctuation, wrong words, no
-            paragraph breaks. TubeScribed turns them into a Claude-cleaned transcript that&apos;s
+            paragraph breaks. TubeScribed replaces them with an audio transcript, cleaned by Claude, that&apos;s
             actually readable.
           </p>
           <p className="font-dm-sans text-gray-700 text-lg leading-relaxed mb-4">
@@ -133,7 +133,7 @@ export default function YouTubeTranscriptGeneratorPage() {
           </p>
           <ul className="space-y-4">
             {[
-              "Cleaned by Claude AI — far easier to read than raw auto-captions",
+              "Transcribed from the audio — works even when a video has no captions",
               "Timestamps included — navigate long videos by section",
               "Filler words removed — no \"um\", \"uh\", \"you know\"",
               "Paragraph breaks added — readable from the first line",
@@ -283,7 +283,7 @@ export default function YouTubeTranscriptGeneratorPage() {
               },
               {
                 q: "How accurate is the transcript?",
-                a: "TubeScribed starts from the video's captions, then Claude AI fixes punctuation, filler words and common errors like misheard names or technical terms. The result reads like an article instead of a wall of caption text.",
+                a: "TubeScribed transcribes the audio itself instead of relying on YouTube's auto-captions, then Claude AI fixes punctuation, filler words and common errors like misheard names or technical terms. The result reads like an article instead of a wall of caption text.",
               },
               {
                 q: "Does it work on any YouTube video?",

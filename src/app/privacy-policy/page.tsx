@@ -56,7 +56,7 @@ We share data with the following providers to operate our service:
 |----------|---------|-------------|
 | Stripe | Payment processing | Name, email, billing info |
 | Supabase | Database and authentication | Account data |
-| Supadata | YouTube caption retrieval | YouTube video URLs |
+| Supadata | YouTube audio transcription | YouTube video URLs and audio |
 | Anthropic | Claude AI transcript cleanup | Transcript text |
 | Google (via Lovable AI) | Gemini content generation | Transcript text |
 | Vercel | Website hosting | Usage data, IP address |

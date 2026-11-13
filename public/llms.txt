@@ -1,17 +1,17 @@
 # TubeScribed
 
-> TubeScribed is an AI-powered YouTube transcription and content repurposing tool that turns any YouTube video into branded business assets — blog posts, SOPs, email sequences, social captions, and 15 output types — from the video's captions, cleaned by Claude AI. It works in the TubeScribed app, inside Claude as a connector (MCP), and through a REST API.
+> TubeScribed is an AI-powered YouTube transcription and content repurposing tool that turns any YouTube video into branded business assets — blog posts, SOPs, email sequences, social captions, and 15 output types — transcribed from the audio (no captions needed) and cleaned by Claude AI. It works in the TubeScribed app, inside Claude as a connector (MCP), and through a REST API.
 
 ## What TubeScribed Does
 
-TubeScribed accepts any public YouTube URL with captions and automatically runs it through a complete AI pipeline: caption retrieval, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
+TubeScribed accepts any public YouTube URL (up to 90 minutes) and automatically runs it through a complete AI pipeline: audio transcription, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
 
 Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is purpose-built for YouTube content repurposing. Unlike general AI chat tools (ChatGPT, Claude, Gemini), TubeScribed can access and process YouTube URLs directly.
 
 ## Core Features
 
 - YouTube URL transcription — paste any public YouTube URL, no file upload required
-- Caption-based transcription — works on any public video with captions, including YouTube's automatic captions
+- Audio transcription — works on any public video, with or without captions, with timestamps
 - Claude AI cleanup — structured transcript with title, summary, key takeaways
 - Brand Workspace — save brand voice profiles for automatic application to all outputs
 - 15 content output types — blog posts, SOPs, email sequences, social captions, X threads, FAQs, training guides, sales scripts, ad copy, case studies, newsletters, LinkedIn articles
@@ -35,9 +35,9 @@ Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is
 
 - Claude connector (MCP): https://iblyytktdumianqxfyis.supabase.co/functions/v1/mcp — add it in Claude under Settings → Connectors → Add custom connector, then sign in with a TubeScribed account (OAuth, no API key). Listed on the official MCP Registry as com.tubescribed/mcp.
 - REST API: POST https://iblyytktdumianqxfyis.supabase.co/functions/v1/api-v1 with header "Authorization: Bearer ts_live_..." and body {"tool": "...", "input": {...}}. API keys are created in the app under Settings → API Keys.
-- Tools: transcribe_video (youtube_url), generate_asset (asset_type + youtube_url or transcript, optional brand_voice), list_asset_types, get_usage.
-- Limits: Free Run 10, Pro 200, Agency 1,000 calls per calendar month (only transcribe_video and generate_asset count; failed calls don't count). Rate limit 10 requests per minute per key.
-- Videos must have captions (including YouTube's automatic captions). TubeScribed does not do speech-to-text.
+- Tools: transcribe_video (youtube_url, optional clean), generate_asset (asset_type + youtube_url or transcript, optional brand_voice), list_asset_types, get_usage.
+- Credits: Free Run 10, Pro 200, Agency 1,000 API/connector credits per calendar month. transcribe_video uses 1 credit per started 10 minutes of video (max 90 minutes); generate_asset uses 1 credit. Failed calls don't count. Long videos return a pending status; repeat the request to get the result without a second charge. Rate limit 10 requests per minute per key.
+- Transcription is done from the audio, so videos do not need captions.
 - Docs: https://www.tubescribed.com/developers and https://www.tubescribed.com/integrations/claude
 
 ## Pricing

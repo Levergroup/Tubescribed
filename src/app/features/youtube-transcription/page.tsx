@@ -9,7 +9,7 @@ import { FeaturePageFAQ } from "@/components/FeaturePageFAQ";
 export const metadata: Metadata = {
   title: "YouTube Transcription — Clean Accurate Transcripts From Any YouTube Video",
   description:
-    "Paste any captioned YouTube URL and get a clean, punctuated, structured transcript cleaned by Claude AI. Far easier to read than raw auto-captions. Ready in seconds.",
+    "Paste any public YouTube URL and get a clean, punctuated, timestamped transcript, transcribed from the audio and cleaned by Claude AI. Works with or without captions.",
   alternates: {
     canonical: "https://www.tubescribed.com/features/youtube-transcription",
   },
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 
 const TECH_CARDS = [
   {
-    title: "Built from the video's captions",
-    body: "TubeScribed pulls the captions a video already has, including YouTube's automatic captions. No downloads, no uploads, and no waiting for audio processing, so transcripts come back in seconds.",
+    title: "Transcribed from the audio",
+    body: "TubeScribed listens to the video itself instead of relying on captions, so it works on brand-new uploads and videos with no captions at all. No downloads, no uploads, no extensions.",
   },
   {
     title: "Claude AI cleanup layer",
-    body: "Once the captions are pulled, Claude AI passes through the entire transcript — adding punctuation, fixing obvious errors, removing filler words (um, uh, you know, like), and structuring the text into readable paragraphs.",
+    body: "Once the audio is transcribed, Claude AI passes through the entire transcript — adding punctuation, fixing obvious errors, removing filler words (um, uh, you know, like), and structuring the text into readable paragraphs.",
   },
   {
     title: "Timestamps on every segment",
@@ -77,11 +77,11 @@ const PROCESSING_TIMES = [
 const FAQS = [
   {
     q: "How accurate is TubeScribed transcription?",
-    a: "Accuracy depends on the video's captions. Creator-uploaded captions are usually very accurate; automatic captions can miss names and technical terms. The Claude AI cleanup layer fixes punctuation and many common errors using context, and makes the transcript far easier to read.",
+    a: "TubeScribed transcribes the audio with a modern speech-to-text model, so accuracy is high on clear speech. Heavy accents, background noise, overlapping speakers or very technical jargon can lower it. The Claude AI cleanup layer fixes punctuation and many common errors using context.",
   },
   {
     q: "Does the video need existing captions to be transcribed?",
-    a: "Yes. TubeScribed builds transcripts from the captions a video already has, including YouTube's automatic captions, which most public videos include. Videos with no captions at all can't be transcribed yet.",
+    a: "No. TubeScribed transcribes the video's audio, so it works whether or not the video has captions — including brand-new uploads that YouTube hasn't captioned yet. Videos up to 90 minutes are supported.",
   },
   {
     q: "Can I transcribe unlisted or private videos?",
@@ -89,7 +89,7 @@ const FAQS = [
   },
   {
     q: "What languages are supported?",
-    a: "TubeScribed uses the captions a video already has, in the language they're published in. For content generation outputs (blog posts, SOPs, emails), English currently produces the best results.",
+    a: "The transcript is generated in the language spoken in the video. For content generation outputs (blog posts, SOPs, emails), English currently produces the best results.",
   },
 ];
 
@@ -107,8 +107,8 @@ export default function YouTubeTranscriptionFeaturePage() {
             Feature — YouTube Transcription
           </p>
           <h1 className="font-syne font-bold text-4xl lg:text-5xl text-navy-100 mb-6 leading-tight">
-            Clean, Readable YouTube Transcripts. Cleaned by Claude AI.{" "}
-            <GradientText>Not a Raw Caption Dump.</GradientText>
+            Clean, Accurate YouTube Transcripts. Straight From the Audio.{" "}
+            <GradientText>Not YouTube&apos;s Broken Captions.</GradientText>
           </h1>
           <p className="font-dm-sans text-navy-400 text-xl leading-relaxed mb-10 max-w-2xl">
             Paste any YouTube URL. Get back a properly punctuated, filler-word-free, structured

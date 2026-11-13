@@ -13,7 +13,7 @@ const OUTPUTS = [
     title: "Clean Transcript",
     tagline: "Your video, finally readable.",
     description:
-      "TubeScribed pulls every word from the video's captions. Claude AI removes filler words, adds punctuation, and structures it into readable paragraphs. The output you'd spend 45 minutes cleaning manually — done in 15 seconds.",
+      "TubeScribed transcribes every word straight from the audio. Claude AI removes filler words, adds punctuation, and structures it into readable, timestamped paragraphs. The output you'd spend 45 minutes cleaning manually — done in 15 seconds.",
     stat: "Seconds, not 45 minutes",
     statLabel: "cleaned by Claude AI",
     preview: [
@@ -120,7 +120,7 @@ const OUTPUTS = [
     statLabel: "featured snippet ready",
     preview: [
       { label: "Q", text: "What is the best way to repurpose a YouTube video into a blog post?" },
-      { label: "A", text: "The fastest method is using an AI transcription tool that accepts YouTube URLs directly. The tool pulls the video's captions, cleans them with AI, and generates a structured SEO article automatically — the full process takes under 2 minutes." },
+      { label: "A", text: "The fastest method is using an AI transcription tool that accepts YouTube URLs directly. The tool transcribes the video's audio, cleans it with AI, and generates a structured SEO article automatically — the full process takes under 2 minutes." },
     ],
   },
   {

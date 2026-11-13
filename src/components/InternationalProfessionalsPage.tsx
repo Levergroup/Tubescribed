@@ -30,7 +30,7 @@ const PROBLEMS = [
   },
   {
     title: "Raw auto-captions are hardest to follow in fast or accented speech",
-    body: "The situations where you need captions most — fast speakers, technical topics, non-standard accents — are exactly where raw auto-captions are hardest to read. TubeScribed turns them into a clean, punctuated transcript with Claude AI so you can read at your own pace.",
+    body: "The situations where you need captions most — fast speakers, technical topics, non-standard accents — are exactly where raw auto-captions are hardest to read. TubeScribed transcribes the audio itself and Claude AI turns it into a clean, punctuated transcript you can read at your own pace.",
   },
 ];
 
@@ -45,7 +45,7 @@ const HOW_IT_WORKS = [
     icon: Cpu,
     title: "Get a clean, accurate transcript in 30 seconds",
     description:
-      "Claude AI adds proper punctuation and paragraph breaks to the video's captions. Read it like an article, at your own pace.",
+      "TubeScribed transcribes the audio and Claude AI adds proper punctuation and paragraph breaks. Read it like an article, at your own pace.",
   },
   {
     icon: Search,
@@ -81,11 +81,11 @@ const WHO_THIS_HELPS = [
 const FAQS = [
   {
     q: "What languages are supported?",
-    a: "TubeScribed works with the captions a video already has, in the language they're published in. Most English videos have captions, including YouTube's automatic ones, so you can read the English transcript at your own pace.",
+    a: "The transcript comes out in the language spoken in the video. For English videos, you get a clean English transcript you can read at your own pace — no captions needed.",
   },
   {
     q: "Does it work on fast speakers?",
-    a: "Yes. Speaking speed doesn't matter because TubeScribed works from the captions, not from listening. Claude AI also fixes common caption errors, like misheard technical terms, using the surrounding context.",
+    a: "Yes. Speaking speed doesn't matter because you read the transcript at your own pace. Claude AI also fixes common errors, like misheard technical terms, using the surrounding context.",
   },
   {
     q: "Can I export transcripts to my notes app?",
@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "What types of English video work best?",
-    a: "Business content — earnings calls, conferences, interviews, podcasts, lectures — works best. Professional speech usually has the cleanest captions. Casual vlog content or heavy slang may have lower accuracy.",
+    a: "Business content — earnings calls, conferences, interviews, podcasts, lectures — works best. Clear professional speech transcribes most accurately. Casual vlog content or heavy slang may have lower accuracy.",
   },
 ];
 

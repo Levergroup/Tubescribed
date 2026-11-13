@@ -8,15 +8,15 @@ export const DEVELOPER_FAQS = [
   },
   {
     q: "Is the API included in my plan?",
-    a: "Yes. Every plan includes API calls: Free Run 10, Pro 200 and Agency 1,000 per calendar month. Only transcribe_video and generate_asset count toward the limit, and failed calls don't count.",
+    a: "Yes. Every plan includes API and Claude connector credits: Free Run 10, Pro 200 and Agency 1,000 per calendar month. transcribe_video uses 1 credit per started 10 minutes of video (a 23-minute video uses 3), and generate_asset uses 1 credit. Failed calls never cost credits.",
   },
   {
-    q: "What happens if a video has no captions?",
-    a: "TubeScribed builds transcripts from a video's existing captions, so videos without captions return a 422 error and don't count toward your limit. Most public videos have captions, including YouTube's automatic ones.",
+    q: "Does the video need captions?",
+    a: "No. TubeScribed transcribes the video's audio, so it works on any public YouTube video up to 90 minutes, including brand-new uploads with no captions yet. Long videos run in the background: if a call returns a pending status, repeat the same request a minute or two later to get the result without a second charge.",
   },
   {
     q: "Is there a rate limit?",
-    a: "Yes, 10 requests per minute per key. Requests over the limit, or over your monthly allowance, return a 429 error.",
+    a: "Yes, 10 requests per minute per key. Requests over the rate limit, or over your monthly credits, return a 429 error.",
   },
   {
     q: "Can I use TubeScribed inside Claude instead of writing code?",
@@ -35,15 +35,15 @@ export const CLAUDE_FAQS = [
   },
   {
     q: "Does it count toward my TubeScribed plan?",
-    a: "Yes. Transcriptions and asset generations in Claude use the same monthly allowance as the API: Free Run 10, Pro 200, Agency 1,000. Failed calls don't count.",
+    a: "Yes. Transcriptions and asset generations in Claude use the same monthly credits as the API: Free Run 10, Pro 200, Agency 1,000. A transcript uses 1 credit per started 10 minutes of video. Failed calls don't count, and asking again for the same video never charges twice.",
   },
   {
-    q: "Why does Claude return raw captions?",
-    a: "Raw captions come back in seconds, and Claude can read and clean them itself. If you want TubeScribed's cleaned transcript, just ask Claude for a cleaned version.",
+    q: "Why does Claude sometimes say the video is still processing?",
+    a: "TubeScribed transcribes the audio of every video, which can take a minute or two for longer videos. Claude gets a pending message and can simply ask again; the finished transcript comes back without a second charge.",
   },
   {
-    q: "What if a video has no captions or is very long?",
-    a: "Videos need existing captions to be transcribed. For very long videos, ask for the raw transcript first, then generate assets from that text. It's faster and avoids timeouts.",
+    q: "Does it work on videos without captions?",
+    a: "Yes. TubeScribed transcribes from the audio, so captions aren't needed. Videos up to 90 minutes are supported. For long videos, get the transcript first, then generate assets from that text.",
   },
 ];
 
