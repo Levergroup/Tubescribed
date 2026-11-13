@@ -131,11 +131,9 @@ Only run this step if the article is live. Skip it for needs_review and failed r
    3. **X thread:** 5–7 posts, each under 280 characters. Post 1 is the hook, the middle posts carry real value from the article, and the last post holds the link.
    4. **Medium repost note:** import the article on Medium with "Import a story" and the article URL, which sets the canonical link back to tubescribed.com. Give a 1-sentence Medium subtitle and 5 Medium tags.
    5. **Email blurb:** a subject line, preview text and an 80–120 word newsletter section for GetResponse.
-   6. **Reddit draft:** only if there's a genuinely relevant subreddit. Name it and check its self-promotion rules on its rules page. Write it as a helpful post, not an ad. Leave the link out of the body unless the rules allow it, and say "manual post only". If no subreddit fits, write "No good fit today."
-   7. **Quora draft:** 1 real question to answer, with a 150–250 word answer that helps on its own, and the link as "further reading". Mark it manual only.
-   8. **Image:** the cover URL `https://www.tubescribed.com/images/blog/<slug>.png` to attach to the posts.
-   9. **Owner checklist:** [ ] FB posted [ ] LinkedIn posted [ ] X posted [ ] Medium imported [ ] Email added [ ] Reddit/Quora (optional) [ ] Request indexing in Search Console.
-5. Skip TikTok, Pinterest and YouTube Community until those accounts are active.
+   6. **Image:** the cover URL `https://www.tubescribed.com/images/blog/<slug>.png` to attach to the posts.
+   7. **Owner checklist:** [ ] FB posted [ ] LinkedIn posted [ ] X posted [ ] Medium imported [ ] Email added [ ] Request indexing in Search Console.
+5. Keep it short. Skip Reddit, Quora, TikTok, Pinterest and YouTube Community until the owner turns them on.
 
 **8c. Internal link back.** Optional. If one existing post is closely related, add one natural sentence linking to the new post. Use a separate small PR titled `Blog: link to <slug>`, wait for the Vercel check, then merge. Never change anything else in that post.
 
