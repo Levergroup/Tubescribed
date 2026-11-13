@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { MessageSquare, Sparkles, Youtube, ArrowRight, ArrowDown, Wrench, FileText } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
@@ -24,9 +25,55 @@ const FLOW = [
   { icon: FileText, title: "Result in your chat", body: "The transcript or finished SOP, blog post or email appears in Claude." },
 ];
 
+const CHAT_MESSAGE =
+  "Transcribe this 18-minute onboarding video and turn it into an SOP for new hires.";
+const CHAT_CHIPS = ["transcribe_video", "generate_asset · sop"];
+
 function ChatDemo() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const prefersReduced = useReducedMotion();
+
+  const [typed, setTyped] = useState("");
+  // stage: 0 typing · 1 chip one lit · 2 chip two lit · 3 SOP revealed
+  const [stage, setStage] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    if (prefersReduced) {
+      setTyped(CHAT_MESSAGE);
+      setStage(3);
+      return;
+    }
+
+    let raf = 0;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const typeMs = 1500;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / typeMs);
+      setTyped(CHAT_MESSAGE.slice(0, Math.round(t * CHAT_MESSAGE.length)));
+      if (t < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        timeouts.push(setTimeout(() => setStage(1), 150));
+        timeouts.push(setTimeout(() => setStage(2), 550));
+        timeouts.push(setTimeout(() => setStage(3), 1050));
+      }
+    };
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      timeouts.forEach(clearTimeout);
+    };
+  }, [inView, prefersReduced]);
+
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
@@ -34,26 +81,45 @@ function ChatDemo() {
       aria-label="Example conversation in Claude using TubeScribed"
     >
       <div className="flex justify-end mb-4">
+        {/* Typewriter: visible typed text + invisible remainder reserves full height (no layout shift) */}
         <p className="max-w-[85%] bg-navy-700/60 text-navy-100 font-dm-sans text-sm leading-relaxed rounded-2xl rounded-br-md px-4 py-3">
-          Transcribe this 18-minute onboarding video and turn it into an SOP for new hires.
+          <span>{typed}</span>
+          <span className="opacity-0" aria-hidden="true">{CHAT_MESSAGE.slice(typed.length)}</span>
         </p>
       </div>
       <div className="space-y-2 mb-4">
-        {["transcribe_video", "generate_asset · sop"].map((t) => (
-          <div key={t} className="inline-flex mr-2 items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-950 border border-navy-700">
+        {CHAT_CHIPS.map((t, i) => (
+          <motion.div
+            key={t}
+            initial={false}
+            animate={{
+              opacity: stage >= i + 1 ? 1 : 0.2,
+              boxShadow:
+                stage >= i + 1
+                  ? "0 0 20px -6px rgba(255,140,66,0.55)"
+                  : "0 0 0px 0px rgba(255,140,66,0)",
+            }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="inline-flex mr-2 items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-950 border border-navy-700"
+          >
             <Wrench size={12} className="text-brand-orange" />
             <span className="font-mono text-[11px] text-navy-100">TubeScribed · {t}</span>
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div className="bg-navy-950 border border-navy-700 rounded-xl p-4">
+      <motion.div
+        initial={false}
+        animate={{ opacity: stage >= 3 ? 1 : 0, y: stage >= 3 ? 0 : 10 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="bg-navy-950 border border-navy-700 rounded-xl p-4"
+      >
         <p className="font-syne font-semibold text-navy-100 text-sm mb-2">SOP: New Hire Onboarding</p>
         <ol className="space-y-1.5 font-dm-sans text-navy-400 text-xs leading-relaxed list-decimal list-inside">
           <li>Create accounts in the CRM and project tool before day one.</li>
           <li>Walk through the client handbook and record questions.</li>
           <li>Shadow two client calls, then lead one with a reviewer.</li>
         </ol>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

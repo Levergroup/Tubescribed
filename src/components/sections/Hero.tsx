@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GradientText } from "@/components/ui/GradientText";
 import { EyebrowBadge } from "@/components/ui/Badge";
@@ -16,6 +16,13 @@ const fadeUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }
 export function Hero() {
   const [url, setUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
+  // Defer the decorative aurora until after first paint so it never competes
+  // with the hero headline for LCP.
+  const [showAurora, setShowAurora] = useState(false);
+  useEffect(() => {
+    const id = setTimeout(() => setShowAurora(true), 300);
+    return () => clearTimeout(id);
+  }, []);
 
   const hasInput = url.trim().length > 0;
   const isValid = isYouTubeUrl(url);
@@ -26,6 +33,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
+      {showAurora && <div className="hero-aurora" aria-hidden="true" />}
       <div className="hero-glow-primary" />
       <div className="hero-glow-secondary" />
       <div className="hero-glow-tertiary" />
@@ -46,17 +54,12 @@ export function Hero() {
           <EyebrowBadge>✶ AI-Powered Content Repurposing</EyebrowBadge>
         </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-          className="font-syne font-bold text-[2rem] sm:text-5xl lg:text-7xl text-navy-100 leading-[1.15] mb-6"
-        >
+        {/* Rendered immediately (no opacity fade): this is the hero's LCP element */}
+        <h1 className="font-syne font-bold text-[2rem] sm:text-5xl lg:text-7xl text-navy-100 leading-[1.15] mb-6">
           Turn Any YouTube Video Into{" "}
           <br className="hidden sm:block" />
           <GradientText>A Branded Business Asset</GradientText>
-        </motion.h1>
+        </h1>
 
         <motion.p
           variants={fadeUp}
