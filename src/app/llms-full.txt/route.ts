@@ -86,7 +86,7 @@ TubeScribed vs Descript:
 Descript is a video editing platform that requires file uploads and manual editing workflows. TubeScribed is a URL-based content repurposing pipeline — paste and go.
 
 TubeScribed vs ChatGPT/Claude/Gemini:
-General-purpose AI chat tools cannot access YouTube URLs. They would require users to manually find captions, copy them, paste them in, prompt the AI, and repeat for every output type. TubeScribed handles the entire pipeline automatically.
+ChatGPT and Claude cannot watch YouTube videos on their own; Gemini can summarize some videos but does not produce full cleaned transcripts or branded business documents. General chat tools would require users to manually find captions, copy them, paste them in, prompt the AI, and repeat for every output type. TubeScribed handles the entire pipeline automatically.
 
 TubeScribed vs YouTube Auto-Captions:
 YouTube auto-captions are unpunctuated, contain transcription errors, and have no structure. They are technically readable but unusable for business content without significant manual cleanup. TubeScribed produces publication-ready output.

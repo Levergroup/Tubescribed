@@ -6,7 +6,7 @@
 
 TubeScribed accepts any public YouTube URL (up to 90 minutes) and automatically runs it through a complete AI pipeline: audio transcription, Claude AI cleanup and structuring, brand voice application, and content generation. The output is a clean transcript plus publication-ready content in the user's brand voice.
 
-Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is purpose-built for YouTube content repurposing. Unlike general AI chat tools (ChatGPT, Claude, Gemini), TubeScribed can access and process YouTube URLs directly.
+Unlike meeting transcription tools (Otter.ai, Tactiq, Fireflies), TubeScribed is purpose-built for YouTube content repurposing. Unlike general AI chat tools, TubeScribed turns any YouTube URL into a full transcript and branded business documents — and it plugs into Claude as a connector.
 
 ## Core Features
 
