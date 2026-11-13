@@ -14,6 +14,7 @@ import FAQSection from '@/components/FAQSection';
 import NextStepsBlockComponent from '@/components/NextStepsBlock';
 import ReadingProgress from '@/components/ReadingProgress';
 import MidArticleCTA from '@/components/MidArticleCTA';
+import FreeToolCard from '@/components/FreeToolCard';
 
 interface Props {
   params: { slug: string };
@@ -149,6 +150,7 @@ const components = {
   ),
   BlogCTA: ({ variant }: { variant?: 'default' | 'final' }) => <BlogCTA variant={variant} />,
   NextStepsBlock: NextStepsBlockComponent,
+  FreeToolCard: ({ tool, note }: { tool: string; note?: string }) => <FreeToolCard tool={tool} note={note} />,
 };
 
 export default function BlogPostPage({ params }: Props) {
