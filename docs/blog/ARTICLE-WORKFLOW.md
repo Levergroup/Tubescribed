@@ -111,9 +111,39 @@ Required, in this order:
    - Check that it returns 200, the title appears, and the FreeToolCard text and the YouTube example link are there.
 6. A GitHub Action pings IndexNow (Bing and others) automatically on merge. Google finds the post through the sitemap. Nothing else is needed here.
 
-## Step 8: Log
+## Step 8: Post-publish (replaces SEO-001, SEO-002, SEO-003 and POST-PUBLISH)
+Only run this step if the article is live. Skip it for needs_review and failed runs.
+
+**8a. Indexing (SEO-001 and SEO-002).** Nothing to do by hand:
+- Bing, Yandex, Seznam and Naver are notified through IndexNow by the GitHub Action when the merge happens.
+- Google finds the post through `https://www.tubescribed.com/sitemap.xml`, which is already submitted in Search Console.
+- Google retired its sitemap "ping" in 2023, and its Indexing API is only for job postings, so don't try either.
+- Check the GitHub Action result with `gh run list --repo Levergroup/Tubescribed --workflow "IndexNow ping for new blog posts" --limit 1` and record pass or fail in the log.
+- Optional, for the owner: open Search Console, inspect the URL and click "Request indexing". Put this reminder in the distribution pack.
+
+**8b. Distribution pack (SEO-003).**
+1. Write one Google Doc in Drive folder `15XSfOK17GRQTdeCU808g7b226W1WakKC` (Distribution Packs). Use Drive `create_file` with `contentMimeType: text/markdown`, titled `YYYY-MM-DD – <article title>`.
+2. Use the article's real content and the real example. No new claims: FACTS.md applies here too.
+3. Every link uses UTMs: `https://www.tubescribed.com/blog/<slug>?utm_source=<channel>&utm_medium=social&utm_campaign=blog-<slug>`. Email uses `utm_medium=email`.
+4. Include these sections, in this order:
+   1. **Facebook Page post:** 60–120 words, a hook in line 1, the link in the post body, no hashtags or at most 2. Goes on the TubeScribed page.
+   2. **LinkedIn post:** 120–220 words for a B2B reader. Open with a short first line, use short lines, put the key takeaway or numbered steps in the post, and the link at the end. Add 3 relevant hashtags.
+   3. **X thread:** 5–7 posts, each under 280 characters. Post 1 is the hook, the middle posts carry real value from the article, and the last post holds the link.
+   4. **Medium repost note:** import the article on Medium with "Import a story" and the article URL, which sets the canonical link back to tubescribed.com. Give a 1-sentence Medium subtitle and 5 Medium tags.
+   5. **Email blurb:** a subject line, preview text and an 80–120 word newsletter section for GetResponse.
+   6. **Reddit draft:** only if there's a genuinely relevant subreddit. Name it and check its self-promotion rules on its rules page. Write it as a helpful post, not an ad. Leave the link out of the body unless the rules allow it, and say "manual post only". If no subreddit fits, write "No good fit today."
+   7. **Quora draft:** 1 real question to answer, with a 150–250 word answer that helps on its own, and the link as "further reading". Mark it manual only.
+   8. **Image:** the cover URL `https://www.tubescribed.com/images/blog/<slug>.png` to attach to the posts.
+   9. **Owner checklist:** [ ] FB posted [ ] LinkedIn posted [ ] X posted [ ] Medium imported [ ] Email added [ ] Reddit/Quora (optional) [ ] Request indexing in Search Console.
+5. Skip TikTok, Pinterest and YouTube Community until those accounts are active.
+
+**8c. Internal link back.** Optional. If one existing post is closely related, add one natural sentence linking to the new post. Use a separate small PR titled `Blog: link to <slug>`, wait for the Vercel check, then merge. Never change anything else in that post.
+
+## Step 9: Log (replaces SHEET-001)
 Append one line to the Google Doc `15rbLa2kK1FFGdYnCZRpvVUelhlytZdaV531tqRPPpQU`, using `insertText` with `endOfSegmentLocation`:
-`YYYY-MM-DD | order | keyword | url | published / needs_review / skipped / failed | words, example video, free tool, any WARNs`
+`YYYY-MM-DD | order | keyword | url | published / needs_review / skipped / failed | words, example video, free tool, IndexNow pass/fail, distribution pack link, any WARNs`
+
+The queue in `content/keyword-queue.json` is the source of truth for article status. The Google Sheet is not updated automatically.
 
 Finish with a 3–5 line summary: what was published, the URL, the real example used, any problems and how many keywords are left in the queue. If fewer than 7 are left, say **"Queue low: add keywords"** in the summary.
 
