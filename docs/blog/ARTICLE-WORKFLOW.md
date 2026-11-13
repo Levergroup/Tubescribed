@@ -141,7 +141,11 @@ Only run this step if the article is live. Skip it for needs_review and failed r
 Append one line to the Google Doc `15rbLa2kK1FFGdYnCZRpvVUelhlytZdaV531tqRPPpQU`, using `insertText` with `endOfSegmentLocation`:
 `YYYY-MM-DD | order | keyword | url | published / needs_review / skipped / failed | words, example video, free tool, IndexNow pass/fail, distribution pack link, any WARNs`
 
-The queue in `content/keyword-queue.json` is the source of truth for article status. The Google Sheet is not updated automatically.
+Then update the master sheet `1o2jec6yLbUftAIk1n772_1Y8eh3pI-mafzJjjpX34Ns` with the Google Sheets tools. Only touch the cells listed here:
+- **Keyword Bank** (tab `🔑 Keyword Bank`): read `B1:N70`. For **every** row whose column B matches the keyword (case-insensitive; bonus rows can repeat it), write K = `PUBLISHED`, M = the live URL and N = today's date. If nothing matches, append one row with B = keyword, K = `PUBLISHED`, L = queue order, M = URL and N = date. Do the same with K = `SKIPPED` or `NEEDS REVIEW` for those outcomes.
+- **Content Calendar** (tab `📝 Content Calendar`): append one row to `A:P` with: next #, title, keyword, tier (blank if unknown), `PUBLISHED`, blank, `Daily task`, today, today, URL, word count, blank, `YES`, `Sitemap`, `IndexNow <status>`, and a short note naming the real example video and saying "Distribution pack in Drive". Only add this row for published articles.
+
+`content/keyword-queue.json` decides what gets written next. The sheet is the human-readable mirror. If a sheet write fails, log it and carry on, because the article is already live.
 
 Finish with a 3–5 line summary: what was published, the URL, the real example used, any problems and how many keywords are left in the queue. If fewer than 7 are left, say **"Queue low: add keywords"** in the summary.
 
