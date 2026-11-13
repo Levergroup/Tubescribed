@@ -5,6 +5,7 @@ import "./globals.css";
 import { ConditionalNav } from "@/components/layout/ConditionalNav";
 import { ConditionalFooter } from "@/components/layout/ConditionalFooter";
 import { CookieConsent } from "@/components/CookieConsent";
+import { MotionProvider } from "@/components/MotionProvider";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -85,10 +86,12 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ConditionalNav />
-        <main className="pt-16">{children}</main>
-        <ConditionalFooter />
-        <CookieConsent />
+        <MotionProvider>
+          <ConditionalNav />
+          <main className="pt-16">{children}</main>
+          <ConditionalFooter />
+          <CookieConsent />
+        </MotionProvider>
         <Script id="gtm" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
