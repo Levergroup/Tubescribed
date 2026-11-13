@@ -101,7 +101,7 @@ Required, in this order:
    - `url: "https://www.tubescribed.com/blog/<slug>"`
    - `suggested_slug`: the final slug
    - A one-line note in `notes`
-2. Create the branch `blog/<slug>` and commit three files: the `.mdx`, the cover `.png` and the queue update. Use the message `Blog: <title>` and the attribution lines from the session.
+2. Create the branch `blog/<slug>` and commit three files: the `.mdx`, the cover `.png` and the queue update. Use the message `Blog: <title>` with no Co-Authored-By or other AI attribution lines. The byline is always "TubeScribed Team".
 3. Push and open a PR into `main` with a 3-line description: keyword, word count, real example video.
 4. Wait for the Vercel check on the PR's head commit. Poll `gh api repos/Levergroup/Tubescribed/commits/<sha>/status` (and `/check-runs`) every 30 seconds for up to 15 minutes.
    - If it reports success: merge with `gh api -X PUT repos/Levergroup/Tubescribed/pulls/<n>/merge -f merge_method=squash`.
