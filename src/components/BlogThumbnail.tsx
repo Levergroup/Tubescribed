@@ -442,9 +442,28 @@ const SLUG_MAP: Record<string, React.ReactElement> = {
 export default function BlogThumbnail({
   slug,
   category,
+  image,
+  alt,
+  priority = false,
 }: {
   slug: string;
   category: string;
+  image?: string;
+  alt?: string;
+  priority?: boolean;
 }) {
+  if (image) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={image}
+        alt={alt || ""}
+        width={1200}
+        height={627}
+        loading={priority ? "eager" : "lazy"}
+        className="w-full h-full object-cover"
+      />
+    );
+  }
   return SLUG_MAP[slug] ?? <CategoryFallbackSVG category={category} />;
 }

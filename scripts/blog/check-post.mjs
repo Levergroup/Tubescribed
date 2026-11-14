@@ -31,7 +31,7 @@ const lc = (s) => String(s || "").toLowerCase();
 const has = (s) => lc(s).includes(kw);
 
 // ---------- front matter ----------
-for (const k of ["title", "meta_description", "date", "author", "category", "tags", "excerpt", "featured_image", "featured_image_alt", "related_posts", "faq"]) {
+for (const k of ["title", "meta_description", "date", "author", "category", "tags", "excerpt", "featured_image", "featured_image_alt", "photo_query", "related_posts", "faq"]) {
   if (fm[k] === undefined || fm[k] === "" || (Array.isArray(fm[k]) && fm[k].length === 0)) fail(`front matter: missing ${k}`);
 }
 const dateStr = fm.date instanceof Date ? fm.date.toISOString().slice(0, 10) : String(fm.date || "");

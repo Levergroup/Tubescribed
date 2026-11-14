@@ -76,6 +76,8 @@ Required, in this order:
 - `tags`: 3–5. `excerpt`: 1–2 sentences.
 - `featured_image: "/images/blog/<slug>.png"`, `featured_image_alt` containing the keyword.
 - `related_posts`: 2 existing slugs.
+- `photo_query`: a 2–5 word description of a **real photo** that fits the article, written for a stock photo search. Describe people, setting and objects, e.g. "coach video call laptop", "team meeting whiteboard process", "woman editing podcast microphone". No brand names, logos, screenshots or text. Put it right after `featured_image_alt`. Optionally add `photo_query_fallback` with a broader second query.
+- Don't add `thumbnail` yourself. After the merge, a GitHub Action ("Add stock photos to new blog posts") picks a matching Pexels photo, saves it to the repo, adds `thumbnail` and the photographer credit to the front matter, and Vercel redeploys within a few minutes. The cover PNG (`featured_image`) stays the social and share image.
 - `faq`: 3–6 real questions from Step 2. Each answer is 2–4 sentences and stands on its own.
 
 **MDX rules:**
@@ -110,7 +112,8 @@ Required, in this order:
 5. After merging, wait about 3 minutes and confirm the live page:
    - Fetch `https://www.tubescribed.com/blog/<slug>` with WebFetch or the Vercel fetch tool.
    - Check that it returns 200, the title appears, and the FreeToolCard text and the YouTube example link are there.
-6. A GitHub Action pings IndexNow (Bing and others) automatically on merge. Google finds the post through the sitemap. Nothing else is needed here.
+6. Two GitHub Actions run on merge: one pings IndexNow (Bing and others) and one adds the Pexels thumbnail photo. About 5 minutes after the merge, check that the post's front matter on `main` has a `thumbnail:` line (`git pull`). If it doesn't, note "no photo" in the log; the post still works with the default thumbnail.
+7. Google finds the post through the sitemap. Nothing else is needed here.
 
 ## Step 8: Post-publish (replaces SEO-001, SEO-002, SEO-003 and POST-PUBLISH)
 Only run this step if the article is live. Skip it for needs_review and failed runs.

@@ -7,6 +7,7 @@ on:
 
 jobs:
   ping:
+    if: ${{ !contains(github.event.head_commit.message, '[photo]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

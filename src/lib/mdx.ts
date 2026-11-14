@@ -17,6 +17,9 @@ export interface BlogPost {
   reading_time: string;
   featured_image: string;
   featured_image_alt: string;
+  thumbnail?: string;
+  thumbnail_credit?: string;
+  thumbnail_credit_url?: string;
   excerpt: string;
   content: string;
   related_posts: string[];
@@ -54,6 +57,9 @@ export function getPostBySlug(slug: string): BlogPost {
     reading_time: stats.text,
     featured_image: data.featured_image || '/images/blog/default-og.png',
     featured_image_alt: data.featured_image_alt || data.title,
+    thumbnail: data.thumbnail || undefined,
+    thumbnail_credit: data.thumbnail_credit || undefined,
+    thumbnail_credit_url: data.thumbnail_credit_url || undefined,
     excerpt: data.excerpt || content.slice(0, 160),
     content,
     related_posts: data.related_posts || [],
