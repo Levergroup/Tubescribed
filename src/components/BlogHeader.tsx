@@ -51,8 +51,24 @@ export default function BlogHeader({ post }: { post: BlogPost }) {
         )}
         {/* Featured image */}
         <div className="mt-8 rounded-xl overflow-hidden border border-gray-200 aspect-video">
-          <BlogThumbnail slug={post.slug} category={post.category} />
+          <BlogThumbnail slug={post.slug} category={post.category} image={post.thumbnail} alt={post.featured_image_alt} priority />
         </div>
+        {post.thumbnail && post.thumbnail_credit && (
+          <p className="mt-2 text-xs text-gray-400">
+            Photo:{' '}
+            {post.thumbnail_credit_url ? (
+              <a href={post.thumbnail_credit_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                {post.thumbnail_credit}
+              </a>
+            ) : (
+              post.thumbnail_credit
+            )}{' '}
+            on{' '}
+            <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+              Pexels
+            </a>
+          </p>
+        )}
       </div>
     </header>
   );

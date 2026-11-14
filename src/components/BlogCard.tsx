@@ -7,7 +7,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
     <Link href={`/blog/${post.slug}`} className="group block">
       <article className="h-full bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md hover:border-gray-300 transition-all duration-200">
         <div className="aspect-video bg-gray-50 relative overflow-hidden">
-          <BlogThumbnail slug={post.slug} category={post.category} />
+          <BlogThumbnail slug={post.slug} category={post.category} image={post.thumbnail} alt={post.featured_image_alt} />
         </div>
         <div className="p-6">
           <div className="flex items-center gap-2 mb-3">

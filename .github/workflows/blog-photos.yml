@@ -1,0 +1,41 @@
+name: Add stock photos to new blog posts
+
+on:
+  push:
+    branches: [main]
+    paths: ["content/blog/*.mdx"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-photos
+  cancel-in-progress: false
+
+jobs:
+  photos:
+    if: ${{ !contains(github.event.head_commit.message, '[photo]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install gray-matter only
+        run: npm install --no-save --no-package-lock gray-matter@4
+      - name: Fetch photos from Pexels
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: node scripts/blog/fetch-photo.mjs
+      - name: Commit photos
+        run: |
+          if [ -z "$(git status --porcelain content/blog public/images/blog)" ]; then
+            echo "No new photos."; exit 0
+          fi
+          git config user.name "TubeScribed Bot"
+          git config user.email "bot@tubescribed.com"
+          git add content/blog public/images/blog
+          git commit -m "Blog: add stock photo [photo]"
+          git pull --rebase origin main
+          git push origin HEAD:main
