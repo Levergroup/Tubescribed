@@ -43,11 +43,33 @@ export async function getSourceFieldId(): Promise<string | null> {
   }
 }
 
+// Optional "lead_origin" text field: where the visitor came from (utm / referrer).
+// Create a text custom field named lead_origin in GetResponse to start storing it.
+const cachedFieldIds: Record<string, string | null> = {};
+
+async function getFieldIdByName(name: string): Promise<string | null> {
+  if (name in cachedFieldIds) return cachedFieldIds[name];
+  try {
+    const res = await fetch(`${BASE_URL}/custom-fields?query[name]=${encodeURIComponent(name)}`, {
+      method: "GET",
+      headers: authHeaders(),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const field = Array.isArray(data) ? data.find((f: { name?: string }) => f?.name === name) : null;
+    cachedFieldIds[name] = (field?.customFieldId as string) ?? null;
+    return cachedFieldIds[name];
+  } catch {
+    return null;
+  }
+}
+
 interface AddToListArgs {
   email: string;
   listId: string;
   name?: string;
   source?: string;
+  origin?: string;
 }
 
 export async function addToList({
@@ -55,6 +77,7 @@ export async function addToList({
   listId,
   name,
   source,
+  origin,
 }: AddToListArgs): Promise<boolean> {
   try {
     if (!process.env.GETRESPONSE_API_KEY || !listId) {
@@ -67,6 +90,12 @@ export async function addToList({
       const customFieldId = await getSourceFieldId();
       if (customFieldId) {
         customFieldValues.push({ customFieldId, value: [source] });
+      }
+    }
+    if (origin) {
+      const originFieldId = await getFieldIdByName("lead_origin");
+      if (originFieldId) {
+        customFieldValues.push({ customFieldId: originFieldId, value: [origin.slice(0, 255)] });
       }
     }
 

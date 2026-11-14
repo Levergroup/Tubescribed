@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { decorateAppUrl } from '@/lib/attribution'
 
 interface ToolEmbedProps {
   outputType?: string
@@ -26,7 +27,10 @@ export default function ToolEmbed({
     if (!isValidYouTubeUrl(url)) { setError('Please enter a valid YouTube URL'); return }
     const encodedUrl = encodeURIComponent(url)
     const outputParam = outputType ? `&output=${outputType}` : ''
-    window.location.href = `https://app.tubescribed.com/signup?url=${encodedUrl}${outputParam}`
+    const dest = decorateAppUrl(`https://app.tubescribed.com/signup?url=${encodedUrl}${outputParam}`)
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: 'signup_click', link_url: 'https://app.tubescribed.com/signup', page_path: window.location.pathname })
+    window.location.href = dest
   }
 
   return (

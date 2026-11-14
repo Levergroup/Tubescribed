@@ -5,6 +5,7 @@ import "./globals.css";
 import { ConditionalNav } from "@/components/layout/ConditionalNav";
 import { ConditionalFooter } from "@/components/layout/ConditionalFooter";
 import { CookieConsent } from "@/components/CookieConsent";
+import AttributionTracker from "@/components/AttributionTracker";
 import { MotionProvider } from "@/components/MotionProvider";
 
 const syne = Syne({
@@ -91,6 +92,7 @@ export default function RootLayout({
           <main className="pt-16">{children}</main>
           <ConditionalFooter />
           <CookieConsent />
+          <AttributionTracker />
         </MotionProvider>
         <Script id="gtm" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

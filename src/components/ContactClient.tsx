@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { originSummary } from "@/lib/attribution";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { GradientText } from "@/components/ui/GradientText";
@@ -27,6 +28,7 @@ export function ContactClient() {
           firstName: name.split(" ")[0],
           source: "other",
           company_website: company,
+          origin: originSummary(),
         }),
       });
       if (typeof window !== "undefined") {
