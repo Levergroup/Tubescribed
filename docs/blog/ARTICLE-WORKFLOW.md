@@ -5,7 +5,8 @@ This workflow takes one keyword from the queue and turns it into one article tha
 A scheduled task runs it once a day. Nobody is watching while it runs, so never stop to ask a question. Make the most reasonable choice, write it down in the log, and keep going. **Publish at most one article per run.**
 
 Files the run uses (paths are relative to the repo root):
-- `content/keyword-queue.json`: the queue. Take the lowest `order` whose `status` is `queued`.
+- Keyword Bank tab (`🔑 Keyword Bank`) of the master sheet `1o2jec6yLbUftAIk1n772_1Y8eh3pI-mafzJjjpX34Ns`: where the owner adds and reorders keywords. Step 1 syncs it into the queue file.
+- `content/keyword-queue.json`: the queue file and the record of every keyword's status. Take the lowest `order` whose `status` is `queued`.
 - `docs/blog/FACTS.md`: the only product claims an article may make. Read it before you write.
 - `scripts/blog/cover.mjs`: makes the cover image.
 - `scripts/blog/check-post.mjs`: the quality gate. It must pass before anything is published.
@@ -16,12 +17,18 @@ Files the run uses (paths are relative to the repo root):
 
 ## Step 1: Pick the keyword
 1. Get today's date in America/New_York.
-2. In the queue, find the lowest `order` with `status: "queued"`.
-3. Skip the keyword, set it to `"skipped"` with a reason in `notes`, and move to the next one if any of these is true:
+2. **Sync from the sheet first.** Read `'🔑 Keyword Bank'!A1:O300` with the Google Sheets tools. Column B is the keyword, I is the content type, J is the angle, K is the status, L is the queue number and O holds notes. Rows whose B starts with `---` are section headers, so ignore them. Compare keywords case-insensitively.
+   - For each row with K = `QUEUED` whose keyword is **not** in the queue file, add an item: `order` = L, or the highest existing order + 1 if L is blank; `keyword` = B; `secondary` = []; `type` = I, or "Guide" if blank; `free_tool` = the best-fitting id from FACTS.md; `suggested_slug` = the keyword in lowercase with hyphens; `notes` = J and O joined with " | "; `status` = "queued"; `published_date` and `url` = null.
+   - For each row with K = `QUEUED` whose keyword **is** in the queue file with status `queued`, and whose L is a number different from the item's `order`, set `order` = L. Decimals such as 2.5 are allowed and mean "slot in between".
+   - For each row with K = `HOLD` whose keyword is `queued` in the file, set that item's status to `hold` and copy O into `notes`.
+   - Never change items that are already `published`. If the sheet can't be read, skip the sync, log "sheet sync skipped" and use the file as it is.
+   - Commit any queue-file changes together with the article in Step 7. If no article gets published this run, still commit the sync on its own branch `queue-sync-<date>`, open a PR and merge it once the Vercel check passes.
+3. In the queue, find the lowest `order` with `status: "queued"`.
+4. Skip the keyword, set it to `"skipped"` with a reason in `notes`, and move to the next one if any of these is true:
    - A post in `content/blog/` already targets it, meaning the same main phrase is in that post's title or slug.
    - Step 2 shows that no honest, useful article can be written for it.
    - An open PR already exists on branch `blog/<suggested_slug>` (check with `gh pr list --repo Levergroup/Tubescribed --state open`). That keyword is waiting for review, so go to the next one.
-4. Read the keyword's `type`, `secondary`, `free_tool` and `notes`. Follow `notes` exactly.
+5. Read the keyword's `type`, `secondary`, `free_tool` and `notes`. Follow `notes` exactly.
 
 ## Step 2: Research what already ranks (web search)
 1. Search the keyword. Open the top 5 results that are real articles, not videos or forum posts.
@@ -149,7 +156,7 @@ Then update the master sheet `1o2jec6yLbUftAIk1n772_1Y8eh3pI-mafzJjjpX34Ns` with
 - **Keyword Bank** (tab `🔑 Keyword Bank`): read `B1:N70`. For **every** row whose column B matches the keyword (case-insensitive; bonus rows can repeat it), write K = `PUBLISHED`, M = the live URL and N = today's date. If nothing matches, append one row with B = keyword, K = `PUBLISHED`, L = queue order, M = URL and N = date. Do the same with K = `SKIPPED` or `NEEDS REVIEW` for those outcomes.
 - **Content Calendar** (tab `📝 Content Calendar`): append one row to `A:P` with: next #, title, keyword, tier (blank if unknown), `PUBLISHED`, blank, `Daily task`, today, today, URL, word count, blank, `YES`, `Sitemap`, `IndexNow <status>`, and a short note naming the real example video and saying "Distribution pack in Drive". Only add this row for published articles.
 
-`content/keyword-queue.json` decides what gets written next. The sheet is the human-readable mirror. If a sheet write fails, log it and carry on, because the article is already live.
+The owner adds and reorders keywords in the sheet. Step 1 copies those changes into `content/keyword-queue.json`, which records the order and status the run actually uses. If a sheet write fails, log it and carry on, because the article is already live.
 
 Finish with a 3–5 line summary: what was published, the URL, the real example used, any problems and how many keywords are left in the queue. If fewer than 7 are left, say **"Queue low: add keywords"** in the summary.
 
