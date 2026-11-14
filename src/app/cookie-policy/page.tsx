@@ -28,6 +28,8 @@ Cookies are small text files stored on your device by your browser when you visi
 | Cookie Name | Purpose | Duration | Type |
 |-------------|---------|----------|------|
 | ts_consent | Cookie consent preference | 365 days | Essential |
+| ts_ft | First-party: how you first found TubeScribed (campaign, referring site, landing page), used to attribute signups | 90 days | Analytics |
+| ts_lt | First-party: the most recent campaign or referring site | 90 days | Analytics |
 | _ga | Google Analytics — distinguishes users | 2 years | Analytics |
 | _ga_XXXXXXXX | Google Analytics — session persistence | 2 years | Analytics |
 | _fbp | Meta Pixel — tracks visits across sites | 3 months | Marketing |

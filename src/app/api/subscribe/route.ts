@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
     email?: unknown;
     firstName?: unknown;
     source?: unknown;
+    origin?: unknown;
     company_website?: unknown;
   };
   try {
@@ -76,6 +77,8 @@ export async function POST(req: NextRequest) {
     listId: process.env.GR_LIST_LEADS ?? "",
     name: firstName,
     source,
+    origin:
+      typeof body.origin === "string" ? body.origin.replace(/[^\w .:/|=@+-]/g, "").slice(0, 255) : undefined,
   });
 
   return NextResponse.json({ success: true });

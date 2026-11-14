@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { originSummary } from "@/lib/attribution";
 
 type Source = "free_tool" | "blog" | "newsletter" | "other";
 
@@ -23,7 +24,7 @@ export function NewsletterForm({ source = "newsletter" }: Props) {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source, company_website: company }),
+        body: JSON.stringify({ email, source, company_website: company, origin: originSummary() }),
       });
       if (!res.ok) throw new Error("Failed");
       if (typeof window !== "undefined") {
