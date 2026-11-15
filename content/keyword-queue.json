@@ -47,10 +47,10 @@
       "us_volume": 200,
       "kd": 25,
       "suggested_slug": "notegpt-alternative",
-      "notes": "Verify NoteGPT features and pricing from its own site on the day; cite it.",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Published by daily run; real example: YC Startup School \"How To Talk To Users\" (key_takeaways, caption fallback); NoteGPT pricing read 2026-11-15.",
+      "status": "published",
+      "published_date": "2026-11-15",
+      "url": "https://www.tubescribed.com/blog/notegpt-alternative"
     },
     {
       "order": 4,
