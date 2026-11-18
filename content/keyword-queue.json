@@ -97,10 +97,10 @@
       "us_volume": 250,
       "kd": 28,
       "suggested_slug": "youtube-video-to-course-content",
-      "notes": "",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Published by daily run; real example: Gillian Perkins \"The EASIEST Way to Film & Edit Online Course Videos\" (training_guide, caption fallback).",
+      "status": "published",
+      "published_date": "2026-11-18",
+      "url": "https://www.tubescribed.com/blog/youtube-video-to-course-content"
     },
     {
       "order": 7,
