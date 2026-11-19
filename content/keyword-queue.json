@@ -114,10 +114,10 @@
       "us_volume": 262,
       "kd": 25,
       "suggested_slug": "repurpose-video-content-for-email",
-      "notes": "Link to /blog/video-to-newsletter-ai; focus on sequences, not newsletters.",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Link to /blog/video-to-newsletter-ai; focus on sequences, not newsletters. | Published 2026-11-19: 3-email sequence how-to; real example Cody Burch welcome sequence video (11:28).",
+      "status": "published",
+      "published_date": "2026-11-19",
+      "url": "https://www.tubescribed.com/blog/repurpose-video-content-for-email"
     },
     {
       "order": 8,
