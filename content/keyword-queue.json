@@ -131,10 +131,10 @@
       "us_volume": 100,
       "kd": 20,
       "suggested_slug": "tubescribed-vs-chatgpt",
-      "notes": "Fair: say what ChatGPT can do today (check). Core point: ChatGPT can't reliably fetch YouTube audio; TubeScribed transcribes audio then writes.",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Published 2026-11-20 by daily run; real example: Non-Profit Marketing Nerd \"How to Repurpose Video Content to a Blog Post Using ChatGPT\" (blog_post, caption fallback, 2 credits). Links /vs/chatgpt.",
+      "status": "published",
+      "published_date": "2026-11-20",
+      "url": "https://www.tubescribed.com/blog/tubescribed-vs-chatgpt"
     },
     {
       "order": 9,
