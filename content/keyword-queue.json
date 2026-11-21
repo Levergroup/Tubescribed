@@ -147,10 +147,10 @@
       "us_volume": 75,
       "kd": 20,
       "suggested_slug": "fireflies-alternative-for-content-creators",
-      "notes": "Fireflies is a meeting notetaker; angle = different job (published video vs meetings).",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Fireflies is a meeting notetaker; angle = different job (published video vs meetings). | Published 2026-11-21: 3 options by job (keep Fireflies, YouTube transcript, TubeScribed); real example Patricia Kelikani repurposing video.",
+      "status": "published",
+      "published_date": "2026-11-21",
+      "url": "https://www.tubescribed.com/blog/fireflies-alternative-for-content-creators"
     },
     {
       "order": 10,
