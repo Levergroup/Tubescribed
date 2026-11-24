@@ -163,10 +163,10 @@
       "us_volume": 100,
       "kd": 21,
       "suggested_slug": "tubescribed-vs-tactiq",
-      "notes": "Verify Tactiq features/pricing on its site.",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Verify Tactiq features/pricing on its site. | Published 2026-11-24 by daily run; real example: Going Social \"ChatGPT Demo: How To Repurpose Your Video Into A Blog Post Using ChatGPT\" (14:02, key_takeaways, caption fallback, 3 credits); Tactiq pricing read 2026-11-24 from tactiq.io/buy.",
+      "status": "published",
+      "published_date": "2026-11-24",
+      "url": "https://www.tubescribed.com/blog/tubescribed-vs-tactiq"
     },
     {
       "order": 11,
