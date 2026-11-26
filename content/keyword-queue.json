@@ -192,10 +192,10 @@
       "type": "VS page",
       "free_tool": "youtube-transcript-generator",
       "suggested_slug": "tubescribed-vs-gemini",
-      "notes": "Gemini summarizes one video in chat; TubeScribed transcribes the audio and turns it into 15 ready-to-publish formats with a saved brand voice | Timely: Gemini now watches YouTube videos free. Be fair: say what Gemini does well today (verify on Google's own pages, link them). Only claim features in FACTS.md. No bulk/channel or Google Docs claims.",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Gemini summarizes one video in chat; TubeScribed transcribes the audio and turns it into 15 ready-to-publish formats with a saved brand voice | Timely: Gemini now watches YouTube videos free. Be fair: say what Gemini does well today (verify on Google's own pages, link them). Only claim features in FACTS.md. No bulk/channel or Google Docs claims. | Published 2026-11-26 by daily run; real example: \"Summarize YouTube Videos with Google Gemini & Google AI Studio\" (5:37, key_takeaways, captions fallback, 2 credits)",
+      "status": "published",
+      "published_date": "2026-11-26",
+      "url": "https://www.tubescribed.com/blog/tubescribed-vs-gemini"
     },
     {
       "order": 12,
