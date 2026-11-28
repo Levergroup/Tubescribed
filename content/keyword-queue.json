@@ -226,10 +226,10 @@
       "us_volume": 80,
       "kd": 18,
       "suggested_slug": "tubescribed-vs-otter-ai",
-      "notes": "",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Published 2026-11-28; real example: Otter AI guide video (mM1rk9-YFaE); Otter pricing page not readable, no Otter prices quoted.",
+      "status": "published",
+      "published_date": "2026-11-28",
+      "url": "https://www.tubescribed.com/blog/tubescribed-vs-otter-ai"
     },
     {
       "order": 14,
