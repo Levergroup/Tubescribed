@@ -180,10 +180,10 @@
       "us_volume": 180,
       "kd": 30,
       "suggested_slug": "how-to-build-a-content-machine-from-video",
-      "notes": "Link to /blog/repurpose-youtube-content (pillar).",
-      "status": "queued",
-      "published_date": null,
-      "url": null
+      "notes": "Link to /blog/repurpose-youtube-content (pillar). | Published 2026-11-22 by daily run; real example: Latasha James \"My Easy Video Content Repurposing Process Step-by-Step\" (content_ideas, caption fallback). Queue #10 (vs Tactiq) deferred: tactiq.io could not be fetched to verify facts.",
+      "status": "published",
+      "published_date": "2026-11-22",
+      "url": "https://www.tubescribed.com/blog/how-to-build-a-content-machine-from-video"
     },
     {
       "order": 11.5,
