@@ -1,0 +1,136 @@
+---
+title: "TubeScribed vs Gemini: YouTube Videos Compared (2026)"
+meta_description: "TubeScribed vs Gemini for YouTube videos: what Google's own pages say Gemini does, what TubeScribed adds, a real 6-minute test, and when to pick each."
+date: "2026-11-26"
+author: "TubeScribed Team"
+author_title: "Content Strategy"
+category: "Comparisons"
+tags: ["gemini", "youtube summarizer", "content repurposing", "comparison"]
+excerpt: "Gemini can find and explain a YouTube video in chat, and it is a good fit for quick answers. TubeScribed turns the video's audio into finished business content. Here is a fair comparison, plus a real video we ran through TubeScribed."
+featured_image: "/images/blog/tubescribed-vs-gemini.png"
+featured_image_alt: "TubeScribed vs Gemini comparison for YouTube videos"
+photo_query: "woman watching video laptop taking notes"
+photo_query_fallback: "person typing laptop coffee"
+related_posts: ["tubescribed-vs-chatgpt", "best-youtube-transcript-tools-2026"]
+faq:
+  - question: "Can Gemini summarize a YouTube video?"
+    answer: "Yes. Google's Gemini Apps Help page says Gemini uses public information from YouTube to help you find videos and understand the content of a video, and its example prompt is to summarize a video. The same page says you need to be signed in to the Gemini app with Activity turned on."
+  - question: "Is Gemini free for YouTube videos?"
+    answer: "Google's developer documentation says the YouTube URL feature in the Gemini API is in preview and available at no charge, with a free-tier cap of 8 hours of YouTube video per day. It also warns that pricing and rate limits are likely to change. The consumer help page we read does not state pricing, so check Google's pages for your plan."
+  - question: "What is the difference between TubeScribed and Gemini?"
+    answer: "Gemini is a general assistant that can answer questions about a YouTube video inside a chat. TubeScribed is built for one job: paste a public YouTube URL, get an audio-based transcript, and turn it into one of 15 business formats such as a blog post, newsletter or training guide."
+  - question: "Does Gemini work with private or unlisted videos?"
+    answer: "Google's Gemini API documentation says you can only use public videos for YouTube URLs, not private or unlisted ones. TubeScribed also works with public YouTube videos only, up to 90 minutes."
+  - question: "Should I use TubeScribed or Gemini?"
+    answer: "Use Gemini when you want a fast answer or summary inside a chat and plan to read it once. Use TubeScribed when the video is source material and you want a draft you can edit and publish, with the same brand voice saved across outputs."
+---
+
+**TubeScribed vs Gemini** is a question of what you want at the end. Gemini is a general AI assistant that can find a YouTube video and explain or summarize it inside a chat. TubeScribed starts from a public YouTube URL, transcribes the audio, and turns it into a finished format such as a blog post, newsletter or training guide. If you want to understand a video once, Gemini is a good fit. If you want to publish from a video, TubeScribed is built for that job.
+
+Below is a fair comparison. Everything about Gemini comes from Google's own pages, read today and linked. We also ran a real 6-minute video through TubeScribed, including what we had to fix.
+
+## The short answer
+
+- **Choose Gemini** if you want a quick summary or an answer to a question about a video, and a chat window is where you want to read it.
+- **Choose TubeScribed** if the video is raw material for content you will publish, and you want the output to be a draft, not a chat reply you still have to reshape.
+- **Use both.** Many people skim with an assistant first, then run the videos worth keeping through TubeScribed.
+
+Neither is better overall. They sit at different points in the workflow, much like the tools in our [roundup of the best YouTube transcript tools](/blog/best-youtube-transcript-tools-2026).
+
+## What Gemini does with YouTube videos
+
+Google's [Gemini Apps Help page on YouTube content](https://support.google.com/gemini/answer/16622858) says Gemini "uses public information from YouTube" to help you find videos, playlists and channels on a topic and to understand the content of a video. Its own example is to ask for videos on a topic and then say "Summarize the first video."
+
+The page lists a few conditions. You need to be signed in to the Gemini app, and Keep Activity must be on, because the feature is not available when that setting is off. It is not available in Live chats or in Gemini in Google Messages. It also says Gemini cannot take actions such as saving a video to a playlist or adding a comment.
+
+Developers get a second route. The [Gemini API video understanding documentation](https://ai.google.dev/gemini-api/docs/video-understanding) says Gemini can describe and extract information from videos, answer questions about video content and refer to specific timestamps. For YouTube links, it says the feature is in preview and available at no charge, that the free tier is limited to 8 hours of YouTube video per day, and that you can only use public videos, not private or unlisted ones. It adds that pricing and rate limits are likely to change.
+
+What we could not find on those pages: a statement of whether Gemini reads the audio, the captions or the visuals of a YouTube link in the app, or a price for the consumer app. We have left those out rather than guess.
+
+## What TubeScribed does
+
+You paste a public YouTube URL and TubeScribed transcribes the **audio**, so it works with or without captions. If audio recognition fails, it falls back to the video's captions and labels the result as caption-based. Videos can be up to 90 minutes long.
+
+From the transcript you choose one of 15 output types: Blog Post, Email Newsletter, Social Posts, Brand SOP, Content Ideas, X Thread, Show Notes, FAQ Document, Key Takeaways, Slide Outline, Sales Script, Training Guide, Case Study, Press Release and Ad Copy. Brand workspaces save your tone, terminology and style so outputs sound like you. Pro includes 3 workspaces and Agency includes unlimited workspaces. Results download as .txt.
+
+TubeScribed also works inside Claude as a [connector](/integrations/claude) and through a developer API.
+
+<FreeToolCard tool="youtube-transcript-generator" note="Want to see the audio-based transcript first? Try the free generator on a public YouTube video and compare it with a Gemini summary of the same video." />
+
+## TubeScribed vs Gemini side by side
+
+| | Gemini | TubeScribed |
+|---|---|---|
+| Main job | General AI assistant; can find and explain YouTube videos in chat | YouTube video to business content |
+| Starting point | A chat prompt or a YouTube link | A public YouTube URL |
+| What you get | A chat answer or summary | One of 15 built-in output types |
+| Transcript | Not described on the pages we read | Audio-based, with labelled caption fallback |
+| Brand voice | Not described on the pages we read | Saved in brand workspaces |
+| Private or unlisted videos | Public videos only (API documentation) | Public videos only |
+| Video length | Free API tier capped at 8 hours of YouTube video per day | Up to 90 minutes per video |
+| Download | Not described on the pages we read | .txt |
+
+"Not described on the pages we read" is not the same as "cannot." It means we did not find it on Google's pages, so we are not claiming it either way.
+
+## Pricing: what we can say
+
+Google's pages we read do not give a price for the Gemini app, and the API documentation describes YouTube link support as free in preview with limits that may change. Check Google's current pages before you decide.
+
+TubeScribed gives new users free credits with no credit card. Pro is $19/month for 30 credits, and Agency is $49/month for 100 credits and 5 team members. Credit packs never expire: 10 for $8, 25 for $18 and 50 for $32. One credit covers up to 10 minutes of video (rounded up) or one AI output, and credits are only charged after success.
+
+These are different pricing models for different jobs. A chat assistant is priced as an assistant. TubeScribed is priced by the video minute and by each output you generate.
+
+## Real example: we ran a 6-minute video through TubeScribed
+
+We picked a public tutorial that happens to be about this exact topic: [Summarize YouTube Videos with Google Gemini & Google AI Studio](https://www.youtube.com/watch?v=X5bWCI2V5tw). It runs 5 minutes 37 seconds.
+
+We pasted the link into TubeScribed. Audio recognition did not succeed on this video, so TubeScribed fell back to the captions and labelled the transcript "from captions" (916 words). That cost 1 credit for the video. We then asked for **Key Takeaways**, which cost 1 more, so 2 credits in total. The result was a 510-word document with nine numbered takeaways and a closing note.
+
+Here is a short excerpt of the real output:
+
+> **Use Specific Intent Prompts to Extract Hidden Value.** Don't just ask for a "summary." Use outcome-oriented prompts like, "Give me all the steps mentioned in this video to reach $1,000 per month with KDP." This forces the AI to filter out fluff and focus exclusively on the monetization framework.
+
+**What we had to fix:**
+
+- **Details the video never mentions.** The output said Google AI Studio lets you pick models "like Gemini 1.5 Pro" and adjust parameters. The presenter only says you can pick different models there, and names Gemini 2.0 once. We cut the extra detail.
+- **A stronger claim than the video makes.** The output said ChatGPT "often struggles" without "external plugins." The presenter says other tools "don't necessarily have direct data from YouTube." That is an opinion about how the tools work, and we would not repeat it as fact.
+- **Added advice.** Takeaways about competitive research and turning a video into an SOP checklist were not in the video. They are reasonable ideas, but they came from the output, not the speaker.
+- **A shaky time claim.** "Under 300 seconds" is not what the presenter says. He talks about wanting a summary in 2 or 5 minutes.
+- **Caption limits.** Because the transcript was caption-based, any name or term would need checking against the video.
+
+Our verdict: the structure and the main steps matched the video, and the takeaways were a useful skim. Added details still needed a careful read against the source. That is true of any AI draft, from any tool, so check every claim before you publish.
+
+<BlogCTA />
+
+## When Gemini is the better choice
+
+Be honest about the job. Choose Gemini if:
+
+- **You want a quick answer, not a document.** If you only need the gist of a video or an answer to one question, a chat reply is faster than generating a draft.
+- **You want to find videos on a topic first.** Google's help page lists finding videos, playlists and channels as something Gemini can do. TubeScribed starts only when you already have a URL.
+- **You already live in Google's tools.** If your day runs through the Gemini app, staying there removes a step.
+- **You are a developer testing video input.** The Gemini API documentation describes timestamps, multi-video requests and a free preview for YouTube links.
+- **Your source is longer than 90 minutes.** TubeScribed handles public YouTube videos up to 90 minutes only.
+
+## When TubeScribed is the better choice
+
+TubeScribed fits when published video is a regular input to your content:
+
+- You publish from webinars, coaching sessions, tutorials or podcasts every week.
+- You want the output to be a finished format, like an email newsletter or a training guide, not a summary you then reshape.
+- You need a consistent brand voice across outputs or across clients.
+- Some videos have no captions, or the captions are poor, and you want the audio transcribed.
+
+If that sounds like your week, read our guide on turning a [YouTube video into a blog post](/blog/youtube-to-blog-post), and the full system in our [complete guide to repurposing YouTube content](/blog/repurpose-youtube-content). If your current workflow is a transcript plus a general chatbot, our comparison of [TubeScribed vs ChatGPT](/blog/tubescribed-vs-chatgpt) covers that route too.
+
+## The bottom line on TubeScribed vs Gemini
+
+Gemini is an assistant that can also explain YouTube videos. TubeScribed is a YouTube-to-content tool with nothing else on its mind. The TubeScribed vs Gemini choice comes down to whether you want an answer or a draft. If you want to understand a video, ask Gemini. If you want to publish from it, TubeScribed removes the copying, prompting and reshaping.
+
+<NextStepsBlock steps={[
+  { label: "Try the free YouTube transcript generator", description: "Transcribes the audio of a public YouTube video, with or without captions", href: "/tools/youtube-transcript-generator" },
+  { label: "Read: TubeScribed vs ChatGPT", description: "A fair look at using a general chatbot for YouTube content", href: "/blog/tubescribed-vs-chatgpt" },
+  { label: "Start free with TubeScribed", description: "New users get free credits, no credit card needed", href: "https://app.tubescribed.com/signup" }
+]} />
+
+<BlogCTA variant="final" />
